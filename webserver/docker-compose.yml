@@ -26,5 +26,5 @@ services:
 #      - /home/pi/DockerVol/certbot/www/:/var/www/certbot/
 #    command: >
 #      bash -c "sleep 20s
-#      && echo 'hey it fail? Did you restart your server? (pagekite, ecc....)'
+#      && echo 'hey did you restart your server? (pagekite, ecc....)'
 #      && certbot certonly --webroot -w /var/www/certbot/ -d manciotech.fun -d www.manciotech.fun --renew-by-default --agree-tos"

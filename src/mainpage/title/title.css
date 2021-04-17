@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Jokerman Regular";
+    src: url("./JokermanRegular.ttf") format("truetype");
+}
+
+.Title{
+    font-family: Jokerman Regular, Comic Sans MS;
+    font-size: calc(20px + 2vmin);
+}
