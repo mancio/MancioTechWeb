@@ -1,0 +1,9 @@
+.Enter{
+    height: 7vmin;
+    animation: vibrate 0.3s linear infinite;
+}
+
+@keyframes vibrate {
+    from { transform: translateY(2px)}
+    to { transform: translateY(-2px)}
+}
