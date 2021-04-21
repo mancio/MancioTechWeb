@@ -1,0 +1,4 @@
+.designelement{
+    display: flex;
+    justify-content: space-between;
+}

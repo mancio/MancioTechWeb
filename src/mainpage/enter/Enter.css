@@ -1,6 +1,17 @@
 .Enter{
-    height: 7vmin;
+    height: 10vmin;
     animation: vibrate 0.3s linear infinite;
+}
+
+@media (max-width: 700px) {
+    .Enter{
+        height: 15vmin;
+        animation: vibrate 0.3s linear infinite;
+    }
+}
+
+text{
+    font-family: joker-local, serif;
 }
 
 @keyframes vibrate {

@@ -4,7 +4,7 @@ import './Pacman.css';
 function Pacman(){
     return(
         <div>
-            <img src={logo} className="Pacman" alt="Pacman!" />
+            <img src={logo} className="Pacman" alt="Do you like Pacman?"/>
         </div>
     );
 }
