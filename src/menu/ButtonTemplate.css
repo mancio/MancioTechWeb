@@ -1,0 +1,13 @@
+.design-button{
+    margin-left: 40px;
+}
+
+.design-button > svg{
+    height: 10vmin;
+}
+
+.list{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vmin;
+}

@@ -10,10 +10,6 @@
     }
 }
 
-text{
-    font-family: joker-local, serif;
-}
-
 @keyframes vibrate {
     from { transform: translateY(2px)}
     to { transform: translateY(-2px)}

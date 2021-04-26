@@ -3,17 +3,15 @@ import './App.css';
 import Pacman from "./mainpage/pacman/Pacman";
 import Title from "./mainpage/title/Title";
 import Enter from "./mainpage/enter/Enter";
-import Designelement from "./menu/sitedesign/Designelement";
+import ButtonList from "./menu/ButtonList";
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-main-container">
+    <div className="App App-main-container">
         <Title/>
         <Pacman/>
         <Enter/>
-        <Designelement/>
-      </div>
+        <ButtonList/>
     </div>
   );
 }
