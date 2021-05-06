@@ -15,7 +15,8 @@ class ButtonList extends React.Component{
                 textColor: this.textColor,
                 textField:'SITE DESIGN',
                 icon: 'TOOLS',
-                iconColor: '#00ff5f'
+                iconColor: '#00ff5f',
+                tag: 'design'
             },
             {
                 id: 1,
@@ -25,7 +26,8 @@ class ButtonList extends React.Component{
                 textColor: this.textColor,
                 textField:'MY STORY',
                 icon: 'FACE',
-                iconColor: '#f2fc00'
+                iconColor: '#f2fc00',
+                tag: 'story'
             },
             {
                 id: 2,
@@ -35,7 +37,8 @@ class ButtonList extends React.Component{
                 textColor: this.textColor,
                 textField:'MY PROJECTS',
                 icon: 'CHIP',
-                iconColor: '#ff0000'
+                iconColor: '#ff0000',
+                tag: 'projects'
             },
             {
                 id: 3,
@@ -45,7 +48,8 @@ class ButtonList extends React.Component{
                 textColor: this.textColor,
                 textField:'CONTACT ME',
                 icon: 'MAIL',
-                iconColor: '#00ccfd'
+                iconColor: '#00ccfd',
+                tag: 'contact'
             },
             {
                 id: 4,
@@ -55,7 +59,8 @@ class ButtonList extends React.Component{
                 textColor: this.textColor,
                 textField:'GO BACK',
                 icon: 'BACK',
-                iconColor: '#f600ff'
+                iconColor: '#f600ff',
+                tag: 'back'
             }
 
         ];
@@ -76,6 +81,8 @@ class ButtonList extends React.Component{
                             textField={item.textField}
                             icon={item.icon}
                             iconColor={item.iconColor}
+                            tag={item.tag}
+                            returnState={this.props.returnState}
                         />
                     )
                 })}
