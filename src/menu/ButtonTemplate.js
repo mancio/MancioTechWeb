@@ -4,11 +4,6 @@ import React from "react";
 
 class ButtonTemplate extends React.Component{
 
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
 
         return(

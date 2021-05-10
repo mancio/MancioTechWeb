@@ -4,6 +4,8 @@ import Title from "./mainpage/title/Title";
 import Enter from "./mainpage/enter/Enter";
 import ButtonList from "./menu/ButtonList";
 import React from 'react';
+import MyStory from "./mystory/MyStory";
+import WorkInProgress from "./inprogress/WorkInProgress";
 
 class App extends React.Component{
 
@@ -25,8 +27,12 @@ class App extends React.Component{
             return <div><Title/> <Pacman/> <Enter returnState={this.returnState}/></div>
           case 'menu':
             return <ButtonList returnState={this.returnState}/>
+          case 'story':
+            return <MyStory returnState={this.returnState}/>
           case 'back':
-            return <div><Title/> <Pacman/> <Enter returnState={this.returnState}/></div>
+            return <ButtonList returnState={this.returnState}/>
+          default:
+            return <div><WorkInProgress returnState={this.returnState}/></div>
 
         }
       }
