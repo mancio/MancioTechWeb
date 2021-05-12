@@ -50,6 +50,17 @@ const menu = [
         height:55,
         svgColor:'#F600FF',
         textColor: textColor,
+        textField:'GAMES',
+        icon: 'GAME',
+        iconColor: '#f600ff',
+        tag: 'game'
+    },
+    {
+        id: 5,
+        width:250,
+        height:55,
+        svgColor:'#F600FF',
+        textColor: textColor,
         textField:'GO BACK',
         icon: 'BACK',
         iconColor: '#f600ff',
@@ -64,5 +75,9 @@ export const getMenuItemByTag = function (tag){
 
 export const getFullMenu = function (){
     return menu;
+}
+
+export const getMenuNoBack = function (){
+    return menu.filter((item) => item.tag !== 'back');
 }
 

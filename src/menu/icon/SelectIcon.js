@@ -4,6 +4,7 @@ import Mail from "./Mail";
 import Face from "./Face";
 import Back from "./Back";
 import React from "react";
+import Game from "./Game";
 
 class SelectIcon extends React.Component{
 
@@ -25,6 +26,8 @@ class SelectIcon extends React.Component{
                 return <Mail iconColor={this.iconColor}/>;
             case 'FACE':
                 return <Face iconColor={this.iconColor}/>;
+            case 'GAME':
+                return <Game iconColor={this.iconColor}/>;
             case 'BACK':
                 return <Back iconColor={this.iconColor}/>;
             default:

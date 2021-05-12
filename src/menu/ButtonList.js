@@ -1,14 +1,14 @@
 import './ButtonList.css';
 import ButtonTemplate from "./ButtonTemplate";
 import React from "react";
-import {getFullMenu} from "./MenuHandler";
+import {getMenuNoBack} from "./MenuHandler";
 
 class ButtonList extends React.Component{
 
     render() {
-        const menu = getFullMenu();
+        const menu = getMenuNoBack();
         return(
-            <div>
+            <div className='menu'>
                 {menu.map(item => {
                     return(
                         <ButtonTemplate
