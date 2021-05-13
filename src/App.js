@@ -6,8 +6,9 @@ import ButtonList from "./menu/ButtonList";
 import React from 'react';
 import MyStory from "./mystory/MyStory";
 import WorkInProgress from "./inprogress/WorkInProgress";
-import GameList from "./Game/GameList";
-import GameFrame from "./Game/GameFrame";
+import GameList from "./game/GameList";
+import GameFrame from "./game/GameFrame";
+import SiteDesign from "./sitedesign/SiteDesign";
 class App extends React.Component{
 
   constructor(props) {
@@ -28,6 +29,8 @@ class App extends React.Component{
             return <div><Title/> <Pacman/> <Enter returnState={this.returnState}/></div>
           case 'menu':
             return <ButtonList returnState={this.returnState}/>
+          case 'design':
+            return <SiteDesign returnState={this.returnState}/>
           case 'story':
             return <MyStory returnState={this.returnState}/>
           case 'game':
@@ -37,6 +40,7 @@ class App extends React.Component{
           // Games
           case 'metal':
           case 'marioKart':
+          case 'tk3':
             return <GameFrame returnState={this.returnState} gameTag={this.state.page}/>
           // default (unpredicted, not designed yet)
           default:

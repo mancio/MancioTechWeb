@@ -3,11 +3,14 @@ import {getGameList} from "./GameHandler";
 import GameButton from "./GameButton";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
+import NoGame from "./NoGame";
+import {displayTooSmall} from "./InspectDisplaySize";
 
 class GameList extends React.Component{
     render() {
         const list = getGameList();
         const backButton = getMenuItemByTag('back');
+        if(displayTooSmall()) return <NoGame returnState={this.props.returnState}/>
         return(
             <div>
                 {list.map(item =>{

@@ -27,7 +27,22 @@ const gameList = [
         textColor: textColor,
         svgWidth: 250,
         svgHeight: 55,
+    },
+    {
+        id: 8,
+        title: 'Tekken 3',
+        tag: 'tk3',
+        src: 'https://www.retrogames.cc/embed/40238-tekken-3.html',
+        gameWidth: 600,
+        gameHeight: 450,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        buttonColor: '#ff0000',
+        textColor: textColor,
+        svgWidth: 250,
+        svgHeight: 55,
     }
+
 ];
 
 export const getGameList = function (){
