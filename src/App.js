@@ -9,6 +9,7 @@ import WorkInProgress from "./inprogress/WorkInProgress";
 import GameList from "./game/GameList";
 import GameFrame from "./game/GameFrame";
 import SiteDesign from "./sitedesign/SiteDesign";
+import WebCamOfTheDay from "./webcam/WebCamOfTheDay";
 class App extends React.Component{
 
   constructor(props) {
@@ -35,6 +36,8 @@ class App extends React.Component{
             return <MyStory returnState={this.returnState}/>
           case 'game':
             return <GameList returnState={this.returnState}/>
+          case 'cam':
+            return <WebCamOfTheDay returnState={this.returnState}/>
           case 'back':
             return <ButtonList returnState={this.returnState}/>
           // Games

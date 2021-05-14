@@ -14,7 +14,7 @@ class GameFrame extends React.Component{
                 <Iframe
                     url={game.src}
                     width={game.gameWidth}
-                    height={game.gameWidth}
+                    height={game.gameHeight}
                     frameBorder={game.frameBorder}
                     allowFullScreen={game.allowFullScreen}
                 />

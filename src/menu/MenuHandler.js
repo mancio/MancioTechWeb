@@ -59,6 +59,17 @@ const menu = [
         id: 5,
         width:250,
         height:55,
+        svgColor:'#00f7ff',
+        textColor: textColor,
+        textField:'WEB CAMS',
+        icon: 'CAM',
+        iconColor: '#00f7ff',
+        tag: 'cam'
+    },
+    {
+        id: 6,
+        width:250,
+        height:55,
         svgColor:'#F600FF',
         textColor: textColor,
         textField:'GO BACK',
@@ -66,6 +77,7 @@ const menu = [
         iconColor: '#f600ff',
         tag: 'back'
     }
+
 
 ];
 
