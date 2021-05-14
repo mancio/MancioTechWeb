@@ -5,6 +5,7 @@ import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import NoGame from "./NoGame";
 import {displayTooSmall} from "./InspectDisplaySize";
+import {genRandomColor} from "./RandomColorGenerator";
 
 class GameList extends React.Component{
     render() {
@@ -21,7 +22,7 @@ class GameList extends React.Component{
                             id={item.id}
                             svgWidth={item.svgWidth}
                             svgHeight={item.svgHeight}
-                            buttonColor={item.buttonColor}
+                            buttonColor={genRandomColor()}
                             textColor={item.textColor}
                             title={item.title}
                             tag={item.tag}

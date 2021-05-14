@@ -2,6 +2,7 @@ import React from "react";
 import './SiteDesign.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
+import GitLogo from "./GitLogo";
 
 class SiteDesign extends React.Component{
     render() {
@@ -16,7 +17,7 @@ class SiteDesign extends React.Component{
                         you need to make it "Reactive"
                     </p>
                     <a rel="noreferrer" href="https://github.com/mancio/MancioTechWeb" target="_blank">
-                        Here you can find the code :)
+                        <GitLogo/>
                     </a>
                 </div>
                 <ButtonTemplate
