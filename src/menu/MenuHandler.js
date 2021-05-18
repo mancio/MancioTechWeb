@@ -59,11 +59,11 @@ const menu = [
         id: 5,
         width:250,
         height:55,
-        svgColor:'#00f7ff',
+        svgColor:'#FF6F00',
         textColor: textColor,
         textField:'WEB CAMS',
         icon: 'CAM',
-        iconColor: '#00f7ff',
+        iconColor: '#FF6F00',
         tag: 'cam'
     },
     {

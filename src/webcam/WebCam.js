@@ -1,10 +1,9 @@
 import React from "react";
 import Iframe from "react-iframe";
-import {getGameByTag} from "./WebCamHandler";
 
 class WebCam extends React.Component{
     render() {
-        const webcam = getGameByTag('bird');
+        const webcam = this.props.webcam;
         return(
             <Iframe
                 url={webcam.src}

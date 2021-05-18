@@ -1,0 +1,12 @@
+.arrow-button{
+    height: 55px;
+    width: 250px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.arrow-button:active{
+    transform: scale(1.1);
+}

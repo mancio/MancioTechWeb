@@ -2,13 +2,30 @@ import React from "react";
 import WebCam from "./WebCam";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
+import Arrow from "./Arrow";
+import {getCurrentWebCam, setAnotherWebCam} from "./WebCamHandler";
 
 class WebCamOfTheDay extends React.Component{
+    constructor() {
+        super();
+        this.state = getCurrentWebCam();
+        this.changeCam = this.changeCam.bind(this);
+
+    }
+
+    changeCam(direction) {
+        setAnotherWebCam(direction);
+        this.setState(getCurrentWebCam());
+    }
+
     render() {
         const back = getMenuItemByTag('back');
         return(
             <div>
-                <WebCam/>
+                <h1>Web Cam Of The Day</h1>
+                <WebCam webcam={this.state}/>
+                <Arrow iconColor={back.iconColor} direction='180' changeCam={this.changeCam}/>
+                <Arrow iconColor={back.iconColor} direction='0' changeCam={this.changeCam}/>
                 <ButtonTemplate
                     key={back.id}
                     id={back.id}
@@ -22,6 +39,7 @@ class WebCamOfTheDay extends React.Component{
                     tag={back.tag}
                     returnState={this.props.returnState}
                 />
+
             </div>
         )
     }
