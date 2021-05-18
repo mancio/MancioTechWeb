@@ -1,5 +1,6 @@
 import React from "react";
 import WebCam from "./WebCam";
+import './WebCamOfTheDay.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import Arrow from "./Arrow";
@@ -22,10 +23,12 @@ class WebCamOfTheDay extends React.Component{
         const back = getMenuItemByTag('back');
         return(
             <div>
-                <h1>Web Cam Of The Day</h1>
+                <h1 className='webcam-page-title'>Web Cam Of The Day</h1>
                 <WebCam webcam={this.state}/>
-                <Arrow iconColor={back.iconColor} direction='180' changeCam={this.changeCam}/>
-                <Arrow iconColor={back.iconColor} direction='0' changeCam={this.changeCam}/>
+                <div className='arrows'>
+                    <Arrow iconColor={back.iconColor} direction='180' changeCam={this.changeCam}/>
+                    <Arrow iconColor={back.iconColor} direction='0' changeCam={this.changeCam}/>
+                </div>
                 <ButtonTemplate
                     key={back.id}
                     id={back.id}

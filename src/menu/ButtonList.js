@@ -1,4 +1,3 @@
-import './ButtonList.css';
 import ButtonTemplate from "./ButtonTemplate";
 import React from "react";
 import {getMenuNoBack} from "./MenuHandler";

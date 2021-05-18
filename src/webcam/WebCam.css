@@ -1,0 +1,6 @@
+@media (max-width: 700px) and (orientation:portrait) {
+    .webcam {
+        width: auto;
+        height: 170px;
+    }
+}

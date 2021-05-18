@@ -1,6 +1,8 @@
 const webcam = [
     {
         src: 'https://lookcam.live/player/doXZMoY5Kj/',
+        title: 'Kozubian region - stork asylum - a nest on a pole',
+        country: 'Poland',
         width: 500,
         height: 300,
         frameBorder: 0,
@@ -9,12 +11,25 @@ const webcam = [
     },
     {
         src: 'https://lookcam.live/player/O9JPLY0Ul0/',
+        title: 'Góra Kamieńsk',
+        country: 'Poland',
         width: 500,
         height: 300,
         frameBorder: 0,
         allowFullScreen: 'true',
-        tag: 'bird'
+        tag: 'mountains'
+    },
+    {
+        src: 'https://lookcam.live/player/MkpBtMYG6E/',
+        title: 'Fiddlers - squirrel aviary',
+        country: 'Where?',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'squirrels'
     }
+
 ];
 
 let currentWebCamPos = 0
