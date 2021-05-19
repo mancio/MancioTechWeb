@@ -6,6 +6,7 @@ import {getMenuItemByTag} from "../menu/MenuHandler";
 import NoGame from "./NoGame";
 import {genRandomColor} from "./RandomColorGenerator";
 import {isMobile} from "react-device-detect";
+import './GameList.css';
 
 class GameList extends React.Component{
     render() {
@@ -14,22 +15,24 @@ class GameList extends React.Component{
         if(isMobile) return <NoGame returnState={this.props.returnState}/>
         return(
             <div>
-                {list.map(item =>{
-                    console.log(item);
-                    return(
-                        <GameButton
-                            key={item.id}
-                            id={item.id}
-                            svgWidth={item.svgWidth}
-                            svgHeight={item.svgHeight}
-                            buttonColor={genRandomColor()}
-                            textColor={item.textColor}
-                            title={item.title}
-                            tag={item.tag}
-                            returnState={this.props.returnState}
-                        />
-                    )
-                })}
+                <div className='game-button-list'>
+                    {list.map(item =>{
+                        console.log(item);
+                        return(
+                            <GameButton
+                                key={item.id}
+                                id={item.id}
+                                svgWidth={item.svgWidth}
+                                svgHeight={item.svgHeight}
+                                buttonColor={genRandomColor()}
+                                textColor={item.textColor}
+                                title={item.title}
+                                tag={item.tag}
+                                returnState={this.props.returnState}
+                            />
+                        )
+                    })}
+                </div>
                 <ButtonTemplate
                     key={backButton.id}
                     id={backButton.id}

@@ -14,12 +14,13 @@
 }
 
 .menu-button{
-    height: 55px;
-    width: 250px;
+    height: 60px;
+    width: auto;
     border: none;
     background: none;
     cursor: pointer;
     outline: none;
+
 }
 
 .menu-button:active{
