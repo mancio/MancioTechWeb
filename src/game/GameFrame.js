@@ -1,13 +1,12 @@
 import React from "react";
 import Iframe from 'react-iframe'
-import {getGameByTag} from "./GameHandler";
+import {getCurrentGameTag, getGameByTag} from "./GameHandler";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 
 class GameFrame extends React.Component{
     render() {
-        const gameTag = this.props.gameTag;
-        const game = getGameByTag(gameTag);
+        const game = getGameByTag(getCurrentGameTag());
         const backButton = getMenuItemByTag('back');
         return(
             <div>
@@ -17,7 +16,10 @@ class GameFrame extends React.Component{
                     height={game.gameHeight}
                     frameBorder={game.frameBorder}
                     allowFullScreen={game.allowFullScreen}
+                    display="initial"
                 />
+                <p>{game.title}</p>
+                <p>Remember to save game before leave this page!</p>
                 <ButtonTemplate
                     key={backButton.id}
                     id={backButton.id}

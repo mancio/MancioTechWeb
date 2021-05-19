@@ -28,8 +28,17 @@ const webcam = [
         frameBorder: 0,
         allowFullScreen: 'true',
         tag: 'squirrels'
+    },
+    {
+        src: 'https://content.jwplatform.com/previews/meoYAvxh-Ov8ubaf2',
+        title: 'Panda Cam',
+        country: 'Somewhere in the world',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'panda'
     }
-
 ];
 
 let currentWebCamPos = 0
