@@ -15,23 +15,25 @@ class GameList extends React.Component{
         if(isMobile) return <NoGame returnState={this.props.returnState}/>
         return(
             <div>
-                <div className='game-button-list'>
-                    {list.map(item =>{
-                        console.log(item);
-                        return(
-                            <GameButton
-                                key={item.id}
-                                id={item.id}
-                                svgWidth={item.svgWidth}
-                                svgHeight={item.svgHeight}
-                                buttonColor={genRandomColor()}
-                                textColor={item.textColor}
-                                title={item.title}
-                                tag={item.tag}
-                                returnState={this.props.returnState}
-                            />
-                        )
-                    })}
+                <div className='game-list-container'>
+                    <div className='game-button-list'>
+                        {list.map(item =>{
+                            console.log(item);
+                            return(
+                                <GameButton
+                                    key={item.id}
+                                    id={item.id}
+                                    svgWidth={item.svgWidth}
+                                    svgHeight={item.svgHeight}
+                                    buttonColor={genRandomColor()}
+                                    textColor={item.textColor}
+                                    title={item.title}
+                                    tag={item.tag}
+                                    returnState={this.props.returnState}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
                 <ButtonTemplate
                     key={backButton.id}

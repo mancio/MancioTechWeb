@@ -18,7 +18,7 @@ class GameFrame extends React.Component{
                     allowFullScreen={game.allowFullScreen}
                     display="initial"
                 />
-                <p>{game.title}</p>
+                <p>{game.title} - {game.platform}</p>
                 <p>Remember to save game before leave this page!</p>
                 <ButtonTemplate
                     key={backButton.id}
