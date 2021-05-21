@@ -1,5 +1,6 @@
 import React from 'react';
 import {Suspense} from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
 // import MainPage from "./mainpage/MainPage";
@@ -23,46 +24,37 @@ const WorkInProgress = React.lazy(() => import("./inprogress/WorkInProgress"));
 
 class App extends React.Component{
 
-  constructor(props) {
-    super(props);
-    this.state = ({page: 'index'});
-    this.returnState = this.returnState.bind(this);
-  }
-
-  returnState(st){
-    this.setState({page: st});
-  }
-
   render() {
-      const pageChange = () => {
-        console.log('current state: ' + this.state.page);
-        switch (this.state.page) {
-          case 'index':
-            return <Suspense fallback={<Loading/>}> <MainPage returnState={this.returnState}/> </Suspense>
-          case 'menu':
-            return <Suspense fallback={<Loading/>}> <ButtonList returnState={this.returnState}/> </Suspense>
-          case 'design':
-            return <Suspense fallback={<Loading/>}> <SiteDesign returnState={this.returnState}/> </Suspense>
-          case 'story':
-            return <Suspense fallback={<Loading/>}> <MyStory returnState={this.returnState}/> </Suspense>
-          case 'game':
-            return <Suspense fallback={<Loading/>}><GameList returnState={this.returnState}/> </Suspense>
-          case 'cam':
-            return <Suspense fallback={<Loading/>}><WebCamOfTheDay returnState={this.returnState}/> </Suspense>
-          case 'back':
-            return <Suspense fallback={<Loading/>}> <ButtonList returnState={this.returnState}/> </Suspense>
-          // Games
-          case 'play':
-            return <Suspense fallback={<Loading/>}> <GameFrame returnState={this.returnState} /> </Suspense>
-          // default (unpredicted, not designed yet)
-          default:
-            return <Suspense fallback={<Loading/>}> <WorkInProgress returnState={this.returnState}/> </Suspense>
-        }
-      }
-
-    return (
+    return(
         <div className="App App-main-container">
-          {pageChange()}
+          <Router>
+            <Switch>
+              <Route exact path='/'>
+                <Suspense fallback={<Loading/>}> <MainPage/> </Suspense>
+              </Route>
+              <Route path='/menu'>
+                <Suspense fallback={<Loading/>}> <ButtonList/> </Suspense>
+              </Route>
+              <Route path='/design'>
+                <Suspense fallback={<Loading/>}> <SiteDesign/> </Suspense>
+              </Route>
+              <Route path='/mystory'>
+                <Suspense fallback={<Loading/>}> <MyStory/> </Suspense>
+              </Route>
+              <Route path='/gamelist'>
+                <Suspense fallback={<Loading/>}><GameList/> </Suspense>
+              </Route>
+              <Route path='/play/:tag'>
+                <Suspense fallback={<Loading/>}> <GameFrame/> </Suspense>
+              </Route>
+              <Route path='/webcams'>
+                <Suspense fallback={<Loading/>}><WebCamOfTheDay/> </Suspense>
+              </Route>
+              <Route path='/boo'>
+                <Suspense fallback={<Loading/>}> <WorkInProgress/> </Suspense>
+              </Route>
+            </Switch>
+          </Router>
         </div>
     )
   }

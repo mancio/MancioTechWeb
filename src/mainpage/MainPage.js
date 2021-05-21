@@ -7,7 +7,7 @@ class MainPage extends React.Component{
     render() {
         return(
             <div>
-                <Title/> <Pacman/> <Enter returnState={this.props.returnState}/>
+                <Title/> <Pacman/> <Enter/>
             </div>
         )
     }

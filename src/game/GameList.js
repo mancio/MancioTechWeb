@@ -29,7 +29,6 @@ class GameList extends React.Component{
                                     textColor={item.textColor}
                                     title={item.title}
                                     tag={item.tag}
-                                    returnState={this.props.returnState}
                                 />
                             )
                         })}
@@ -46,7 +45,6 @@ class GameList extends React.Component{
                     icon={backButton.icon}
                     iconColor={backButton.iconColor}
                     tag={backButton.tag}
-                    returnState={this.props.returnState}
                 />
             </div>
         )

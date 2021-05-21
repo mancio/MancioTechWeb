@@ -1,29 +1,25 @@
 import React from "react";
-import {setCurrentGameTag} from "./GameHandler";
+import {useHistory} from "react-router-dom";
 
-class GameButton extends React.Component{
-    constructor() {
-        super();
-        this.clicked = this.clicked.bind(this);
+function GameButton(props){
+
+    const history = useHistory();
+
+    function clicked(){
+        history.push('/' + props.tag);
     }
 
-    clicked(){
-        setCurrentGameTag(this.props.tag);
-        this.props.returnState('play');
-    }
+    return(
+        <div>
+            <button id={props.id} className='menu-button' onClick={clicked}>
+                <svg className='design-button' xmlns="http://www.w3.org/2000/svg" width={props.svgWidth} height={props.svgHeight}>
+                    <rect width={props.svgWidth} height={props.svgHeight} rx="27.5" fill={props.buttonColor}/>
+                    <text  x="50%" y="60%" className='button-text' dominantBaseline="middle" textAnchor="middle" fill={props.textColor} stroke="rgba(0,0,0,0)" strokeWidth="1" fontSize="25" letterSpacing="0.04em">{props.title}</text>
+                </svg>
+            </button>
+        </div>
+    );
 
-    render() {
-        return(
-            <div>
-                <button id={this.props.id} className='menu-button' onClick={this.clicked}>
-                    <svg className='design-button' xmlns="http://www.w3.org/2000/svg" width={this.props.svgWidth} height={this.props.svgHeight}>
-                        <rect width={this.props.svgWidth} height={this.props.svgHeight} rx="27.5" fill={this.props.buttonColor}/>
-                        <text  x="50%" y="60%" className='button-text' dominantBaseline="middle" textAnchor="middle" fill={this.props.textColor} stroke="rgba(0,0,0,0)" strokeWidth="1" fontSize="25" letterSpacing="0.04em">{this.props.title}</text>
-                    </svg>
-                </button>
-            </div>
-        );
-    }
 }
 
 export default GameButton;
