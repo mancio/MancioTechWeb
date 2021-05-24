@@ -42,7 +42,7 @@ class MyStory extends React.Component {
                         icon={back.icon}
                         iconColor={back.iconColor}
                         tag={back.tag}
-                        returnState={this.props.returnState}/>
+                    />
                 </div>
             </div>
         )

@@ -21,7 +21,6 @@ class ButtonList extends React.Component{
                             icon={item.icon}
                             iconColor={item.iconColor}
                             tag={item.tag}
-                            returnState={this.props.returnState}
                         />
                     )
                 })}

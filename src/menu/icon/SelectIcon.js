@@ -13,8 +13,6 @@ class SelectIcon extends React.Component{
         super(props);
         this.name = props.name;
         this.iconColor = props.iconColor;
-
-
     }
 
     render() {

@@ -8,7 +8,6 @@ let id = 55;
 
 const idPlusPlus = function (){
     id++;
-    console.log('my id is: ' + id);
     return id;
 }
 

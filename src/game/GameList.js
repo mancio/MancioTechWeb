@@ -18,7 +18,6 @@ class GameList extends React.Component{
                 <div className='game-list-container'>
                     <div className='game-button-list'>
                         {list.map(item =>{
-                            console.log(item);
                             return(
                                 <GameButton
                                     key={item.id}

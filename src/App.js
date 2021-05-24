@@ -1,5 +1,4 @@
 import React from 'react';
-import {Suspense} from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
@@ -27,34 +26,20 @@ class App extends React.Component{
   render() {
     return(
         <div className="App App-main-container">
-          <Router>
-            <Switch>
-              <Route exact path='/'>
-                <Suspense fallback={<Loading/>}> <MainPage/> </Suspense>
-              </Route>
-              <Route path='/menu'>
-                <Suspense fallback={<Loading/>}> <ButtonList/> </Suspense>
-              </Route>
-              <Route path='/design'>
-                <Suspense fallback={<Loading/>}> <SiteDesign/> </Suspense>
-              </Route>
-              <Route path='/mystory'>
-                <Suspense fallback={<Loading/>}> <MyStory/> </Suspense>
-              </Route>
-              <Route path='/gamelist'>
-                <Suspense fallback={<Loading/>}><GameList/> </Suspense>
-              </Route>
-              <Route path='/play/:tag'>
-                <Suspense fallback={<Loading/>}> <GameFrame/> </Suspense>
-              </Route>
-              <Route path='/webcams'>
-                <Suspense fallback={<Loading/>}><WebCamOfTheDay/> </Suspense>
-              </Route>
-              <Route path='/boo'>
-                <Suspense fallback={<Loading/>}> <WorkInProgress/> </Suspense>
-              </Route>
-            </Switch>
-          </Router>
+          <React.Suspense fallback={<Loading/>}>
+            <Router>
+              <Switch>
+                <Route exact path='/' component={MainPage}/>
+                <Route path='/menu' component={ButtonList}/>
+                <Route path='/design' component={SiteDesign}/>
+                <Route path='/mystory' component={MyStory}/>
+                <Route path='/gamelist' component={GameList}/>
+                <Route path='/play/:tag' component={GameFrame}/>
+                <Route path='/webcams' component={WebCamOfTheDay}/>
+                <Route path='/boo' component={WorkInProgress}/>
+              </Switch>
+            </Router>
+          </React.Suspense>
         </div>
     )
   }

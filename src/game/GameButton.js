@@ -6,7 +6,7 @@ function GameButton(props){
     const history = useHistory();
 
     function clicked(){
-        history.push('/' + props.tag);
+        history.push('/play/' + props.tag);
     }
 
     return(
