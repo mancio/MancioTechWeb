@@ -19,6 +19,7 @@ function GameFrame(){
                 frameBorder={game.frameBorder}
                 allowFullScreen={game.allowFullScreen}
                 display="initial"
+
             />
             <p>{game.title} - {game.platform}</p>
             <p>Remember to save game before leave this page!</p>

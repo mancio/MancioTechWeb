@@ -41,7 +41,7 @@ class MyStory extends React.Component {
                         textField={back.textField}
                         icon={back.icon}
                         iconColor={back.iconColor}
-                        tag={back.tag}
+                        tag='menu'
                     />
                 </div>
             </div>

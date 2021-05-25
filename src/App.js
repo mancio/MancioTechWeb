@@ -35,7 +35,7 @@ class App extends React.Component{
                 <Route path='/mystory' component={MyStory}/>
                 <Route path='/gamelist' component={GameList}/>
                 <Route path='/play/:tag' component={GameFrame}/>
-                <Route path='/webcams' component={WebCamOfTheDay}/>
+                <Route path='/webcams/:tag' component={WebCamOfTheDay}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>
             </Router>

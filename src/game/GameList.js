@@ -43,7 +43,7 @@ class GameList extends React.Component{
                     textField={backButton.textField}
                     icon={backButton.icon}
                     iconColor={backButton.iconColor}
-                    tag={backButton.tag}
+                    tag='menu'
                 />
             </div>
         )

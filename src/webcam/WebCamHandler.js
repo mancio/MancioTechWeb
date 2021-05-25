@@ -59,6 +59,11 @@ export const getWebCamList = function (){
     return webcam;
 }
 
-export const getGameByTag = function (tag){
+export const getCamByTag = function (tag){
     return webcam.find((item) => item.tag === tag);
+}
+
+export const getRandomCamTag = function (){
+    let rand = Math.floor(Math.random() * webcam.length);
+    return webcam[rand].tag;
 }

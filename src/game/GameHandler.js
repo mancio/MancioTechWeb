@@ -391,7 +391,39 @@ const gameList = [
         textColor: textColor,
         svgWidth: svgWidth,
         svgHeight: svgHeight,
+    },
+    {
+        id: idPlusPlus(),
+        title: gameNameCutter('Cruis`n USA'),
+        platform: 'N64',
+        tag: 'cruUSA',
+        src: 'https://www.retrogames.cc/embed/32646-cruis-n-usa-usa-rev-b.html',
+        gameWidth: 600,
+        gameHeight: 450,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        buttonColor: '#ff0000',
+        textColor: textColor,
+        svgWidth: svgWidth,
+        svgHeight: svgHeight,
+    },
+    {
+        id: idPlusPlus(),
+        title: gameNameCutter('Oddworld: Abe’s Oddysee'),
+        platform: 'psx',
+        tag: 'abe',
+        src: 'https://www.retrogames.onl/psx/abyss-odyssey.html',
+        gameWidth: 650,
+        gameHeight: 550,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        buttonColor: '#ff0000',
+        textColor: textColor,
+        svgWidth: svgWidth,
+        svgHeight: svgHeight,
     }
+
+
 
 
 

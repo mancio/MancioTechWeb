@@ -1,6 +1,7 @@
 import './ButtonTemplate.css';
 import SelectIcon from "./icon/SelectIcon";
 import {useHistory} from "react-router-dom";
+import {getRandomCamTag} from "../webcam/WebCamHandler";
 
 
 
@@ -28,7 +29,7 @@ function ButtonTemplate(props) {
                 history.push('/gamelist');
                 break;
             case 'cam':
-                history.push('/webcams');
+                history.push('/webcams/' + getRandomCamTag());
                 break;
             case 'back':
                 history.goBack();
