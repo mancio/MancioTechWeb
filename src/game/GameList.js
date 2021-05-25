@@ -5,14 +5,14 @@ import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import NoGame from "./NoGame";
 import {genRandomColor} from "./RandomColorGenerator";
-import {isMobile} from "react-device-detect";
+import {isMobileOnly} from "react-device-detect";
 import './GameList.css';
 
 class GameList extends React.Component{
     render() {
         const list = getGameList();
         const backButton = getMenuItemByTag('back');
-        if(isMobile) return <NoGame returnState={this.props.returnState}/>
+        if(isMobileOnly) return <NoGame returnState={this.props.returnState}/>
         return(
             <div>
                 <div className='game-list-container'>

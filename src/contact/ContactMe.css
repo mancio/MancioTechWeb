@@ -1,0 +1,30 @@
+.contact-form{
+    border-radius: 20px;
+    justify-content: center;
+    min-height: 300px;
+    min-width: 300px;
+    background-color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.contact-form > input{
+    width: 45vh;
+    display: block;
+    margin: 20px;
+}
+
+.contact-form > textarea{
+    width: 45vh;
+    display: block;
+    margin: 20px;
+}
+
+.contact-form > label{
+    font-family: Jokerman, serif;
+    font-size: large;
+    color: black;
+    text-align: left;
+    display: block;
+    margin: 20px;
+}

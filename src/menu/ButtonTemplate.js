@@ -25,6 +25,9 @@ function ButtonTemplate(props) {
             case 'story':
                 history.push('/mystory');
                 break;
+            case 'contact':
+                history.push('/contact');
+                break;
             case 'game':
                 history.push('/gamelist');
                 break;
