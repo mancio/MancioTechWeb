@@ -1,3 +1,5 @@
+// please visit https://www.emailjs.com for more info (basic account is free)
+
 import React from 'react';
 import emailjs from 'emailjs-com';
 
@@ -16,22 +18,23 @@ export default function ContactMe() {
         emailjs.sendForm(serviceForm, templateForm, e.target, userForm)
             .then((result) => {
                 console.log(result.text);
-                window.confirm("MESSAGE SENT");
+                window.confirm("MESSAGE SENT thanks!");
             }, (error) => {
                 console.log(error.text);
-                window.alert("something got wrong");
+                window.alert("something got wrong, can you try later please?");
             });
     }
 
     return (
-        <div>
+        <div className='div-contact-form'>
+            <h1 className='contact-title'> Please leave a message </h1>
             <form className="contact-form" onSubmit={sendEmail}>
                 <label>Your Name</label>
-                <input type="text" name="from_name" />
+                <input type="text" name="from_name" required/>
                 <label>Your Email</label>
-                <input type="email" name="user_email" />
+                <input type="email" name="user_email" required/>
                 <label>Leave A Message</label>
-                <textarea name="message" />
+                <textarea name="message" required/>
                 <input type="submit" value="Send" />
             </form>
             <ButtonTemplate
