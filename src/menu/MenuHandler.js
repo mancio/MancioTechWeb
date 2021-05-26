@@ -70,6 +70,17 @@ const menu = [
         id: 6,
         width:250,
         height:55,
+        svgColor:'#ffffff',
+        textColor: textColor,
+        textField:'TV / RADIO',
+        icon: 'TV',
+        iconColor: '#ffffff',
+        tag: 'tv'
+    },
+    {
+        id: 7,
+        width:250,
+        height:55,
         svgColor:'#F600FF',
         textColor: textColor,
         textField:'GO BACK',

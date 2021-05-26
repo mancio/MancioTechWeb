@@ -34,6 +34,9 @@ function ButtonTemplate(props) {
             case 'cam':
                 history.push('/webcams/' + getRandomCamTag());
                 break;
+            case 'tv':
+                history.push('/tv');
+                break;
             case 'back':
                 history.goBack();
                 break;

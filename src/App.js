@@ -11,17 +11,7 @@ import GameList from "./game/GameList";
 import GameFrame from "./game/GameFrame";
 import WebCamOfTheDay from "./webcam/WebCamOfTheDay";
 import WorkInProgress from "./inprogress/WorkInProgress";
-
-
-// const MainPage = React.lazy(() => import("./mainpage/MainPage"))
-// const ButtonList = React.lazy(() => import("./menu/ButtonList"));
-// const SiteDesign = React.lazy(() => import("./sitedesign/SiteDesign"));
-// const MyStory = React.lazy(() => import("./mystory/MyStory"));
-// const GameList = React.lazy(() => import("./game/GameList"));
-// const WebCamOfTheDay = React.lazy(() => import("./webcam/WebCamOfTheDay"));
-// const GameFrame = React.lazy(() => import("./game/GameFrame"));
-// const WorkInProgress = React.lazy(() => import("./inprogress/WorkInProgress"));
-
+import EnterLink from "./tv/EnterLink";
 
 class App extends React.Component{
 
@@ -39,6 +29,7 @@ class App extends React.Component{
                 <Route path='/gamelist' component={GameList}/>
                 <Route path='/play/:tag' component={GameFrame}/>
                 <Route path='/webcams/:tag' component={WebCamOfTheDay}/>
+                <Route path='/tv' component={EnterLink}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>
             </Router>
