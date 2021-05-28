@@ -1,17 +1,10 @@
+import {idPlusPlus} from "../logic/Counter";
+
 const gameNameCutter = function (name){
     const limit = 20;
     if(name.length > limit) return name.substring(0,limit);
     return name;
 }
-
-let id = 55;
-
-const idPlusPlus = function (){
-    id++;
-    return id;
-}
-
-
 
 const textColor = '#ffffff';
 const svgWidth = 380;

@@ -1,7 +1,9 @@
+import {idPlusPlus} from "../logic/Counter";
+
 const textColor = '#000000';
 const menu = [
     {
-        id: 0,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#00ff5f',
@@ -12,7 +14,7 @@ const menu = [
         tag: 'design'
     },
     {
-        id: 1,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#f2fc00',
@@ -23,7 +25,7 @@ const menu = [
         tag: 'story'
     },
     {
-        id: 2,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#ff0000',
@@ -34,7 +36,7 @@ const menu = [
         tag: 'projects'
     },
     {
-        id: 3,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#00ccfd',
@@ -45,7 +47,7 @@ const menu = [
         tag: 'contact'
     },
     {
-        id: 4,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#F600FF',
@@ -56,7 +58,7 @@ const menu = [
         tag: 'game'
     },
     {
-        id: 5,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#FF6F00',
@@ -67,7 +69,7 @@ const menu = [
         tag: 'cam'
     },
     {
-        id: 6,
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#ffffff',
@@ -78,7 +80,18 @@ const menu = [
         tag: 'tv'
     },
     {
-        id: 7,
+        id: idPlusPlus(),
+        width:250,
+        height:55,
+        svgColor:'#2CFFB2',
+        textColor: textColor,
+        textField:'NEW MOVIES',
+        icon: 'SERIES',
+        iconColor: '#2CFFB2',
+        tag: 'platform'
+    },
+    {
+        id: idPlusPlus(),
         width:250,
         height:55,
         svgColor:'#F600FF',

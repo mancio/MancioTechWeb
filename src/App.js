@@ -2,16 +2,17 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
-import ContactMe from "./contact/ContactMe";
-import MainPage from "./mainpage/MainPage";
-import ButtonList from "./menu/ButtonList";
-import SiteDesign from "./sitedesign/SiteDesign";
-import MyStory from "./mystory/MyStory";
-import GameList from "./game/GameList";
-import GameFrame from "./game/GameFrame";
-import WebCamOfTheDay from "./webcam/WebCamOfTheDay";
-import WorkInProgress from "./inprogress/WorkInProgress";
-import EnterLink from "./tv/EnterLink";
+const ContactMe = React.lazy(() => import("./contact/ContactMe"));
+const MainPage = React.lazy(() => import("./mainpage/MainPage"));
+const ButtonList = React.lazy(() => import("./menu/ButtonList"));
+const SiteDesign = React.lazy(() => import("./sitedesign/SiteDesign"));
+const MyStory = React.lazy(() => import("./mystory/MyStory"));
+const GameList = React.lazy(() => import("./game/GameList"));
+const GameFrame = React.lazy(() => import("./game/GameFrame"));
+const WebCamOfTheDay = React.lazy(() => import("./webcam/WebCamOfTheDay"));
+const WorkInProgress = React.lazy(() => import("./inprogress/WorkInProgress"));
+const EnterLink = React.lazy(() => import("./tv/EnterLink"));
+const Platform = React.lazy(() => import("./series/Platform"));
 
 class App extends React.Component{
 
@@ -29,6 +30,7 @@ class App extends React.Component{
                 <Route path='/gamelist' component={GameList}/>
                 <Route path='/play/:tag' component={GameFrame}/>
                 <Route path='/webcams/:tag' component={WebCamOfTheDay}/>
+                <Route path='/filmseries/selectplatform' component={Platform}/>
                 <Route path='/tv' component={EnterLink}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>

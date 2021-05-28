@@ -4,7 +4,7 @@ import GameButton from "./GameButton";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import NoGame from "./NoGame";
-import {genRandomColor} from "./RandomColorGenerator";
+import {genRandomColor} from "../logic/RandomColorGenerator";
 import {isMobileOnly} from "react-device-detect";
 import './GameList.css';
 
