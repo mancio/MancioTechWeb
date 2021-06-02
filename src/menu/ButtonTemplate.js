@@ -35,7 +35,7 @@ function ButtonTemplate(props) {
                 history.push('/webcams/' + getRandomCamTag());
                 break;
             case 'tv':
-                history.push('/tv');
+                history.push('/enterTvLink');
                 break;
             case 'platform':
                 history.push('/filmseries/selectplatform');

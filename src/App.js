@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
+const WatchTv = React.lazy( () => import("./tv/WatchTv"));
+const Players = React.lazy(() => import("./trivial/Players"));
 const ContactMe = React.lazy(() => import("./contact/ContactMe"));
 const MainPage = React.lazy(() => import("./mainpage/MainPage"));
 const ButtonList = React.lazy(() => import("./menu/ButtonList"));
@@ -15,7 +17,6 @@ const EnterLink = React.lazy(() => import("./tv/EnterLink"));
 const Platform = React.lazy(() => import("./series/Platform"));
 
 class App extends React.Component{
-
   render() {
     return(
         <div className="App App-main-container">
@@ -31,7 +32,9 @@ class App extends React.Component{
                 <Route path='/play/:tag' component={GameFrame}/>
                 <Route path='/webcams/:tag' component={WebCamOfTheDay}/>
                 <Route path='/filmseries/selectplatform' component={Platform}/>
-                <Route path='/tv' component={EnterLink}/>
+                <Route path='/enterTvLink' component={EnterLink}/>
+                <Route path='/watchTv' component={WatchTv}/>
+                <Route path='/trivial' component={Players}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>
             </Router>
