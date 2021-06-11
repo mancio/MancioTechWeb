@@ -43,10 +43,13 @@ export default function EnterLink(){
                 </form>
             </div>
             <p>
-                Remember! the link cannot be protected with pass and must be a text file like this
+                Remember! the link cannot be protected with password and must be LEGAL and a text file like this
                 <a href='https://github.com/iptv-org/iptv/tree/master/channels' target="_blank" rel="noreferrer">
                     https://github.com/iptv-org/iptv/tree/master/channels
                 </a>
+            </p>
+            <p>
+                Or choose the country and get one tv
             </p>
             <ButtonTemplate
                 key={back.id}

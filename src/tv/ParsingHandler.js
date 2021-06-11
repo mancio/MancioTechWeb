@@ -8,14 +8,12 @@ export const getTextFromLink = async function (link) {
 
 }
 
-let jsonTvList = '';
-
 export const setParsedTvList = async function (link) {
     const playlist = await getTextFromLink(link);
-    jsonTvList = parser.parse(playlist);
-    console.log(jsonTvList);
+    const jsonTvListItemsAsString = JSON.stringify(parser.parse(playlist).items);
+    localStorage.setItem('tvListItems',jsonTvListItemsAsString);
 }
 
 export const getParsedTvList = function (){
-    return jsonTvList;
+    return JSON.parse(localStorage.getItem('tvListItems'));
 }

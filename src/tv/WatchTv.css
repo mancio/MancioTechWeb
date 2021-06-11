@@ -1,0 +1,17 @@
+.tv-frame{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    width: 1300px;
+    height: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.channel-list{
+    text-align: left;
+}
+
+td{
+    border: 1px solid #cccccc;
+}
