@@ -14,6 +14,26 @@ export const setParsedTvList = async function (link) {
     localStorage.setItem('tvListItems',jsonTvListItemsAsString);
 }
 
+let fileReader;
+
+const handleFileRead = function (){
+    const playlist = fileReader.result;
+    console.log(playlist)
+    const jsonTvList = JSON.stringify(parser.parse(playlist).items);
+    localStorage.setItem('tvListItems', jsonTvList);
+}
+
+export const setParsedFileTvList = async function (file){
+    fileReader = new FileReader();
+    fileReader.onloadend = handleFileRead;
+    fileReader.readAsText(file);
+}
+
 export const getParsedTvList = function (){
     return JSON.parse(localStorage.getItem('tvListItems'));
+}
+
+export const getTvUrlByIndex = function (id){
+    const list = JSON.parse(localStorage.getItem('tvListItems'));
+    return list[id].url;
 }

@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import './Enterlink.css';
 import {useHistory} from "react-router-dom";
-import {setParsedTvList} from "./ParsingHandler";
+import {setParsedFileTvList, setParsedTvList} from "./ParsingHandler";
 
 export default function EnterLink(){
 
@@ -11,6 +11,7 @@ export default function EnterLink(){
     const history = useHistory();
 
     const [url, setUrl] = useState('');
+    const [file, setFile] = useState(null);
 
     function sendLink(e){
         e.preventDefault();
@@ -20,8 +21,19 @@ export default function EnterLink(){
             .catch(() => window.alert("something got wrong"));
     }
 
+    function sendFile(e){
+        e.preventDefault();
+        console.log(file);
+        setParsedFileTvList(file)
+            .then(() => history.push('/watchTv'));
+    }
+
     function urlState(e){
         setUrl(e.target.value);
+    }
+
+    function fileState(e){
+        setFile(e.target.files[0]);
     }
 
     return(
@@ -36,9 +48,9 @@ export default function EnterLink(){
                     <input type="url" name="url" value={url} onChange={urlState} placeholder='http://' required/>
                     <input type="submit" value="Play" />
                 </form>
-                <form>
+                <form onSubmit={sendFile}>
                     <label>Enter file</label>
-                    <input type="file" name="file" required/>
+                    <input type="file" name="file" onChange={fileState} required/>
                     <input type="submit" value="Play" />
                 </form>
             </div>

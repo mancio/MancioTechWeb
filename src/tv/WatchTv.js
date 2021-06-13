@@ -1,37 +1,63 @@
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import {getParsedTvList} from "./ParsingHandler";
-import {useEffect, useState} from "react";
+import {getParsedTvList, getTvUrlByIndex} from "./ParsingHandler";
+import {useEffect, useRef, useState} from "react";
 import './WatchTv.css';
+import ReactPlayer from 'react-player'
 
 export default function WatchTv(){
 
     const back = getMenuItemByTag('back');
-    const [tvList,setTvList] = useState([]);
-    useEffect(() => {
-        console.log(getParsedTvList());
-        setTvList(getParsedTvList());
-    },[])
+    const tvList = getParsedTvList();
+    const [url,setUrl] = useState('');
+    const [tvName, setTvName] = useState('');
 
     let id = -1;
 
+    function changeUrl(id, name){
+        setUrl(getTvUrlByIndex(id));
+        setTvName(name);
+    }
+
     return(
         <div>
+            <div>
+                <p>
+                    NOTE: Some tv channels can require VPN to be watched
+                    outside your country
+                </p>
+            </div>
             <div className='tv-frame'>
-                <table className='channel-list'>
-                    <tbody>
-                        {tvList.map(el => {
-                            id++;
-                            return(
-                                <tr id={id} key={id}>
-                                    <td>
-                                        <p>{el.name}</p>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <div className='channel-list'>
+                    <table>
+                        <tbody>
+                            {tvList.map(el => {
+                                id++;
+                                const currentId = id;
+                                const tvName = el.name;
+                                return(
+                                    <tr id={currentId} key={currentId}>
+                                        <td>
+                                            <button className='tv-name-button' onClick={() => changeUrl(currentId, tvName)}>
+                                                <p>{tvName}</p>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+                <div className='tv-video-frame'>
+                    <ReactPlayer
+                        url = {url}
+                        width = '700px'
+                        height = '500px'
+                        controls = {true}
+                        playing = {true}
+                    />
+                    <p>{tvName}</p>
+                </div>
             </div>
             <ButtonTemplate
                 key={back.id}
