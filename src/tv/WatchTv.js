@@ -8,10 +8,12 @@ import ReactPlayer from 'react-player'
 export default function WatchTv(){
 
     const back = getMenuItemByTag('back');
-    const tvList = getParsedTvList();
+    const [tvList, setTvList] = useState([]);
     const [url,setUrl] = useState('');
     const [tvName, setTvName] = useState('');
-
+    useEffect(() => {
+        setTvList(getParsedTvList());
+    },[]);
     let id = -1;
 
     function changeUrl(id, name){

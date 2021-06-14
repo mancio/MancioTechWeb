@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
+import {setupProxy} from "./logic/ProxyHandler";
 const WatchTv = React.lazy( () => import("./tv/WatchTv"));
 const Players = React.lazy(() => import("./trivial/Players"));
 const ContactMe = React.lazy(() => import("./contact/ContactMe"));
@@ -17,6 +18,11 @@ const EnterLink = React.lazy(() => import("./tv/EnterLink"));
 const Platform = React.lazy(() => import("./series/Platform"));
 
 class App extends React.Component{
+    constructor() {
+        super();
+        //setupProxy();
+    }
+
   render() {
     return(
         <div className="App App-main-container">
