@@ -11,9 +11,14 @@ export default function WatchTv(){
     const [tvList, setTvList] = useState([]);
     const [url,setUrl] = useState('');
     const [tvName, setTvName] = useState('');
+
+    let currentList;
+
     useEffect(() => {
-        setTvList(getParsedTvList());
-    },[]);
+        currentList = getParsedTvList();
+        setTvList(currentList);
+    },currentList);
+
     let id = -1;
 
     function changeUrl(id, name){
