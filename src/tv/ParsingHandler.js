@@ -18,19 +18,22 @@ let fileReader;
 
 const handleFileRead = function (){
     const playlist = fileReader.result;
-    console.log(playlist)
-    const jsonTvList = JSON.stringify(parser.parse(playlist).items);
+    const parsedList = parser.parse(playlist).items;
+    console.log(parsedList);
+    const jsonTvList = JSON.stringify(parsedList);
     localStorage.setItem('tvListItems', jsonTvList);
 }
 
 export const setParsedFileTvList = async function (file){
     fileReader = new FileReader();
-    fileReader.onloadend = handleFileRead;
     fileReader.readAsText(file);
+    fileReader.onloadend = handleFileRead;
 }
 
 export const getParsedTvList = function (){
-    return JSON.parse(localStorage.getItem('tvListItems'));
+    const list = JSON.parse(localStorage.getItem('tvListItems'));
+    console.log(list);
+    return list;
 }
 
 export const getTvUrlByIndex = function (id){

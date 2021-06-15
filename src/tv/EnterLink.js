@@ -15,7 +15,6 @@ export default function EnterLink(){
 
     function sendLink(e){
         e.preventDefault();
-        console.log(url);
         setParsedTvList(url)
             .then(() => history.push('/watchTv'))
             .catch(() => window.alert("something got wrong"));
@@ -23,9 +22,9 @@ export default function EnterLink(){
 
     function sendFile(e){
         e.preventDefault();
-        console.log(file);
         setParsedFileTvList(file)
-            .then(() => history.push('/watchTv'));
+            .then(() => history.push('/watchTv'))
+            .catch(() => window.alert("something got wrong"));
     }
 
     function urlState(e){
