@@ -24,6 +24,9 @@ export default function EnterLink(){
         e.preventDefault();
         setParsedFileTvList(file)
             .then(() => history.push('/watchTv'))
+            .then(() => setTimeout(() => {
+                window.location.reload();
+            }),1000)
             .catch(() => window.alert("something got wrong"));
     }
 

@@ -1,7 +1,7 @@
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import {getParsedTvList, getTvUrlByIndex} from "./ParsingHandler";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import './WatchTv.css';
 import ReactPlayer from 'react-player'
 
@@ -12,12 +12,10 @@ export default function WatchTv(){
     const [url,setUrl] = useState('');
     const [tvName, setTvName] = useState('');
 
-    let currentList;
-
     useEffect(() => {
-        currentList = getParsedTvList();
-        setTvList(currentList);
-    },currentList);
+        setTvList(getParsedTvList());
+    },[]);
+
 
     let id = -1;
 
