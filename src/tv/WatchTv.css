@@ -25,4 +25,52 @@
 .tv-video-frame{
     text-align: center;
     padding-left: 100px;
+    height: 467px;
+    width: 800px;
+}
+
+video{
+    height: 600px;
+    width: 500px;
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+    /*body{*/
+    /*    transform: rotate(90deg);*/
+    /*}*/
+
+    .tv-frame{
+        display: grid;
+        grid-template-columns: 200px auto;
+        justify-content: space-around;
+        width: 500px;
+        height: 400px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .channel-list{
+        text-align: left;
+        overflow: auto;
+        height: 300px;
+        width: 200px;
+    }
+
+    .tv-name-button{
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: black;
+    }
+
+    .tv-video-frame{
+        text-align: center;
+        padding-left: 100px;
+        width: 600px;
+        height: 373px;
+    }
+
+    .tv-watch-page{
+        height: 900px;
+        width: 400px;
+    }
 }

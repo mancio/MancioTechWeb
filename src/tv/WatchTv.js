@@ -4,9 +4,13 @@ import {getParsedTvList, getTvUrlByIndex} from "./ParsingHandler";
 import {useEffect, useState} from "react";
 import './WatchTv.css';
 import ReactPlayer from 'react-player'
+import RotateDisplay from "../rotate/RotateDisplay";
+import {isPortrait} from "../logic/DisplayCheck";
+
 
 export default function WatchTv(){
 
+    const [display, setDisplay] = useState(isPortrait());
     const back = getMenuItemByTag('back');
     const [tvList, setTvList] = useState([]);
     const [url,setUrl] = useState('');
@@ -16,6 +20,15 @@ export default function WatchTv(){
         setTvList(getParsedTvList());
     },[]);
 
+    useEffect(() => {
+        function handleResize() {
+            setDisplay(isPortrait());
+        }
+
+        window.addEventListener('resize', handleResize);
+        // return () => window.removeEventListener('resize', handleResize);
+
+    }, []);
 
     let id = -1;
 
@@ -24,9 +37,13 @@ export default function WatchTv(){
         setTvName(name);
     }
 
+
+
+    if(display) return <RotateDisplay/>;
+
     return(
-        <div>
-            <div>
+        <div className='tv-watch-page'>
+            <div className='tv-note'>
                 <p>
                     NOTE: Some tv channels can require VPN to be watched
                     outside your country
@@ -56,8 +73,8 @@ export default function WatchTv(){
                 <div className='tv-video-frame'>
                     <ReactPlayer
                         url = {url}
-                        width = '700px'
-                        height = '500px'
+                        width = '100%'
+                        height = '100%'
                         controls = {true}
                         playing = {true}
                     />
@@ -79,3 +96,4 @@ export default function WatchTv(){
         </div>
     )
 }
+
