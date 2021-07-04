@@ -40,7 +40,7 @@ export default function EnterLink(){
 
     return(
         <div>
-            <h1> Welcome in the media player </h1>
+            <h1 className='player-welcome-title'> Welcome in the media player </h1>
             <p> Here you can play your media </p>
             <p> Just add the link or file and push the button </p>
             <p> Supported format: .m3u</p>
@@ -57,13 +57,11 @@ export default function EnterLink(){
                 </form>
             </div>
             <p>
-                Remember! the link cannot be protected with password and must be LEGAL and a text file like this
+                Remember! the link cannot be protected with password and must be LEGAL and a text file (RAW format on GitHub):
+                &nbsp;
                 <a href='https://github.com/iptv-org/iptv/tree/master/channels' target="_blank" rel="noreferrer">
                     https://github.com/iptv-org/iptv/tree/master/channels
                 </a>
-            </p>
-            <p>
-                Or choose the country and get one tv
             </p>
             <ButtonTemplate
                 key={back.id}

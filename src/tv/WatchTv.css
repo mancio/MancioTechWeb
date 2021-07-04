@@ -44,7 +44,7 @@ video{
         grid-template-columns: 200px auto;
         justify-content: space-around;
         width: 500px;
-        height: 400px;
+        height: 312px;
         padding-top: 25px;
         padding-bottom: 25px;
     }
@@ -64,13 +64,16 @@ video{
 
     .tv-video-frame{
         text-align: center;
-        padding-left: 100px;
-        width: 600px;
-        height: 373px;
+        padding-left: 20px;
+        width: 400px;
+        height: 250px;
     }
 
     .tv-watch-page{
-        height: 900px;
-        width: 400px;
+        width: 500px;
+    }
+
+    .tv-name-button{
+        font-size: small;
     }
 }
