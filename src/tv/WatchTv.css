@@ -34,16 +34,16 @@ video{
     width: 500px;
 }
 
-@media (min-width: 481px) and (max-width: 767px){
+@media (orientation: landscape){
     /*body{*/
     /*    transform: rotate(90deg);*/
     /*}*/
 
     .tv-frame{
         display: grid;
-        grid-template-columns: 200px auto;
+        grid-template-columns: 160px auto;
         justify-content: space-around;
-        width: 500px;
+        width: auto;
         height: 312px;
         padding-top: 25px;
         padding-bottom: 25px;
@@ -69,11 +69,16 @@ video{
         height: 250px;
     }
 
-    .tv-watch-page{
-        width: 500px;
-    }
+    /*.tv-watch-page{*/
+    /*    width: 500px;*/
+    /*}*/
 
     .tv-name-button{
         font-size: small;
+    }
+
+    .tv-note{
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
