@@ -1,11 +1,11 @@
 .tv-frame{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 30vw 66vw;
     justify-content: space-evenly;
-    width: 1300px;
+    /*width: 1000px;*/
     height: auto;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 116px;
 }
 
 .channel-list{
@@ -25,8 +25,8 @@
 .tv-video-frame{
     text-align: center;
     padding-left: 100px;
-    height: 467px;
-    width: 800px;
+    height: 40vw;
+    width: 52vw;
 }
 
 video{
@@ -34,11 +34,9 @@ video{
     width: 500px;
 }
 
-@media (orientation: landscape){
-    /*body{*/
-    /*    transform: rotate(90deg);*/
-    /*}*/
-
+@media screen
+and (max-device-width: 700px)
+{
     .tv-frame{
         display: grid;
         grid-template-columns: 160px auto;
