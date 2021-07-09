@@ -40,6 +40,9 @@ function ButtonTemplate(props) {
             case 'platform':
                 history.push('/filmseries/selectplatform');
                 break;
+            case 'weather':
+                history.push('/weather');
+                break;
             case 'back':
                 history.goBack();
                 break;

@@ -15,6 +15,7 @@ const WebCamOfTheDay = React.lazy(() => import("./webcam/WebCamOfTheDay"));
 const WorkInProgress = React.lazy(() => import("./inprogress/WorkInProgress"));
 const EnterLink = React.lazy(() => import("./tv/EnterLink"));
 const Platform = React.lazy(() => import("./series/Platform"));
+const Weather = React.lazy(() => import("./weather/Weather"));
 
 class App extends React.Component{
 
@@ -35,6 +36,7 @@ class App extends React.Component{
                 <Route path='/filmseries/selectplatform' component={Platform}/>
                 <Route path='/enterTvLink' component={EnterLink}/>
                 <Route path='/watchTv' component={WatchTv}/>
+                <Route path='/weather' component={Weather}/>
                 <Route path='/trivial' component={Players}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>

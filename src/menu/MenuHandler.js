@@ -94,6 +94,17 @@ const menu = [
         id: idPlusPlus(),
         width:250,
         height:55,
+        svgColor:'#2CFFB2',
+        textColor: textColor,
+        textField:'WEATHER',
+        icon: 'WEATHER',
+        iconColor: '#2CFFB2',
+        tag: 'weather'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
         svgColor:'#F600FF',
         textColor: textColor,
         textField:'GO BACK',
