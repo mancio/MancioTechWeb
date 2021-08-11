@@ -1,29 +1,40 @@
-import ReactWeather, { useOpenWeather } from 'react-open-weather';
-import {getKey} from "./WeatherHandler";
+import {useEffect, useState} from "react";
+import {getTodayWeather} from "./WeatherHandler";
+import { Card } from 'semantic-ui-react'
 
-export default function City() {
+export default function City(props){
 
-    const {data, isLoading, errorMessage} = useOpenWeather({
-        key: getKey(),
-        lat: props.lat,
-        lon: props.lon,
-        lang: 'en',
-        unit: 'metric', // values are (metric, standard, imperial)
-    });
+    const [data, setData] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    const cityName = props.name;
+
+
+
+    useEffect((props) => {
+        setLoaded(true);
+        async function fetchData() {
+            const res = await getTodayWeather(cityName);
+            setData(res);
+        }
+        fetchData();
+    },[loaded])
+
 
     return(
-        <div>
-            <ReactWeather
-                isLoading={isLoading}
-                errorMessage={errorMessage}
-                data={data}
-                lang="en"
-                locationLabel={props.name}
-                unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-                showForecast
-            />
+        <div id={props.id}>
+            {(typeof data.main != 'undefined') ? (
+                <Card>
+                    <Card.Content>
+                        <Card.Header className="header">City Name: {data.name}</Card.Header>
+                        <p>Temperature: {data.main.temp}</p>
+                        <p>Sunrise: {data.sys.sunrise}</p>
+                        <p>Sunset: {data.sys.sunset}</p>
+                        <p>Description: {data.weather[0].description}</p>
+                    </Card.Content>
+                </Card>
+            ): (
+                <div> <p> Data not found </p> </div>
+            )}
         </div>
     )
-
 }
-

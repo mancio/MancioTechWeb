@@ -1,21 +1,22 @@
-
 import './Weather.css';
-import {getCities} from "./WeatherHandler";
 import City from "./City";
+import {cities} from "./WeatherHandler";
 
 export default function Weather(){
 
-    const cities = getCities();
+    let id = -1;
 
     return(
         <div>
             <h1 className='weather-title'>How is going in my favourite places?</h1>
             {cities.map(city => {
+                console.log(city)
+                const currentId = id++;
                 return(
                     <City
-                        lat = {city.lat}
-                        lon = {city.lon}
-                        name = {city.name}
+                        name={city}
+                        id={currentId}
+                        key={currentId}
                     />
                 )
             })}

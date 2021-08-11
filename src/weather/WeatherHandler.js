@@ -1,22 +1,18 @@
-const key = '9d0b31dba0849bb1c72257b6432ec2fb';
+const key = process.env.API_KEY; // Please use your personal. Is free on openweathermap.org
 
-const cities = [
-    {
-        lat: '48.137154',
-        lon: '11.576124',
-        name: 'ciccio'
-    },
-    {
-        lat: '48.137154',
-        lon: '11.576124',
-        name: 'caio'
-    }
-];
+export const cities = ['Bologna'];
 
-export const getCities = function (){
-    return cities;
+export const getTodayWeather = function (city){
+    return fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key)
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+            return result;
+        })
+        .catch(er =>{
+            console.log("unable to check weather");
+            console.log(er);
+            return "undefined";
+        });
 }
 
-export const getKey = function (){
-    return key;
-}
