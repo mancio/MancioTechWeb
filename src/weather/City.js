@@ -28,7 +28,7 @@ export default function City(props){
     return(
         <div id={props.id}>
             {(typeof data.main != 'undefined') ? (
-                <Card className='weather-card'>
+                <Card className='weather-card' >
                     <Card.Content>
                         <Card.Header className="weather-header">{data.name}</Card.Header>
                         <p>Temperature: {data.main.temp + ' C'}</p>

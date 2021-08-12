@@ -18,6 +18,10 @@ export const getTodayWeather = function (city){
         });
 }
 
+export const getWeatherMapUrl = function (){
+    return 'https://openweathermap.org/weathermap?basemap=map&cities=false&layer=radar&lat=52&lon=20&zoom=5';
+}
+
 export const getHumanTime = function (timestamp){
 
     // Create a new JavaScript Date object based on the timestamp

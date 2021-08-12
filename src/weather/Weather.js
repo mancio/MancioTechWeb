@@ -1,10 +1,15 @@
 import './Weather.css';
 import City from "./City";
 import {cities} from "./WeatherHandler";
+import ButtonTemplate from "../menu/ButtonTemplate";
+import React from "react";
+import {getMenuItemByTag} from "../menu/MenuHandler";
+import Map from "./Map";
 
 export default function Weather(){
 
-    let id = -1;
+    const backButton = getMenuItemByTag('back');
+    let id = 0;
 
     return(
         <div>
@@ -22,6 +27,19 @@ export default function Weather(){
                     )
                 })}
             </div>
+            <Map/>
+            <ButtonTemplate
+                key={backButton.id}
+                id={backButton.id}
+                width={backButton.width}
+                height={backButton.height}
+                svgColor={backButton.svgColor}
+                textColor={backButton.textColor}
+                textField={backButton.textField}
+                icon={backButton.icon}
+                iconColor={backButton.iconColor}
+                tag='menu'
+            />
         </div>
     )
 }
