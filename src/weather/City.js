@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
-import {getTodayWeather} from "./WeatherHandler";
+import {getHumanTime, getTodayWeather} from "./WeatherHandler";
 import { Card } from 'semantic-ui-react'
+import './City.css';
 
 export default function City(props){
 
@@ -8,27 +9,31 @@ export default function City(props){
     const [loaded, setLoaded] = useState(false);
     const cityName = props.name;
 
+    useEffect(() => {
 
-
-    useEffect((props) => {
-        setLoaded(true);
         async function fetchData() {
-            const res = await getTodayWeather(cityName);
-            setData(res);
+            if(!loaded){
+                const res = await getTodayWeather(cityName);
+                setData(res);
+            }
         }
-        fetchData();
-    },[loaded])
+
+        fetchData().then(r => {
+            setLoaded(true);
+        });
+
+    },[loaded,cityName])
 
 
     return(
         <div id={props.id}>
             {(typeof data.main != 'undefined') ? (
-                <Card>
+                <Card className='weather-card'>
                     <Card.Content>
-                        <Card.Header className="header">City Name: {data.name}</Card.Header>
-                        <p>Temperature: {data.main.temp}</p>
-                        <p>Sunrise: {data.sys.sunrise}</p>
-                        <p>Sunset: {data.sys.sunset}</p>
+                        <Card.Header className="weather-header">{data.name}</Card.Header>
+                        <p>Temperature: {data.main.temp + ' C'}</p>
+                        <p>Sunrise: {getHumanTime(data.sys.sunrise)}</p>
+                        <p>Sunset: {getHumanTime(data.sys.sunset)}</p>
                         <p>Description: {data.weather[0].description}</p>
                     </Card.Content>
                 </Card>

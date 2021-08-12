@@ -9,17 +9,19 @@ export default function Weather(){
     return(
         <div>
             <h1 className='weather-title'>How is going in my favourite places?</h1>
-            {cities.map(city => {
-                console.log(city)
-                const currentId = id++;
-                return(
-                    <City
-                        name={city}
-                        id={currentId}
-                        key={currentId}
-                    />
-                )
-            })}
+            <div className='weather-card-box'>
+                {cities.map(city => {
+                    console.log(city)
+                    const currentId = id++;
+                    return(
+                        <City
+                            name={city}
+                            id={currentId}
+                            key={currentId}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }
