@@ -9,6 +9,7 @@ import Cam from "./Cam";
 import Tv from "./Tv";
 import Series from "./Series";
 import Weather from "./Weather";
+import Trivial from "./Trivial";
 
 class SelectIcon extends React.Component{
 
@@ -30,6 +31,8 @@ class SelectIcon extends React.Component{
                 return <Face iconColor={this.iconColor}/>;
             case 'GAME':
                 return <Game iconColor={this.iconColor}/>;
+            case 'TRIVIAL':
+                return <Trivial iconColor={this.iconColor}/>;
             case 'CAM':
                 return <Cam iconColor={this.iconColor}/>;
             case 'TV':

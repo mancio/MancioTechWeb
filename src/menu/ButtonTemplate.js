@@ -31,6 +31,9 @@ function ButtonTemplate(props) {
             case 'game':
                 history.push('/gamelist');
                 break;
+            case 'trivial':
+                history.push('/trivial');
+                break;
             case 'cam':
                 history.push('/webcams/' + getRandomCamTag());
                 break;
