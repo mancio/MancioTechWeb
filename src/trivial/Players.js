@@ -30,9 +30,12 @@ export default function Players(){
                     <input className='trivial-radio' type='radio' name='question-difficulty' value='hard' required/>
                     <label> Hard </label>
                     <br/>
-                    <label> Time: </label>
-                    <input className='trivial-input' type="number" name="time" step="1" min='1' max='5' required/>
-                    <label> Minutes </label>
+                    <label> Number of question: </label>
+                    <input className='trivial-input' type="number" name="question-number" step="1" min='10' max='50' required/>
+                    <br/>
+                    <label> Time per question: </label>
+                    <input className='trivial-input' type="number" name="time-single-question" step="1" min='10' max='60' required/>
+                    <label> seconds </label>
                     <br/>
                     <input className='trivial-play-button' type="submit" value="PLAY" />
                 </form>
