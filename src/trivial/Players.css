@@ -32,3 +32,10 @@
     font-size: x-large;
     margin-top: 40px;
 }
+
+.trivial-categories{
+    width: 180px;
+    font-family: Jokerman, sans-serif;
+    font-size: 25px;
+    border-radius: 10px;
+}

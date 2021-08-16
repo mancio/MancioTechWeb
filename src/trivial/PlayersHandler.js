@@ -1,4 +1,5 @@
-const categories = [
+export const categories = [
+    'any',
     'general',
     'books',
     'film',
@@ -28,8 +29,8 @@ const categories = [
 
 const setCategoryMap = function (){
     const map = new Map();
-    let number = 9;
-    categories.map(name => {
+    let number = 8;
+    categories.forEach(name => {
         map.set(name, number);
         number++;
     })
@@ -61,7 +62,6 @@ export const getQuestions = function (number, category, difficulty, type){
             console.log(er);
             return 'undefined';
         })
-
 }
 
 const checkNumber = function (number){
@@ -72,19 +72,19 @@ const checkNumber = function (number){
 }
 
 const checkCategory = function (category){
+    if(category === 'any') return '';
     const categoryTag = '&category='
     const categoryNum = getNumberByCategory(category);
-    if(category === 'any') return '';
-    else return categoryTag + categoryNum;
+    return categoryTag + categoryNum;
 }
 
 const checkDifficulty = function (difficulty){
-    const difTag = '&difficulty=';
     if(difficulty === 'any') return '';
-    else return difTag + difficulty;
+    const difTag = '&difficulty=';
+    return difTag + difficulty;
 }
 const checkType = function (type){
-    const typeTag = '&type=';
     if(type === 'any') return '';
-    else return typeTag + type;
+    const typeTag = '&type=';
+    return typeTag + type;
 }

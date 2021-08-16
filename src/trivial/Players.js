@@ -2,27 +2,43 @@ import './Players.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import React from "react";
+import {categories} from "./PlayersHandler";
 
 export default function Players(){
 
     const back = getMenuItemByTag('back');
+
+    const players = React.createRef();
+    // const [state, setState] = {
+    //     players: 1,
+    //     category: 'any',
+    //     difficulty: 'any',
+    //     questionNum: 10,
+    //     time: 10
+    // }
+
+    function playGame(e) {
+        e.preventDefault();
+
+    }
 
     return(
         <div>
             <div>
                 <h1 className='trivial-title'>Welcome to Trivial Questions Game</h1>
                 <h2 className='trivial-title'>Set up your game</h2>
-                <form className='trivial-setup-box'>
+                <form className='trivial-setup-box' onSubmit={playGame}>
                     <label> Players number: </label>
-                    <input className='trivial-input' type="number" name="players" step="1" min='1' required/>
+                    <input ref={players} className='trivial-input' type="number" name="players" step="1" min='1' max='10' required/>
                     <br/>
                     <label> Question Category: </label>
-                    <input className='trivial-radio' type='radio' name='question-type' value='all' required/>
-                    <label> All </label>
+                    <select className='trivial-categories' id="categories" name="categories" required>
+                        { categories.map(cat => (<option key={cat} value={cat}>{cat}</option>)) }
+                    </select>
                     <br/>
                     <label> Question difficulty: </label>
-                    <input className='trivial-radio' type='radio' name='question-difficulty' value='mix' required/>
-                    <label> Mix </label>
+                    <input className='trivial-radio' type='radio' name='question-difficulty' value='any' required/>
+                    <label> Any </label>
                     <input className='trivial-radio' type='radio' name='question-difficulty' value='easy' required/>
                     <label> Easy </label>
                     <input className='trivial-radio' type='radio' name='question-difficulty' value='medium' required/>
