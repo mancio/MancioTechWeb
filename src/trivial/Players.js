@@ -2,13 +2,18 @@ import './Players.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import React from "react";
-import {categories} from "./PlayersHandler";
+import {categories, difficulties} from "./PlayersHandler";
 
 export default function Players(){
 
     const back = getMenuItemByTag('back');
 
     const players = React.createRef();
+    const cat = React.createRef();
+    const dif = React.createRef();
+    const quNumber = React.createRef();
+    const time = React.createRef();
+
     // const [state, setState] = {
     //     players: 1,
     //     category: 'any',
@@ -19,7 +24,12 @@ export default function Players(){
 
     function playGame(e) {
         e.preventDefault();
-
+        console.log('selected:');
+        console.log('players: ' + players.current.value);
+        console.log('category: ' + cat.current.value);
+        console.log('difficulty: ' + dif.current.value);
+        console.log('question number: ' + quNumber.current.value);
+        console.log('time: ' + time.current.value);
     }
 
     return(
@@ -28,31 +38,31 @@ export default function Players(){
                 <h1 className='trivial-title'>Welcome to Trivial Questions Game</h1>
                 <h2 className='trivial-title'>Set up your game</h2>
                 <form className='trivial-setup-box' onSubmit={playGame}>
-                    <label> Players number: </label>
-                    <input ref={players} className='trivial-input' type="number" name="players" step="1" min='1' max='10' required/>
-                    <br/>
-                    <label> Question Category: </label>
-                    <select className='trivial-categories' id="categories" name="categories" required>
-                        { categories.map(cat => (<option key={cat} value={cat}>{cat}</option>)) }
-                    </select>
-                    <br/>
-                    <label> Question difficulty: </label>
-                    <input className='trivial-radio' type='radio' name='question-difficulty' value='any' required/>
-                    <label> Any </label>
-                    <input className='trivial-radio' type='radio' name='question-difficulty' value='easy' required/>
-                    <label> Easy </label>
-                    <input className='trivial-radio' type='radio' name='question-difficulty' value='medium' required/>
-                    <label> Medium </label>
-                    <input className='trivial-radio' type='radio' name='question-difficulty' value='hard' required/>
-                    <label> Hard </label>
-                    <br/>
-                    <label> Number of question: </label>
-                    <input className='trivial-input' type="number" name="question-number" step="1" min='10' max='50' required/>
-                    <br/>
-                    <label> Time per question: </label>
-                    <input className='trivial-input' type="number" name="time-single-question" step="1" min='10' max='60' required/>
-                    <label> seconds </label>
-                    <br/>
+                    <div className='trivial-section'>
+                        <label> Players number: </label>
+                        <input ref={players} className='trivial-input' type="number" name="players" step="1" min='1' max='10' required/>
+                    </div>
+                    <div className='trivial-section'>
+                        <label> Question Category: </label>
+                        <select ref={cat} className='trivial-list' id="categories" name="categories" required>
+                            { categories.map(cat => (<option key={cat} value={cat}>{cat}</option>)) }
+                        </select>
+                    </div>
+                    <div className='trivial-section'>
+                        <label> Question difficulty: </label>
+                        <select ref={dif} className='trivial-list' id="difficulty" name="difficulty" required>
+                            { difficulties.map(dif => (<option key={dif} value={dif}>{dif}</option>)) }
+                        </select>
+                    </div>
+                    <div className='trivial-section'>
+                        <label> Number of question: </label>
+                        <input ref={quNumber} className='trivial-input' type="number" name="question-number" step="1" min='10' max='50' required/>
+                    </div>
+                    <div className='trivial-section'>
+                        <label> Time per question: </label>
+                        <input ref={time} className='trivial-input' type="number" name="time-single-question" step="1" min='10' max='60' required/>
+                        <label> seconds </label>
+                    </div>
                     <input className='trivial-play-button' type="submit" value="PLAY" />
                 </form>
             </div>

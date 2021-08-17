@@ -26,6 +26,13 @@ export const categories = [
     'cartoons'
 ];
 
+export const difficulties = [
+    'any',
+    'easy',
+    'medium',
+    'hard'
+]
+
 
 const setCategoryMap = function (){
     const map = new Map();
