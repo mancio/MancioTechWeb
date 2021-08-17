@@ -1,5 +1,17 @@
+@keyframes changeColor {
+    25% { color: #e3d917;}
+    50% { color: #c77415;}
+    75% { color: #e31e17;}
+    100% { color: #98e317;}
+}
+
 .trivial-title{
     font-family: Jokerman, sans-serif;
+}
+
+.trivial-subtitle{
+    font-family: Jokerman, sans-serif;
+    animation: changeColor 7s infinite;
 }
 
 .trivial-setup-box{

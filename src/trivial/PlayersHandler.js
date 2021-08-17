@@ -33,6 +33,13 @@ export const difficulties = [
     'hard'
 ]
 
+export const qType = [
+    'any',
+    'multiple',
+    'true/false'
+]
+
+
 
 const setCategoryMap = function (){
     const map = new Map();
@@ -58,7 +65,8 @@ export const getQuestions = function (number, category, difficulty, type){
     const catRequest = checkCategory(category);
     const difRequest = checkDifficulty(difficulty);
     const typeRequest = checkType(type);
-    fetch('https://opentdb.com/api.php?' + numRequest + catRequest + difRequest + typeRequest)
+    console.log('https://opentdb.com/api.php?' + numRequest + catRequest + difRequest + typeRequest);
+    return fetch('https://opentdb.com/api.php?' + numRequest + catRequest + difRequest + typeRequest)
         .then(res => res.json())
         .then(result => {
             console.log("question list found");
@@ -69,6 +77,15 @@ export const getQuestions = function (number, category, difficulty, type){
             console.log(er);
             return 'undefined';
         })
+}
+
+export const saveToMemory = function (data){
+    localStorage.setItem('trivial_questions',data);
+}
+
+export const loadFromMemory = function (){
+    const questions = localStorage.getItem('trivial_questions');
+    return JSON.parse(questions);
 }
 
 const checkNumber = function (number){
@@ -91,7 +108,8 @@ const checkDifficulty = function (difficulty){
     return difTag + difficulty;
 }
 const checkType = function (type){
-    if(type === 'any') return '';
     const typeTag = '&type=';
+    if(type === 'any') return '';
+    if(type === 'true/false') return typeTag + 'boolean';
     return typeTag + type;
 }

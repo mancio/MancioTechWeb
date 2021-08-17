@@ -1,8 +1,8 @@
 import './Players.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import React from "react";
-import {categories, difficulties} from "./PlayersHandler";
+import React, {useState} from "react";
+import {categories, difficulties, getQuestions, qType, saveToMemory} from "./PlayersHandler";
 
 export default function Players(){
 
@@ -13,16 +13,11 @@ export default function Players(){
     const dif = React.createRef();
     const quNumber = React.createRef();
     const time = React.createRef();
+    const type = React.createRef();
 
-    // const [state, setState] = {
-    //     players: 1,
-    //     category: 'any',
-    //     difficulty: 'any',
-    //     questionNum: 10,
-    //     time: 10
-    // }
+    const [mod, setMod] = useState('intro');
 
-    function playGame(e) {
+    async function playGame(e) {
         e.preventDefault();
         console.log('selected:');
         console.log('players: ' + players.current.value);
@@ -30,13 +25,26 @@ export default function Players(){
         console.log('difficulty: ' + dif.current.value);
         console.log('question number: ' + quNumber.current.value);
         console.log('time: ' + time.current.value);
+        console.log('type: ' + type.current.value);
+
+        getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
+            .then(data => {
+                saveToMemory(data);
+                console.log("trivia json saved");
+                console.log(data);
+                setMod('play');
+            })
+            .catch( er => {
+                console.log(er);
+                window.alert("unable to get questions");
+            })
     }
 
     return(
         <div>
             <div>
                 <h1 className='trivial-title'>Welcome to Trivial Questions Game</h1>
-                <h2 className='trivial-title'>Set up your game</h2>
+                <h2 className='trivial-subtitle'>Set up your game</h2>
                 <form className='trivial-setup-box' onSubmit={playGame}>
                     <div className='trivial-section'>
                         <label> Players number: </label>
@@ -52,6 +60,12 @@ export default function Players(){
                         <label> Question difficulty: </label>
                         <select ref={dif} className='trivial-list' id="difficulty" name="difficulty" required>
                             { difficulties.map(dif => (<option key={dif} value={dif}>{dif}</option>)) }
+                        </select>
+                    </div>
+                    <div className='trivial-section'>
+                        <label> Question type: </label>
+                        <select ref={type} className='trivial-list' id="type" name="type" required>
+                            { qType.map(type => (<option key={type} value={type}>{type}</option>)) }
                         </select>
                     </div>
                     <div className='trivial-section'>
