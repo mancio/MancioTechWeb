@@ -1,12 +1,8 @@
 import './Players.css';
-import ButtonTemplate from "../menu/ButtonTemplate";
-import {getMenuItemByTag} from "../menu/MenuHandler";
-import React, {useState} from "react";
+import React from "react";
 import {categories, difficulties, getQuestions, qType, saveToMemory} from "./PlayersHandler";
 
-export default function Players(){
-
-    const back = getMenuItemByTag('back');
+export default function Players({ready}){
 
     const players = React.createRef();
     const cat = React.createRef();
@@ -14,8 +10,6 @@ export default function Players(){
     const quNumber = React.createRef();
     const time = React.createRef();
     const type = React.createRef();
-
-    const [mod, setMod] = useState('intro');
 
     async function playGame(e) {
         e.preventDefault();
@@ -32,7 +26,7 @@ export default function Players(){
                 saveToMemory(data);
                 console.log("trivia json saved");
                 console.log(data);
-                setMod('play');
+                ready(true);
             })
             .catch( er => {
                 console.log(er);
@@ -79,20 +73,6 @@ export default function Players(){
                     </div>
                     <input className='trivial-play-button' type="submit" value="PLAY" />
                 </form>
-            </div>
-            <div>
-                <ButtonTemplate
-                    key={back.id}
-                    id={back.id}
-                    width={back.width}
-                    height={back.height}
-                    svgColor={back.svgColor}
-                    textColor={back.textColor}
-                    textField={back.textField}
-                    icon={back.icon}
-                    iconColor={back.iconColor}
-                    tag='menu'
-                />
             </div>
         </div>
     )

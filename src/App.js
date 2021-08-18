@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
 const WatchTv = React.lazy( () => import("./tv/WatchTv"));
-const Players = React.lazy(() => import("./trivial/Players"));
+const Intro = React.lazy(() => import("./trivial/Intro"));
 const ContactMe = React.lazy(() => import("./contact/ContactMe"));
 const MainPage = React.lazy(() => import("./mainpage/MainPage"));
 const ButtonList = React.lazy(() => import("./menu/ButtonList"));
@@ -37,7 +37,7 @@ class App extends React.Component{
                 <Route path='/enterTvLink' component={EnterLink}/>
                 <Route path='/watchTv' component={WatchTv}/>
                 <Route path='/weather' component={Weather}/>
-                <Route path='/trivial' component={Players}/>
+                <Route path='/trivial' component={Intro}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>
             </Router>
