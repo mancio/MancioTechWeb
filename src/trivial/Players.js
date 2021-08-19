@@ -1,6 +1,6 @@
 import './Players.css';
 import React from "react";
-import {categories, difficulties, getQuestions, qType, saveToMemory} from "./PlayersHandler";
+import {categories, difficulties, getQuestions, qType, saveJsonToMemory, saveSetUpToMemory} from "./PlayersHandler";
 
 export default function Players({ready}){
 
@@ -13,17 +13,12 @@ export default function Players({ready}){
 
     async function playGame(e) {
         e.preventDefault();
-        console.log('selected:');
-        console.log('players: ' + players.current.value);
-        console.log('category: ' + cat.current.value);
-        console.log('difficulty: ' + dif.current.value);
-        console.log('question number: ' + quNumber.current.value);
-        console.log('time: ' + time.current.value);
-        console.log('type: ' + type.current.value);
 
         getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
             .then(data => {
-                saveToMemory(data);
+                saveJsonToMemory(data);
+                saveSetUpToMemory(players.current.value, cat.current.value, dif.current.value,
+                    quNumber.current.value, time.current.value, type.current.value)
                 console.log("trivia json saved");
                 console.log(data);
                 ready(true);

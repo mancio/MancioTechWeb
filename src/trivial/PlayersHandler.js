@@ -79,13 +79,26 @@ export const getQuestions = function (number, category, difficulty, type){
         })
 }
 
-export const saveToMemory = function (data){
-    localStorage.setItem('trivial_questions',data);
+export const saveJsonToMemory = function (data){
+    sessionStorage.setItem('trivial_questions',data);
 }
 
-export const loadFromMemory = function (){
-    const questions = localStorage.getItem('trivial_questions');
+export const loadJsonFromMemory = function (){
+    const questions = sessionStorage.getItem('trivial_questions');
     return JSON.parse(questions);
+}
+
+export const saveSetUpToMemory = function (players, category, difficulty, quNumber, time, type){
+    sessionStorage.setItem('trivial_setup_players', players);
+    sessionStorage.setItem('trivial_setup_category', category);
+    sessionStorage.setItem('trivial_setup_difficulty', difficulty);
+    sessionStorage.setItem('trivial_setup_quNumber', quNumber);
+    sessionStorage.setItem('trivial_setup_time', time);
+    sessionStorage.setItem('trivial_setup_type', type);
+}
+
+export const loadSetUpFromMemory = function (name){
+    return sessionStorage.getItem('trivial_setup_' + name);
 }
 
 const checkNumber = function (number){
