@@ -1,6 +1,13 @@
 import './Players.css';
 import React from "react";
-import {categories, difficulties, getQuestions, qType, saveJsonToMemory, saveSetUpToMemory} from "./PlayersHandler";
+import {
+    categories,
+    difficulties,
+    getQuestions, getReadyStatus,
+    qType,
+    savePlayerStatus,
+    setReadyStatus, setTotalPlayers
+} from "./PlayersHandler";
 
 export default function Players({ready}){
 
@@ -14,19 +21,26 @@ export default function Players({ready}){
     async function playGame(e) {
         e.preventDefault();
 
-        getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
-            .then(data => {
-                saveJsonToMemory(data);
-                saveSetUpToMemory(players.current.value, cat.current.value, dif.current.value,
-                    quNumber.current.value, time.current.value, type.current.value)
-                console.log("trivia json saved");
-                console.log(data);
-                ready(true);
-            })
-            .catch( er => {
-                console.log(er);
-                window.alert("unable to get questions");
-            })
+        setTotalPlayers('trivial_total_players');
+
+        setReadyStatus(true);
+
+        for(let i = 1; i <= 'trivial_total_players'; i++){
+            getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
+                .then(data => {
+                    savePlayerStatus(i, data, 0, 1, quNumber.current.value, time.current.value);
+                    console.log("trivia json saved");
+                    console.log(data);
+                })
+                .catch( er => {
+                    console.log(er);
+                    window.alert("unable to get questions");
+                    setReadyStatus(false);
+                })
+        }
+
+        ready(getReadyStatus());
+
     }
 
     return(

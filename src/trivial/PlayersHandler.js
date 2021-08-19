@@ -96,18 +96,45 @@ export const getAnswerByNumber = function (number){
     return loadJsonFromMemory().result[number].correct_answer;
 }
 
-export const saveSetUpToMemory = function (players, category, difficulty, quNumber, time, type){
-    sessionStorage.setItem('trivial_setup_players', players);
-    sessionStorage.setItem('trivial_setup_category', category);
-    sessionStorage.setItem('trivial_setup_difficulty', difficulty);
-    sessionStorage.setItem('trivial_setup_quNumber', quNumber);
-    sessionStorage.setItem('trivial_setup_time', time);
-    sessionStorage.setItem('trivial_setup_type', type);
-    sessionStorage.setItem('trivial_setup_current_player', 1);
+export const setTotalPlayers = function (players){
+    sessionStorage.setItem('trivial_total_players', players);
+}
+
+export const getTotalPlayers = function (){
+    return sessionStorage.getItem('trivial_total_players');
+}
+
+export const savePlayerStatus = function (playerNumber, json, score, currentQuestion, totalQuestions, timeLeft){
+    sessionStorage.setItem('trivial_player' + playerNumber + '_json', JSON.stringify(json));
+    sessionStorage.setItem('trivial_player' + playerNumber + '_score', score);
+    sessionStorage.setItem('trivial_player' + playerNumber + '_currentQuestion', currentQuestion);
+    sessionStorage.setItem('trivial_player' + playerNumber + '_totalQuestions', totalQuestions);
+    sessionStorage.setItem('trivial_player' + playerNumber + '_timeLeft', timeLeft);
+
+}
+
+export const setReadyStatus = function (value){
+    sessionStorage.setItem('trivial_ready', value);
+}
+
+export const getReadyStatus = function (){
+    return sessionStorage.getItem('trivial_ready');
+}
+
+export const setPlayerProperty = function (playerNumber, property, value){
+    sessionStorage.setItem('trivial_player' + playerNumber + '_' + property, value);
+}
+
+export const getPlayerProperty = function (playerNumber, property){
+    return sessionStorage.getItem('trivial_player' + playerNumber + '_' + property);
 }
 
 export const loadSetUpFromMemory = function (name){
     return sessionStorage.getItem('trivial_setup_' + name);
+}
+
+export const setCurrentPlayer = function (player){
+    sessionStorage.setItem('trivial_setup_current_player', player);
 }
 
 export const getCurrentPlayer = function (){
@@ -116,12 +143,14 @@ export const getCurrentPlayer = function (){
 
 export const setNextPlayer = function (){
     let current = getCurrentPlayer();
-    const players = loadSetUpFromMemory('players');
+    const players = getTotalPlayers();
     if(current === players){
-        sessionStorage.setItem('trivial_setup_current_player', 1);
+        setCurrentPlayer(1);
+        return 1;
     }else {
         current++;
-        sessionStorage.setItem('trivial_setup_current_player', current);
+        setCurrentPlayer(current);
+        return current;
     }
 }
 
