@@ -80,12 +80,20 @@ export const getQuestions = function (number, category, difficulty, type){
 }
 
 export const saveJsonToMemory = function (data){
-    sessionStorage.setItem('trivial_questions',data);
+    sessionStorage.setItem('trivial_questions',JSON.stringify(data));
 }
 
 export const loadJsonFromMemory = function (){
     const questions = sessionStorage.getItem('trivial_questions');
     return JSON.parse(questions);
+}
+
+export const getQuestionByNumber = function (number){
+    return loadJsonFromMemory().result[number].question;
+}
+
+export const getAnswerByNumber = function (number){
+    return loadJsonFromMemory().result[number].correct_answer;
 }
 
 export const saveSetUpToMemory = function (players, category, difficulty, quNumber, time, type){
@@ -95,10 +103,26 @@ export const saveSetUpToMemory = function (players, category, difficulty, quNumb
     sessionStorage.setItem('trivial_setup_quNumber', quNumber);
     sessionStorage.setItem('trivial_setup_time', time);
     sessionStorage.setItem('trivial_setup_type', type);
+    sessionStorage.setItem('trivial_setup_current_player', 1);
 }
 
 export const loadSetUpFromMemory = function (name){
     return sessionStorage.getItem('trivial_setup_' + name);
+}
+
+export const getCurrentPlayer = function (){
+    return sessionStorage.getItem('trivial_setup_current_player');
+}
+
+export const setNextPlayer = function (){
+    let current = getCurrentPlayer();
+    const players = loadSetUpFromMemory('players');
+    if(current === players){
+        sessionStorage.setItem('trivial_setup_current_player', 1);
+    }else {
+        current++;
+        sessionStorage.setItem('trivial_setup_current_player', current);
+    }
 }
 
 const checkNumber = function (number){
