@@ -1,7 +1,7 @@
 import {
-    getCurrentPlayer, getPlayerProperty,
+    getCommonQuestionCategory, getCurrentQuestion,
+    getPlayerProperty,
     getTotalPlayers,
-    loadSetUpFromMemory,
     setNextPlayer
 } from "./PlayersHandler";
 import './Play.css'
@@ -11,35 +11,41 @@ export default function Play(){
 
     const totalPlayers = getTotalPlayers();
 
-    const questionType = getPlayerProperty(1, 'json')
+    const questionType = getCommonQuestionCategory();
+
+    // const cur = getCurrentQuestion(1, 1);
 
     const [state, setState] = useState(
         {
             currentPlayer: 1,
             scorePlayer: 0,
-            currentQuestion: 1,
+            currentQuestionNumber: 1,
+            currentQuestion: "loading",
             questionsLeft: 0,
             timeLeft: 0
         }
     )
 
-
     function switchPlayer(){
         const nextPlayer = setNextPlayer();
         const score = getPlayerProperty(nextPlayer, 'score');
-        const currentQuestion = getPlayerProperty(nextPlayer, 'currentQuestion');
+        const currentQuestionNumber = getPlayerProperty(nextPlayer, 'currentQuestionNumber');
+        const currentQuestion = getCurrentQuestion(nextPlayer, currentQuestionNumber);
         const totalQuestions = getPlayerProperty(nextPlayer, 'totalQuestions');
         const timeLeft = getPlayerProperty(nextPlayer, 'timeLeft');
         setState(
             {
                 currentPlayer: nextPlayer,
                 scorePlayer: score,
+                currentQuestionNumber: currentQuestionNumber,
                 currentQuestion: currentQuestion,
-                questionsLeft: totalQuestions - currentQuestion,
+                questionsLeft: totalQuestions - currentQuestionNumber,
                 timeLeft: timeLeft
             }
         );
     }
+
+
 
 
     return(
@@ -47,9 +53,9 @@ export default function Play(){
             <div className='trivial-play-box'>
                 <h1> Let's Play! </h1>
                 <p> Players in the game: {totalPlayers} </p>
-                <p> Question type: {loadSetUpFromMemory("type")} </p>
-                <h2> Question number: {state.currentQuestion}</h2>
-                <p> {jsonData.results[0].question} </p>
+                <p> Question type: {questionType} </p>
+                <h2> Question number: {state.currentQuestionNumber}</h2>
+                <p> {state.currentQuestion} </p>
                 <p> Now is playing Player {state.currentPlayer}</p>
                 <p> Time Left: {state.timeLeft} </p>
                 <p> Questions left: {state.questionsLeft} </p>

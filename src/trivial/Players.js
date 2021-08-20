@@ -5,7 +5,7 @@ import {
     difficulties,
     getQuestions, getReadyStatus,
     qType,
-    savePlayerStatus,
+    savePlayerStatus, setCommonQuestionCategory,
     setReadyStatus, setTotalPlayers
 } from "./PlayersHandler";
 
@@ -21,14 +21,17 @@ export default function Players({ready}){
     async function playGame(e) {
         e.preventDefault();
 
-        setTotalPlayers('trivial_total_players');
+        setTotalPlayers(players.current.value);
+        setCommonQuestionCategory(cat.current.value);
 
         setReadyStatus(true);
 
-        for(let i = 1; i <= 'trivial_total_players'; i++){
-            getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
+         for(let i = 1; i <= players.current.value; i++){
+             const quNumberNow = quNumber.current.value;
+             const timeNow = time.current.value;
+             getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
                 .then(data => {
-                    savePlayerStatus(i, data, 0, 1, quNumber.current.value, time.current.value);
+                    savePlayerStatus(i, data, 0, 1, quNumberNow, timeNow);
                     console.log("trivia json saved");
                     console.log(data);
                 })

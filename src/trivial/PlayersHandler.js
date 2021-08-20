@@ -56,10 +56,6 @@ const getNumberByCategory = function (category){
     return map.get(category);
 }
 
-export const numberValidator = function (input, min, max){
-    return input >= min && input<=max;
-}
-
 export const getQuestions = function (number, category, difficulty, type){
     const numRequest = checkNumber(number);
     const catRequest = checkCategory(category);
@@ -79,23 +75,6 @@ export const getQuestions = function (number, category, difficulty, type){
         })
 }
 
-export const saveJsonToMemory = function (data){
-    sessionStorage.setItem('trivial_questions',JSON.stringify(data));
-}
-
-export const loadJsonFromMemory = function (){
-    const questions = sessionStorage.getItem('trivial_questions');
-    return JSON.parse(questions);
-}
-
-export const getQuestionByNumber = function (number){
-    return loadJsonFromMemory().result[number].question;
-}
-
-export const getAnswerByNumber = function (number){
-    return loadJsonFromMemory().result[number].correct_answer;
-}
-
 export const setTotalPlayers = function (players){
     sessionStorage.setItem('trivial_total_players', players);
 }
@@ -104,10 +83,19 @@ export const getTotalPlayers = function (){
     return sessionStorage.getItem('trivial_total_players');
 }
 
-export const savePlayerStatus = function (playerNumber, json, score, currentQuestion, totalQuestions, timeLeft){
+export const setCommonQuestionCategory = function (type){
+    sessionStorage.setItem('trivial_question_category', type);
+}
+
+export const getCommonQuestionCategory = function (){
+    return sessionStorage.getItem('trivial_question_category');
+}
+
+export const savePlayerStatus = function (playerNumber, json, score, currentQuestionNumber, totalQuestions, timeLeft){
+    console.log('save: trivial_player' + playerNumber + '_json');
     sessionStorage.setItem('trivial_player' + playerNumber + '_json', JSON.stringify(json));
     sessionStorage.setItem('trivial_player' + playerNumber + '_score', score);
-    sessionStorage.setItem('trivial_player' + playerNumber + '_currentQuestion', currentQuestion);
+    sessionStorage.setItem('trivial_player' + playerNumber + '_currentQuestionNumber', currentQuestionNumber);
     sessionStorage.setItem('trivial_player' + playerNumber + '_totalQuestions', totalQuestions);
     sessionStorage.setItem('trivial_player' + playerNumber + '_timeLeft', timeLeft);
 
@@ -118,19 +106,35 @@ export const setReadyStatus = function (value){
 }
 
 export const getReadyStatus = function (){
-    return sessionStorage.getItem('trivial_ready');
-}
-
-export const setPlayerProperty = function (playerNumber, property, value){
-    sessionStorage.setItem('trivial_player' + playerNumber + '_' + property, value);
+    const status = sessionStorage.getItem('trivial_ready');
+    if(status === 'true') return true;
+    else return false;
 }
 
 export const getPlayerProperty = function (playerNumber, property){
-    return sessionStorage.getItem('trivial_player' + playerNumber + '_' + property);
+    const stored = sessionStorage.getItem('trivial_player' + playerNumber + '_' + property);
+    console.log('trivial_player' + playerNumber + '_' + property);
+    console.log(stored);
+    if(property === 'json') return JSON.parse(stored);
+    else return stored;
 }
 
-export const loadSetUpFromMemory = function (name){
-    return sessionStorage.getItem('trivial_setup_' + name);
+const getRandomAnswerPosition = function (arrayLength){
+    return Math.floor(Math.random() * arrayLength);
+}
+
+export const getAnswers = function (playerNumber, currentQuestion){
+    const answerArray = [];
+    currentQuestion = currentQuestion-1;
+    const result = getPlayerProperty(playerNumber, 'json').results[currentQuestion];
+    const correct = result.correct_answer;
+    result.incorrect_answers.forEach(answer => answerArray.push(answer));
+    answerArray.splice(getRandomAnswerPosition(answerArray.length+1), 0, correct);
+    return answerArray;
+}
+
+export const getCurrentQuestion = function (playerNumber, currentQuestionNumber){
+    return getPlayerProperty(playerNumber, 'json').results[currentQuestionNumber-1].question;
 }
 
 export const setCurrentPlayer = function (player){
