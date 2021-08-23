@@ -26,7 +26,7 @@ export default function Players({ready}){
 
         setReadyStatus(true);
 
-         for(let i = 1; i <= players.current.value; i++){
+        for(let i = 1; i <= players.current.value; i++){
              const quNumberNow = quNumber.current.value;
              const timeNow = time.current.value;
              getQuestions(quNumber.current.value, cat.current.value, dif.current.value, type.current.value)
@@ -42,7 +42,10 @@ export default function Players({ready}){
                 })
         }
 
-        ready(getReadyStatus());
+        // left some time for saving
+        setTimeout(() => {
+            ready(getReadyStatus());
+        },1500);
 
     }
 

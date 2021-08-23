@@ -92,7 +92,7 @@ export const getCommonQuestionCategory = function (){
 }
 
 export const savePlayerStatus = function (playerNumber, json, score, currentQuestionNumber, totalQuestions, timeLeft){
-    console.log('save: trivial_player' + playerNumber + '_json');
+    // console.log('save: trivial_player' + playerNumber + '_timeLeft: ' + timeLeft);
     sessionStorage.setItem('trivial_player' + playerNumber + '_json', JSON.stringify(json));
     sessionStorage.setItem('trivial_player' + playerNumber + '_score', score);
     sessionStorage.setItem('trivial_player' + playerNumber + '_currentQuestionNumber', currentQuestionNumber);
@@ -113,8 +113,7 @@ export const getReadyStatus = function (){
 
 export const getPlayerProperty = function (playerNumber, property){
     const stored = sessionStorage.getItem('trivial_player' + playerNumber + '_' + property);
-    console.log('trivial_player' + playerNumber + '_' + property);
-    console.log(stored);
+    // console.log('trivial_player' + playerNumber + '_' + property + ': ' + stored);
     if(property === 'json') return JSON.parse(stored);
     else return stored;
 }
@@ -139,6 +138,10 @@ export const getCurrentQuestion = function (playerNumber, currentQuestionNumber)
 
 export const setCurrentPlayer = function (player){
     sessionStorage.setItem('trivial_setup_current_player', player);
+}
+
+export const setScore = function (player, score){
+    sessionStorage.setItem('trivial_player' + player + '_score', score);
 }
 
 export const getCurrentPlayer = function (){
