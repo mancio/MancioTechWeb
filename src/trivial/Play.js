@@ -8,7 +8,7 @@ import {
 import './Play.css'
 import {useEffect, useState} from "react";
 
-export default function Play(){
+export default function Play({page}){
 
     const totalPlayers = getTotalPlayers();
     const questionType = getCommonQuestionCategory();
@@ -95,39 +95,44 @@ export default function Play(){
     }
 
     function switchPlayer(){
-        const nextPlayer = getNextPlayer();
-        const score = getPlayerProperty(nextPlayer, 'score');
-        const scoreAllPlayers = getScoreAllPlayers(totalPlayers);
-        let currentQuestionNumber = getPlayerProperty(nextPlayer, 'currentQuestionNumber');
-        console.log('reading question number: ' + currentQuestionNumber);
-        const currentQuestion = getCurrentQuestion(nextPlayer, currentQuestionNumber);
-        const totalQuestions = getPlayerProperty(nextPlayer, 'totalQuestions');
-        const time = getPlayerProperty(nextPlayer, 'timeLeft');
-        const correctAns = getCorrectAnswer(nextPlayer, currentQuestionNumber);
-        const answers = getAnswers(nextPlayer, currentQuestionNumber);
+        if(state.questionsLeft === 0){
+            page('Winner');
+        }else {
+            const nextPlayer = getNextPlayer();
+            const score = getPlayerProperty(nextPlayer, 'score');
+            const scoreAllPlayers = getScoreAllPlayers(totalPlayers);
+            let currentQuestionNumber = getPlayerProperty(nextPlayer, 'currentQuestionNumber');
+            console.log('reading question number: ' + currentQuestionNumber);
+            const currentQuestion = getCurrentQuestion(nextPlayer, currentQuestionNumber);
+            const totalQuestions = getPlayerProperty(nextPlayer, 'totalQuestions');
+            const time = getPlayerProperty(nextPlayer, 'timeLeft');
+            const correctAns = getCorrectAnswer(nextPlayer, currentQuestionNumber);
+            const answers = getAnswers(nextPlayer, currentQuestionNumber);
 
-        setSeconds(time);
-        setTimeEnd(false);
-        setNextQuestion(nextPlayer, currentQuestionNumber);
-        setCurrentPlayer(nextPlayer);
-        setCorrect(false);
-        setWrong(false);
-        setClick(true);
+            setSeconds(time);
+            setTimeEnd(false);
+            setNextQuestion(nextPlayer, currentQuestionNumber);
+            setCurrentPlayer(nextPlayer);
+            setCorrect(false);
+            setWrong(false);
+            setClick(true);
 
-        const qLeftNow = totalQuestions - currentQuestionNumber;
+            const qLeftNow = totalQuestions - currentQuestionNumber;
 
-        setState(
-            {
-                currentPlayer: nextPlayer,
-                currentScore: score,
-                scorePlayers: scoreAllPlayers,
-                currentQuestionNumber: currentQuestionNumber,
-                currentQuestion: currentQuestion,
-                answerArray: answers,
-                correctAnswer: correctAns,
-                questionsLeft: qLeftNow
-            }
-        );
+            setState(
+                {
+                    currentPlayer: nextPlayer,
+                    currentScore: score,
+                    scorePlayers: scoreAllPlayers,
+                    currentQuestionNumber: currentQuestionNumber,
+                    currentQuestion: currentQuestion,
+                    answerArray: answers,
+                    correctAnswer: correctAns,
+                    questionsLeft: qLeftNow
+                }
+            );
+        }
+
     }
 
     let plCounter = 0;

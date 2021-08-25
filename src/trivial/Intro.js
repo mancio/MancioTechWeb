@@ -3,21 +3,32 @@ import Play from "./Play";
 import {useState} from "react";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
+import Winner from "./Winner";
 
 export default function Intro(){
 
-    const [play, setPlay] = useState(false);
+    const [page, setPage] = useState('Players');
 
     const back = getMenuItemByTag('back');
 
-    function checkStatus(value){
-        console.log("play value is: " + value);
-        setPlay(value);
+    function changePage(value){
+        setPage(value);
+    }
+
+    function switcher(page){
+        switch (page) {
+            case 'Players':
+                return <Players page={changePage}/>;
+            case 'Play':
+                return <Play page={changePage}/>;
+            case 'Winner':
+                return <Winner/>;
+        }
     }
 
     return(
         <div>
-            { play ? <Play/> : <Players ready={checkStatus}/> }
+            {switcher(page)}
             <div>
                 <ButtonTemplate
                     key={back.id}

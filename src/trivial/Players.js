@@ -9,7 +9,7 @@ import {
     setReadyStatus, setTotalPlayers
 } from "./PlayersHandler";
 
-export default function Players({ready}){
+export default function Players({page}){
 
     const players = React.createRef();
     const cat = React.createRef();
@@ -44,7 +44,7 @@ export default function Players({ready}){
 
         // left some time for saving
         setTimeout(() => {
-            ready(getReadyStatus());
+            if(getReadyStatus()) page('Play')
         },1500);
 
     }
@@ -79,7 +79,7 @@ export default function Players({ready}){
                     </div>
                     <div className='trivial-section'>
                         <label> Number of question: </label>
-                        <input ref={quNumber} className='trivial-input' type="number" name="question-number" step="1" min='10' max='50' required/>
+                        <input ref={quNumber} className='trivial-input' type="number" name="question-number" step="1" min='1' max='50' required/>
                     </div>
                     <div className='trivial-section'>
                         <label> Time per question: </label>
