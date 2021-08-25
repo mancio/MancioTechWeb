@@ -1,93 +1,148 @@
 import {
     getAnswers,
-    getCommonQuestionCategory, getCurrentQuestion,
-    getPlayerProperty,
-    getTotalPlayers,
-    setNextPlayer
+    getCommonQuestionCategory, getCorrectAnswer, getCurrentQuestion, getNextPlayer,
+    getPlayerProperty, getScoreAllPlayers,
+    getTotalPlayers, getZeroScore, setCurrentPlayer,
+    setNextQuestion, setScore
 } from "./PlayersHandler";
 import './Play.css'
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Play(){
 
     const totalPlayers = getTotalPlayers();
     const questionType = getCommonQuestionCategory();
 
+    const totTime = getPlayerProperty(1, 'timeLeft');
+
     const [firstSetUp, setFirstSetUp] = useState(true);
-    const [answChange, setAnswChange] = useState(false);
+
+    const [seconds, setSeconds] = useState(totTime);
+
+    const [timeEnd, setTimeEnd] = useState(false);
+
+    const [correct, setCorrect] = useState(false);
+    const [wrong, setWrong] = useState(false);
+    const [click, setClick] = useState(true);
 
     const [state, setState] = useState(
         {
             currentPlayer: 1,
-            scorePlayer: 0,
+            currentScore: 0,
+            scorePlayers: [],
             currentQuestionNumber: 1,
             currentQuestion: "loading",
             answerArray: [],
+            correctAnswer: "",
             questionsLeft: "loading",
-            timeLeft: "loading"
         }
     )
 
-    function countDown(){
-        setInterval(() => {
-            setState(prev => ({
-                ...prev,
-                timeLeft: state.timeLeft-1
-            }))
-        },1000)
-    }
+
+
 
     useEffect(() => {
         if(firstSetUp){
+            setCurrentPlayer(1);
+            setNextQuestion(1, 1);
             const question = getCurrentQuestion(1,1);
             const totQ = getPlayerProperty(1, 'totalQuestions');
             const time = getPlayerProperty(1, 'timeLeft');
-            const answers = getAnswers(1, 1)
+            const answers = getAnswers(1, 1);
+            const correctAns = getCorrectAnswer(1, 1);
+            const zeroScore = getZeroScore(totalPlayers);
             setState({
                 currentPlayer: 1,
-                scorePlayer: 0,
+                currentScore: 0,
+                scorePlayers: zeroScore,
                 currentQuestionNumber: 1,
                 currentQuestion: question,
                 answerArray: answers,
+                correctAnswer: correctAns,
                 questionsLeft: totQ-1,
-                timeLeft: time
             })
+
+            setSeconds(time);
         }
+
         setFirstSetUp(false);
 
-        countDown();
+        if(!timeEnd) {
+            if(seconds <= 0) {
+                setTimeEnd(true);
+                setClick(false);
+                setSeconds(0);
+            }else {
+                setTimeout(() => {
+                    setSeconds(seconds - 1);
+                }, 1000);
+            }
+        }
+    },[firstSetUp, seconds, timeEnd, totalPlayers])
 
-    },[firstSetUp])
-
-
+    function checkAnswer(answer) {
+        setTimeEnd(true);
+        const curAnswer = getCorrectAnswer(state.currentPlayer, state.currentQuestionNumber);
+        if(answer === curAnswer){
+            let newScore = state.currentScore;
+            newScore++;
+            setScore(state.currentPlayer, newScore);
+            setCorrect(true);
+        }else {
+            setWrong(true);
+        }
+        setClick(false);
+    }
 
     function switchPlayer(){
-        const nextPlayer = setNextPlayer();
+        const nextPlayer = getNextPlayer();
         const score = getPlayerProperty(nextPlayer, 'score');
-        const currentQuestionNumber = getPlayerProperty(nextPlayer, 'currentQuestionNumber');
+        const scoreAllPlayers = getScoreAllPlayers(totalPlayers);
+        let currentQuestionNumber = getPlayerProperty(nextPlayer, 'currentQuestionNumber');
+        console.log('reading question number: ' + currentQuestionNumber);
         const currentQuestion = getCurrentQuestion(nextPlayer, currentQuestionNumber);
         const totalQuestions = getPlayerProperty(nextPlayer, 'totalQuestions');
-        const time = getPlayerProperty(1, 'timeLeft');
+        const time = getPlayerProperty(nextPlayer, 'timeLeft');
+        const correctAns = getCorrectAnswer(nextPlayer, currentQuestionNumber);
+        const answers = getAnswers(nextPlayer, currentQuestionNumber);
+
+        setSeconds(time);
+        setTimeEnd(false);
+        setNextQuestion(nextPlayer, currentQuestionNumber);
+        setCurrentPlayer(nextPlayer);
+        setCorrect(false);
+        setWrong(false);
+        setClick(true);
+
+        const qLeftNow = totalQuestions - currentQuestionNumber;
 
         setState(
             {
                 currentPlayer: nextPlayer,
-                scorePlayer: score,
+                currentScore: score,
+                scorePlayers: scoreAllPlayers,
                 currentQuestionNumber: currentQuestionNumber,
                 currentQuestion: currentQuestion,
-                questionsLeft: totalQuestions - currentQuestionNumber,
-                timeLeft: time
+                answerArray: answers,
+                correctAnswer: correctAns,
+                questionsLeft: qLeftNow
             }
         );
-
-        setAnswChange(true);
     }
+
+    let plCounter = 0;
 
     return(
         <div>
             <div className='trivial-play-box'>
                 <h1> Let's Play! </h1>
                 <p> Players in the game: {totalPlayers} </p>
+                { state.scorePlayers.map(score => {
+                    plCounter++;
+                    return(
+                        <p key={plCounter}> Player {plCounter}: {score} </p>
+                    )
+                })}
                 <p> Question type: {questionType} </p>
                 <h2> Question number: {state.currentQuestionNumber}</h2>
                 <p> {state.currentQuestion} </p>
@@ -96,14 +151,23 @@ export default function Play(){
 
                 <div>
                     {   state.answerArray.map(answer => {
-                                return (<p key={answer}>{answer}</p>);
+                                return (<button onClick={click ? (() => checkAnswer(answer)) : null} key={answer}>{answer}</button>);
                             })
                     }
                 </div>
-
+                { (correct) && <p> Correct! </p>}
+                { (wrong) && <p> Wrong! </p>}
                 <p> Now is playing Player {state.currentPlayer}</p>
-                <p> Time Left: {state.timeLeft} </p>
+                <p> Time Left: {seconds} </p>
                 <p> Questions left: {state.questionsLeft} </p>
+                {
+                    (timeEnd) && (
+                        <div>
+                            <p> Time Expired! </p>
+                            <button onClick={switchPlayer}> Continue </button>
+                        </div>
+                    )
+                }
             </div>
         </div>
     )

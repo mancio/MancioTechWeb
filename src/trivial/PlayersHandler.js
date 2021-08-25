@@ -132,32 +132,57 @@ export const getAnswers = function (playerNumber, currentQuestion){
     return answerArray;
 }
 
+export const getCorrectAnswer = function (playerNumber, currentQuestion){
+    currentQuestion = currentQuestion-1;
+    return getPlayerProperty(playerNumber, 'json').results[currentQuestion].correct_answer;
+}
+
 export const getCurrentQuestion = function (playerNumber, currentQuestionNumber){
     return getPlayerProperty(playerNumber, 'json').results[currentQuestionNumber-1].question;
 }
 
 export const setCurrentPlayer = function (player){
     sessionStorage.setItem('trivial_setup_current_player', player);
+    console.log('setCurrent player to: ' + player);
+}
+
+export const getZeroScore = function (playerNumber){
+    let scoreArray = [];
+    for (let i = 0; i < playerNumber; i++){
+        scoreArray.push(0);
+    }
+    return scoreArray;
+}
+
+export const getScoreAllPlayers = function (players){
+    let allScores = [];
+    for(let i = 1; i <= players; i++){
+        allScores.push(getPlayerProperty(i, 'score'));
+    }
+    return allScores;
 }
 
 export const setScore = function (player, score){
     sessionStorage.setItem('trivial_player' + player + '_score', score);
 }
 
+export const setNextQuestion = function (player, curQuestionNumber){
+    curQuestionNumber++;
+    sessionStorage.setItem('trivial_player' + player + '_currentQuestionNumber', curQuestionNumber);
+    console.log('curQuestion set to: ' + curQuestionNumber);
+}
+
+
 export const getCurrentPlayer = function (){
     return sessionStorage.getItem('trivial_setup_current_player');
 }
 
-export const setNextPlayer = function (){
-    let current = getCurrentPlayer();
-    const players = getTotalPlayers();
-    if(current === players){
-        setCurrentPlayer(1);
-        return 1;
-    }else {
-        current++;
-        setCurrentPlayer(current);
-        return current;
+export const getNextPlayer = function () {
+    let players = sessionStorage.getItem('trivial_setup_current_player');
+    if (players === getTotalPlayers()) return 1;
+    else {
+        players++;
+        return players;
     }
 }
 
