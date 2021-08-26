@@ -24,6 +24,7 @@ export default function Play({page}){
     const [correct, setCorrect] = useState(false);
     const [wrong, setWrong] = useState(false);
     const [click, setClick] = useState(true);
+    const [wasLastPlayer, setWasLastPlayer] = useState(false);
 
     const [state, setState] = useState(
         {
@@ -95,8 +96,10 @@ export default function Play({page}){
     }
 
     function switchPlayer(){
-        if(state.questionsLeft === 0){
-            page('Winner');
+        if(parseInt(state.currentPlayer) === parseInt(getTotalPlayers()) && parseInt(state.questionsLeft) === 0){
+            setTimeout(() => {
+                page('Winner');
+            },1000)
         }else {
             const nextPlayer = getNextPlayer();
             const score = getPlayerProperty(nextPlayer, 'score');
@@ -132,7 +135,6 @@ export default function Play({page}){
                 }
             );
         }
-
     }
 
     let plCounter = 0;

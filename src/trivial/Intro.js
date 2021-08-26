@@ -23,6 +23,8 @@ export default function Intro(){
                 return <Play page={changePage}/>;
             case 'Winner':
                 return <Winner/>;
+            default:
+                return <p> Error.... </p>
         }
     }
 
