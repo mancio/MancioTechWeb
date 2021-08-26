@@ -56,6 +56,19 @@ const getNumberByCategory = function (category){
     return map.get(category);
 }
 
+const conversionMap = {
+    '&#039;': "'",
+    '&quot;': '"',
+    '&pi;': 'pi'
+    // add here all characters you want to replace
+}
+
+export const replaceSpecialCharacters = function (string){
+    const rep = string.replace(/&#?\w+;/gi, match => conversionMap[match]);
+    console.log(rep);
+    return rep;
+}
+
 export const getQuestions = function (number, category, difficulty, type){
     const numRequest = checkNumber(number);
     const catRequest = checkCategory(category);
@@ -126,19 +139,19 @@ export const getAnswers = function (playerNumber, currentQuestion){
     const answerArray = [];
     currentQuestion = currentQuestion-1;
     const result = getPlayerProperty(playerNumber, 'json').results[currentQuestion];
-    const correct = result.correct_answer;
-    result.incorrect_answers.forEach(answer => answerArray.push(answer));
+    const correct = replaceSpecialCharacters(result.correct_answer);
+    result.incorrect_answers.forEach(answer => answerArray.push(replaceSpecialCharacters(answer)));
     answerArray.splice(getRandomAnswerPosition(answerArray.length+1), 0, correct);
     return answerArray;
 }
 
 export const getCorrectAnswer = function (playerNumber, currentQuestion){
     currentQuestion = currentQuestion-1;
-    return getPlayerProperty(playerNumber, 'json').results[currentQuestion].correct_answer;
+    return replaceSpecialCharacters(getPlayerProperty(playerNumber, 'json').results[currentQuestion].correct_answer);
 }
 
 export const getCurrentQuestion = function (playerNumber, currentQuestionNumber){
-    return getPlayerProperty(playerNumber, 'json').results[currentQuestionNumber-1].question;
+    return replaceSpecialCharacters(getPlayerProperty(playerNumber, 'json').results[currentQuestionNumber-1].question);
 }
 
 export const setCurrentPlayer = function (player){

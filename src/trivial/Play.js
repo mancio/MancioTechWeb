@@ -2,7 +2,7 @@ import {
     getAnswers,
     getCommonQuestionCategory, getCorrectAnswer, getCurrentQuestion, getNextPlayer,
     getPlayerProperty, getScoreAllPlayers,
-    getTotalPlayers, getZeroScore, setCurrentPlayer,
+    getTotalPlayers, getZeroScore, replaceSpecialCharacters, setCurrentPlayer,
     setNextQuestion, setScore
 } from "./PlayersHandler";
 import './Play.css'
@@ -24,7 +24,6 @@ export default function Play({page}){
     const [correct, setCorrect] = useState(false);
     const [wrong, setWrong] = useState(false);
     const [click, setClick] = useState(true);
-    const [wasLastPlayer, setWasLastPlayer] = useState(false);
 
     const [state, setState] = useState(
         {
@@ -96,7 +95,7 @@ export default function Play({page}){
     }
 
     function switchPlayer(){
-        if(parseInt(state.currentPlayer) === parseInt(getTotalPlayers()) && parseInt(state.questionsLeft) === 0){
+        if(parseInt(state.currentPlayer) === parseInt(totalPlayers) && parseInt(state.questionsLeft) === 0){
             setTimeout(() => {
                 page('Winner');
             },1000)
