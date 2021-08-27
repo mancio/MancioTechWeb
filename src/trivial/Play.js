@@ -2,7 +2,7 @@ import {
     getAnswers,
     getCommonQuestionCategory, getCorrectAnswer, getCurrentQuestion, getNextPlayer,
     getPlayerProperty, getScoreAllPlayers,
-    getTotalPlayers, getZeroScore, replaceSpecialCharacters, setCurrentPlayer,
+    getTotalPlayers, getZeroScore, setCurrentPlayer,
     setNextQuestion, setScore
 } from "./PlayersHandler";
 import './Play.css'
@@ -141,15 +141,22 @@ export default function Play({page}){
     return(
         <div>
             <div className='trivial-play-box'>
-                <h1> Let's Play! </h1>
+                <h1 className='trivial-play-title'> Let's Play! </h1>
                 <p> Players in the game: {totalPlayers} </p>
-                { state.scorePlayers.map(score => {
-                    plCounter++;
-                    return(
-                        <p key={plCounter}> Player {plCounter}: {score} </p>
-                    )
-                })}
-                <p> Question type: {questionType} </p>
+                <div className='play-player-list'>
+                    { state.scorePlayers.map(score => {
+                        plCounter++;
+                        return(
+                            <p key={plCounter}>
+                                <span className='player-tag'> Player {plCounter}:</span>
+                                <span className='score-tag'> {score} </span>
+                            </p>
+                        )
+                    })}
+                </div>
+                <p className='question-type'>
+                    <span className='question-type-tag'> Question type: {questionType} </span>
+                </p>
                 <h2> Question number: {state.currentQuestionNumber}</h2>
                 <p> {state.currentQuestion} </p>
 

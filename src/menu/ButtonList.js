@@ -2,6 +2,7 @@ import ButtonTemplate from "./ButtonTemplate";
 import React from "react";
 import {getMenuNoBack} from "./MenuHandler";
 import {genRandomColor} from "../logic/RandomColorGenerator";
+import './ButtonTemplate.css';
 
 class ButtonList extends React.Component{
 

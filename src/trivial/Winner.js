@@ -1,4 +1,5 @@
 import {getScoreAllPlayers, getTheWinner, getTotalPlayers} from "./PlayersHandler";
+import './Winner.css';
 
 export default function Winner(){
 
@@ -9,13 +10,13 @@ export default function Winner(){
 
     return(
         <div>
-            <div>
+            <div className='winner-list'>
                 {scoreAllPlayers.map(score => {
                     counter++;
                     return(<p key={counter}> Player {counter}: {score} </p>)
                 })}
             </div>
-            <p>The winner is player: {winner} </p>
+            <p className='winner-list'>The winner is player: {winner} </p>
         </div>
     )
 }
