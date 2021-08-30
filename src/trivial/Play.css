@@ -1,8 +1,8 @@
 .trivial-play-title{
-    animation: changeColor 7s infinite;
+    animation: playChangeColor 7s infinite;
 }
 
-@keyframes changeColor {
+@keyframes playChangeColor {
     25% { color: #e3d917;}
     50% { color: #c77415;}
     75% { color: #e31e17;}
@@ -14,7 +14,7 @@
     border-radius: 20px;
     color: black;
     font-family: Jokerman, sans-serif;
-    width: 800px;
+    width: auto;
     height: auto;
 }
 
@@ -24,14 +24,15 @@
     justify-content: space-around;
     width: auto;
     height: auto;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    border-radius: 6px;
+    margin: 25px;
+    border-radius: 20px;
+    border: dotted;
 }
 
 .player-tag{
-    background: #c7c112;
+    /*background: #c7c112;*/
     border-radius: 20px;
+    border: dotted;
 }
 
 .score-tag{
@@ -47,4 +48,19 @@
     border-radius: 20px;
     padding: 5px 30px 5px 30px;
     color: white;
+}
+
+.current-question{
+    background: #2459dc;
+    color: white;
+    font-family: sans-serif;
+}
+
+.answer-button{
+    background: black;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    font-size: x-large;
 }

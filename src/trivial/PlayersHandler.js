@@ -167,20 +167,6 @@ export const getZeroScore = function (playerNumber){
     return scoreArray;
 }
 
-const allArrayValuesAreEqual = function (array){
-    if(array.length === 1) return array[0] === 0;
-    else array.every( v => v === array[0]);
-}
-
-export const getTheWinner = function (){
-    const players = getTotalPlayers();
-    const scoreArray = getScoreAllPlayers(players);
-    if(allArrayValuesAreEqual(scoreArray)) return 'nobody';
-    else {
-        return scoreArray.indexOf(Math.max(...scoreArray)) + 1;
-    }
-}
-
 export const getScoreAllPlayers = function (players){
     let allScores = [];
     for(let i = 1; i <= players; i++){

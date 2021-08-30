@@ -143,34 +143,32 @@ export default function Play({page}){
             <div className='trivial-play-box'>
                 <h1 className='trivial-play-title'> Let's Play! </h1>
                 <p> Players in the game: {totalPlayers} </p>
+                <p className='question-type'>
+                    <span className='question-type-tag'> Question type: {questionType} </span>
+                </p>
                 <div className='play-player-list'>
                     { state.scorePlayers.map(score => {
                         plCounter++;
                         return(
                             <p key={plCounter}>
-                                <span className='player-tag'> Player {plCounter}:</span>
-                                <span className='score-tag'> {score} </span>
+                                <span className='player-tag'> Player {plCounter}: {score} </span>
                             </p>
                         )
                     })}
                 </div>
-                <p className='question-type'>
-                    <span className='question-type-tag'> Question type: {questionType} </span>
-                </p>
-                <h2> Question number: {state.currentQuestionNumber}</h2>
-                <p> {state.currentQuestion} </p>
+                <p> Now player {state.currentPlayer} answer question {state.currentQuestionNumber}</p>
+                <p className='current-question'> {state.currentQuestion} </p>
 
                 <p> Possible answers: </p>
 
                 <div>
                     {   state.answerArray.map(answer => {
-                                return (<button onClick={click ? (() => checkAnswer(answer)) : null} key={answer}>{answer}</button>);
+                                return (<button className='answer-button' onClick={click ? (() => checkAnswer(answer)) : null} key={answer}>{answer}</button>);
                             })
                     }
                 </div>
                 { (correct) && <p> Correct! </p>}
                 { (wrong) && <p> Wrong! </p>}
-                <p> Now is playing Player {state.currentPlayer}</p>
                 <p> Time Left: {seconds} </p>
                 <p> Questions left: {state.questionsLeft} </p>
                 {

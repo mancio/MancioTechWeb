@@ -1,9 +1,8 @@
-import {getScoreAllPlayers, getTheWinner, getTotalPlayers} from "./PlayersHandler";
+import {getScoreAllPlayers, getTotalPlayers} from "./PlayersHandler";
 import './Winner.css';
 
 export default function Winner(){
 
-    const winner = getTheWinner();
     const scoreAllPlayers = getScoreAllPlayers(getTotalPlayers());
 
     let counter = 0;
@@ -16,7 +15,6 @@ export default function Winner(){
                     return(<p key={counter}> Player {counter}: {score} </p>)
                 })}
             </div>
-            <p className='winner-list'>The winner is player: {winner} </p>
         </div>
     )
 }

@@ -10,16 +10,6 @@ const webcam = [
         tag: 'bird'
     },
     {
-        src: 'https://lookcam.live/player/O9JPLY0Ul0/',
-        title: 'Góra Kamieńsk',
-        country: 'Poland',
-        width: 500,
-        height: 300,
-        frameBorder: 0,
-        allowFullScreen: 'true',
-        tag: 'mountains'
-    },
-    {
         src: 'https://lookcam.live/player/MkpBtMYG6E/',
         title: 'Fiddlers - squirrel aviary',
         country: 'Where?',
