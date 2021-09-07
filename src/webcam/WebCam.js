@@ -15,6 +15,7 @@ class WebCam extends React.Component{
                     height={webcam.height}
                     frameBorder={webcam.frameBorder}
                     allowFullScreen={webcam.allowFullScreen}
+                    allow='autoplay'
                 />
                 <div className='webcam-description'>
                     <p>{webcam.title}</p>
