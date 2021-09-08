@@ -1,0 +1,16 @@
+.cooking-page-title{
+    font-family: Jokerman, sans-serif;
+}
+
+.recipes-list{
+    background: white;
+    color: black;
+    border-radius: 20px;
+    font-family: sans-serif;
+}
+
+.cake-picture{
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}

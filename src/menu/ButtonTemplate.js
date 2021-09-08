@@ -46,6 +46,9 @@ function ButtonTemplate(props) {
             case 'weather':
                 history.push('/weather');
                 break;
+            case 'recipes':
+                history.push('/recipes');
+                break;
             case 'back':
                 history.goBack();
                 break;

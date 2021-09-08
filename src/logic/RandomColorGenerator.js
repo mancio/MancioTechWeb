@@ -5,16 +5,16 @@ const colors = [
     '#ff6699',
     '#ff0066',
     '#cccc00',
-    '#7e08db'
+    '#7e08db',
+    '#04e8c6',
+    '#e85404',
+    '#bd6aea',
+    '#d1a000',
+    '#eeff00'
 ];
-
-let picked = 'xxxx';
 
 export const genRandomColor = function (){
     let rand = Math.floor(Math.random() * colors.length);
-    let newColor = colors[rand];
-    if(newColor === picked) return colors[Math.abs(rand-1%colors.length)];
-    picked = newColor;
-    return picked;
+    return colors[rand];
 }
 

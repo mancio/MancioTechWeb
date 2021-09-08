@@ -10,6 +10,7 @@ import Tv from "./Tv";
 import Series from "./Series";
 import Weather from "./Weather";
 import Trivial from "./Trivial";
+import Recipes from "./Recipes";
 
 class SelectIcon extends React.Component{
 
@@ -41,6 +42,8 @@ class SelectIcon extends React.Component{
                 return <Series iconColor={this.iconColor}/>;
             case 'WEATHER':
                 return <Weather iconColor={this.iconColor}/>;
+            case 'RECIPES':
+                return <Recipes iconColor={this.iconColor}/>;
             case 'BACK':
                 return <Back iconColor={this.iconColor}/>;
             default:
