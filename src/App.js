@@ -1,3 +1,4 @@
+import CookieConsent from "react-cookie-consent";
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -22,6 +23,7 @@ class App extends React.Component{
   render() {
     return(
         <div className="App App-main-container">
+          <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
           <React.Suspense fallback={<Loading/>}>
             <Router>
               <Switch>
