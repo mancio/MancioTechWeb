@@ -18,6 +18,7 @@ const EnterLink = React.lazy(() => import("./tv/EnterLink"));
 const Platform = React.lazy(() => import("./series/Platform"));
 const Weather = React.lazy(() => import("./weather/Weather"));
 const Recipes = React.lazy(() => import("./recipes/Recipes"));
+const SingleRecipe = React.lazy(() => import("./recipes/SingleRecipe"));
 
 class App extends React.Component{
 
@@ -42,6 +43,7 @@ class App extends React.Component{
                 <Route path='/weather' component={Weather}/>
                 <Route path='/trivial' component={Intro}/>
                 <Route path='/recipes' component={Recipes}/>
+                <Route path='/recipes/:tag' component={SingleRecipe}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>
             </Router>

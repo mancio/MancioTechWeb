@@ -3,7 +3,7 @@ const recipes = {
         {
             language: 'IT',
             title: 'Crostata di marmellata',
-            picture: 'https://www.tavolartegusto.it/wp/wp-content/uploads/2017/09/Fette-morbide-di-Crostata-Ricetta-Crostata-alla-marmellata.jpg',
+            picture: 'https://www.scambiaricette.it/wp-content/uploads/2020/03/crostata-alla-marmellata.jpg',
             ingredients: {
                 farina: '330 gr',
                 burro: '165 gr',
@@ -53,14 +53,12 @@ export const getRecipeList = function (){
     return recipes.results;
 }
 
-// export const getRecipesTitles = function (){
-//     let titles = [];
-//     recipes.results.forEach(recipe => titles.push(recipe.title));
-//     return titles;
-// }
-//
-// export const getRecipesPictures = function (){
-//     let pictures = [];
-//     recipes.results.forEach(recipe => pictures.push(recipe.picture));
-//     return pictures;
-// }
+export const removeTextSpace = function (text){
+    return text.replace(/ /g, '-');
+}
+
+export const replaceTextSpace = function (text){
+    return text.replace(/-/g, ' ');
+}
+
+export const getRecipeBy
