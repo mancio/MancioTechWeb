@@ -43,7 +43,7 @@ class App extends React.Component{
                 <Route path='/weather' component={Weather}/>
                 <Route path='/trivial' component={Intro}/>
                 <Route path='/recipes' component={Recipes}/>
-                <Route path='/recipes/:tag' component={SingleRecipe}/>
+                <Route path='/recipe/:tag' component={SingleRecipe}/>
                 <Route path='/boo' component={WorkInProgress}/>
               </Switch>
             </Router>
