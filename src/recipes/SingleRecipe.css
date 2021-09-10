@@ -12,6 +12,10 @@
     width: 45%;
 }
 
+.recipe-panel > h1{
+    font-family: Jokerman, sans-serif;
+}
+
 .ingredients-table{
     border: dotted 10px;
     margin-right: auto;
@@ -22,6 +26,8 @@
 
 .ingredients-table > tbody > tr > td{
     border: solid 2px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .recipe-desc-part{
@@ -53,4 +59,13 @@
 
 .cake-diameter-part > p{
     font-size: x-large;
+    font-family: Jokerman, sans-serif;
+}
+
+.button-change-ingredients{
+    border-radius: 10px;
+    background: white;
+    color: black;
+    font-family: Jokerman, sans-serif;
+    margin-bottom: 10px;
 }

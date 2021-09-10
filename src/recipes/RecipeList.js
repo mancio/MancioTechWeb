@@ -12,10 +12,10 @@ const recipes = {
                 zucchero: '130 gr',
                 uovo: '1',
                 tuorlo: '2',
-                vanilia: '1 bustina',
-                sale: '1 pizzico',
-                'lievito per dolci': '1/2 cucchiaino raso',
-                marmellata: '500 gr'
+                'zucchero vanigliato': '7 gr',
+                sale: '2 gr',
+                'lievito per dolci': '1 gr',
+                marmellata: '330 gr'
             },
             description: {
                 step1: 'Ammorbidire il burro rimescolando con zucchero e sale fino ad amalgamare il tutto',

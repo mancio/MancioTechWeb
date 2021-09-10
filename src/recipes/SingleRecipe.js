@@ -1,5 +1,6 @@
 import {useParams} from "react-router-dom";
 import {
+    areaFromDiameter, diamToFloat, getNewQuantityText,
     getRecipeByTitle,
     getRecipeDescKeys,
     getRecipeIngredientKeys,
@@ -7,7 +8,7 @@ import {
     replaceTextSpace
 } from "./RecipesHandler";
 import ButtonTemplate from "../menu/ButtonTemplate";
-import React from "react";
+import React, {useRef, useState} from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import './SingleRecipe.css';
 
@@ -23,8 +24,36 @@ export default function SingleRecipe(){
     const notes = recipe.notes;
     const picture = recipe.picture;
     const shape = recipe.shape;
+    const diameter = recipe.diameter;
+
+    const oldArea = areaFromDiameter(diamToFloat(diameter));
+    const [newArea, setNewArea] = useState(0);
+
+    const [original, setOriginal] = useState(true);
+    const [change, setChange] = useState(false);
+
+    const diaRef = useRef();
 
     let counter = 1;
+
+    function changeIngSize(){
+        setNewArea(areaFromDiameter(diamToFloat(diaRef.current.value)));
+        setOriginal(false);
+        setChange(true);
+        setTimeout(() => {
+            setChange(false)
+        },500);
+    }
+
+    function getIngredient(key){
+        if(original) return ingredients[key];
+        else if(change) return <>&nbsp; Loading 😋 &nbsp;</>;
+        else {
+            if(isACircleCake(shape)){
+                return getNewQuantityText(newArea, oldArea, ingredients[key]);
+            }
+        }
+    }
 
     return(
         <div>
@@ -37,29 +66,35 @@ export default function SingleRecipe(){
                             const ingNum = 'ing'+ counter++;
                             return(
                                 <tr key={ingNum} id={ingNum}>
-                                    <td> {key} </td>
-                                    <td> {ingredients[key]} </td>
+                                    <td>{key}</td>
+                                    <td>{getIngredient(key)}</td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
                 <div className='cake-diameter-part'>
-                    {isACircleCake(shape) && <p> Change cake Diameter </p>}
-                    <input type='number' step='1' min='10' max='60'/>
+                    {isACircleCake(shape) &&
+                        <>
+                            <p> Change cake Diameter </p>
+                            <input ref={diaRef} type='number' step='1' min='10' max='60'/>
+                        </>
+                    }
+                    <br/>
+                    <button onClick={changeIngSize} className='button-change-ingredients'> UPDATE </button>
                 </div>
                 <div className='recipe-desc-part'>
                     <ol>
                         {getRecipeDescKeys(description).map(key => {
                             return(
-                                <li>{description[key]}</li>
+                                <li key={key} id={key}> {description[key]} </li>
                             )
                         })}
                     </ol>
                 </div>
                 <div className='recipe-note-part'>
                     <h3> NOTE: </h3>
-                    <p>{notes}</p>
+                    <p> {notes} </p>
                 </div>
             </div>
             <ButtonTemplate

@@ -29,3 +29,43 @@ export const getRecipeDescKeys = function (description){
 export const isACircleCake = function (shape){
     return shape === 'circle';
 }
+
+export const areaFromDiameter = function (diameter){
+    const r = diameter/2;
+    return r * r * Math.PI;
+}
+
+const multiplyFactor = function (area1, area2){
+    if(area1 > area2) return area1/area2;
+    else if (area1 === area2) return 1;
+    else return area2/area1;
+}
+
+export const getNewQuantityText = function (newArea, oldArea, textIng){
+    const factor = multiplyFactor(newArea, oldArea);
+    console.log('new: ' + newArea + ', old: ' + oldArea + ', fact: ' + factor);
+    let op;
+    const quantity = ingToFloat(textIng);
+    if(newArea >= oldArea) op = roundToInt(quantity * factor);
+    else op = roundToInt(quantity / factor);
+    return op + ingOnlyText(textIng);
+}
+
+const roundToInt = function (num){
+    return Math.round(num);
+}
+
+export const diamToFloat = function (textDiameter){
+    const textNum = textDiameter.replace(/ /g, '').replace(/cm/g, '');
+    return parseFloat(textNum);
+}
+
+const ingToFloat = function (textIng){
+    const numIng = textIng.replace(/ /g, '').replace(/gr/g,'').replace(/kg/g,'')
+        .replace(/ml/g,'').replace(/l/g,'');
+    return parseFloat(numIng);
+}
+
+const ingOnlyText = function (textIng){
+    return textIng.replace(/[0-9]/g, '');
+}
