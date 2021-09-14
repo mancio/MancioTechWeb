@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
 import {
-    areaFromDiameter, diamToFloat, getNewQuantityText,
+    areaFromDiameter, getNewQuantityText,
     getRecipeByTitle,
     getRecipeDescKeys,
-    getRecipeIngredientKeys,
+    getRecipeIngredientKeys, ingToFloat,
     isACircleCake,
     replaceTextSpace
 } from "./RecipesHandler";
@@ -26,7 +26,7 @@ export default function SingleRecipe(){
     const shape = recipe.shape;
     const diameter = recipe.diameter;
 
-    const oldArea = areaFromDiameter(diamToFloat(diameter));
+    const oldArea = areaFromDiameter(ingToFloat(diameter));
     const [newArea, setNewArea] = useState(0);
 
     const [original, setOriginal] = useState(true);
@@ -37,7 +37,7 @@ export default function SingleRecipe(){
     let counter = 1;
 
     function changeIngSize(){
-        setNewArea(areaFromDiameter(diamToFloat(diaRef.current.value)));
+        setNewArea(areaFromDiameter(ingToFloat(diaRef.current.value)));
         setOriginal(false);
         setChange(true);
         setTimeout(() => {

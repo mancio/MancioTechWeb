@@ -45,6 +45,28 @@ const recipes = {
                 '(non a contatto) in modo da evitare che la superficie si bruci. ' +
                 'Più albumi aumentano la durezza dell\'impasto una volta cotta. ' +
                 'Più tuorli aumentano friabilità e sapore.'
+        },
+        {
+            language: 'IT',
+            title: 'Tiramisu',
+            shape: 'rectangle',
+            width: '22 cm',
+            height: '16 cm',
+            picture: 'https://polki.pl/foto/4_3_LARGE/tiramisu-2350187.webp',
+            ingredients: {
+                uova: '4',
+                mascarpone: '400 gr',
+                zucchero: '120 gr',
+                savoiardi: '400 gr',
+                caffe: '2 lunghi',
+                cacao: '1 bustina'
+            },
+            description: {
+                step1: 'Portare il mascarpone a temperatura ambiente',
+                step2: 'Separare tuorli da albumi, facendo attenzione non vengano a contatto',
+                step3: ''
+            },
+            notes: 'inpinpnp'
         }
     ]
 }

@@ -30,6 +30,10 @@ export const isACircleCake = function (shape){
     return shape === 'circle';
 }
 
+export const isRectangular = function (shape){
+    return shape === 'rectangle' || shape === 'rectangular'
+}
+
 export const areaFromDiameter = function (diameter){
     const r = diameter/2;
     return r * r * Math.PI;
@@ -55,14 +59,8 @@ const roundToInt = function (num){
     return Math.round(num);
 }
 
-export const diamToFloat = function (textDiameter){
-    const textNum = textDiameter.replace(/ /g, '').replace(/cm/g, '');
-    return parseFloat(textNum);
-}
-
-const ingToFloat = function (textIng){
-    const numIng = textIng.replace(/ /g, '').replace(/gr/g,'').replace(/kg/g,'')
-        .replace(/ml/g,'').replace(/l/g,'');
+export const ingToFloat = function (textIng){
+    const numIng = textIng.replace(/\D/g,'');
     return parseFloat(numIng);
 }
 
