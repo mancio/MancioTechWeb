@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom";
 import {
-    areaFromDiameter, getNewQuantityText,
+    areaCircle, areaRectangle, getNewQuantityText,
     getRecipeByTitle,
     getRecipeDescKeys,
     getRecipeIngredientKeys, ingToFloat,
-    isACircleCake,
+    isACircleCake, isRectangularCake,
     replaceTextSpace
 } from "./RecipesHandler";
 import ButtonTemplate from "../menu/ButtonTemplate";
@@ -24,34 +24,51 @@ export default function SingleRecipe(){
     const notes = recipe.notes;
     const picture = recipe.picture;
     const shape = recipe.shape;
-    const diameter = recipe.diameter;
-
-    const oldArea = areaFromDiameter(ingToFloat(diameter));
-    const [newArea, setNewArea] = useState(0);
 
     const [original, setOriginal] = useState(true);
     const [change, setChange] = useState(false);
 
     const diaRef = useRef();
+    const wRef = useRef();
+    const hRef = useRef();
 
     let counter = 1;
 
     function changeIngSize(){
-        setNewArea(areaFromDiameter(ingToFloat(diaRef.current.value)));
-        setOriginal(false);
-        setChange(true);
-        setTimeout(() => {
-            setChange(false)
-        },500);
+        if(checkFields()){
+            setOriginal(false);
+            setChange(true);
+            setTimeout(() => {
+                setChange(false)
+            },500);
+        }else window.alert("Please set a readable size");
+    }
+
+    function checkFields(){
+        if(isACircleCake(shape)){
+            if(diaRef.current.value === '' || diaRef.current.value === '0') return false;
+        }else if (isRectangularCake(shape)) {
+            if ((wRef.current.value === '' || wRef.current.value === '0')
+                && (hRef.current.value === '' || hRef.current.value === '0')) return false;
+        }
+        return true;
     }
 
     function getIngredient(key){
         if(original) return ingredients[key];
         else if(change) return <>&nbsp; Loading 😋 &nbsp;</>;
         else {
+            let oldArea = 0;
+            let newArea = 0;
             if(isACircleCake(shape)){
-                return getNewQuantityText(newArea, oldArea, ingredients[key]);
+                oldArea = areaCircle(ingToFloat(recipe.diameter));
+                newArea = areaCircle(ingToFloat(diaRef.current.value));
             }
+            if(isRectangularCake(shape)){
+                oldArea = areaRectangle(ingToFloat(recipe.width), ingToFloat(recipe.height));
+                newArea = areaRectangle(ingToFloat(wRef.current.value), ingToFloat(hRef.current.value))
+            }
+            return getNewQuantityText(newArea, oldArea, ingredients[key]);
         }
     }
 
@@ -76,8 +93,15 @@ export default function SingleRecipe(){
                 <div className='cake-diameter-part'>
                     {isACircleCake(shape) &&
                         <>
-                            <p> Change cake Diameter </p>
-                            <input ref={diaRef} type='number' step='1' min='10' max='60'/>
+                            <p> Change cake Diameter (cm) </p>
+                            <input ref={diaRef} type='number' step='1' min='10' max='60' defaultValue={ingToFloat(recipe.diameter)}/>
+                        </>
+                    }
+                    {isRectangularCake(shape) &&
+                        <>
+                            <p> Change cake dimensions (cm) </p>
+                            <p> width <input ref={wRef} type='number' step='1' min='10' max='60' defaultValue={ingToFloat(recipe.width)}/></p>
+                            <p> height <input ref={hRef} type='number' step='1' min='10' max='60' defaultValue={ingToFloat(recipe.height)}/></p>
                         </>
                     }
                     <br/>

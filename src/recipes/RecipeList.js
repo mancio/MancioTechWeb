@@ -59,14 +59,33 @@ const recipes = {
                 zucchero: '120 gr',
                 savoiardi: '400 gr',
                 caffe: '2 lunghi',
-                cacao: '1 bustina'
+                cacao: '1 bustina/e'
             },
             description: {
-                step1: 'Portare il mascarpone a temperatura ambiente',
-                step2: 'Separare tuorli da albumi, facendo attenzione non vengano a contatto',
-                step3: ''
+                step1: 'Fare il caffè lungo (meglio con la moka) e mettere zucchero quanto basta',
+                step2: 'Portare il mascarpone a temperatura ambiente',
+                step3: 'Separare tuorli da albumi, facendo attenzione non vengano a contatto',
+                step4: 'Unire zucchero e acqua in un pentolino in modo tale che l\'acqua copra leggermente lo zucchero',
+                step5: 'Mettere sul fuoco il composto e rimescolare onde evitare si formi caramello ma diventi uno sciroppo',
+                step6: 'Levare dal fuoco quando si vedono le bollicine bianche (ha superato i 100 gradi)',
+                step7: 'Ricordare di usare metà sciroppo per i tuorli e metà per gli albumi',
+                step8: 'Sbattere i tuorli a lungo con la frusta elettrica ad alta velocità mentre si versa a filo lo sciroppo. '
+                        + 'Continuare fino a quando si vedrà il composto addensare e schiarire',
+                step9: 'Versare il composto nella coppa di mascarpone a poco a poco e rimescolare in modo tale da evitare grumi',
+                step10: 'Sbattere gli albumi a lungo fino a quando il composto sarà bianco denso e spumoso',
+                step11: 'Unire il tutto rimescolando DELICATAMENTE (altrimenti il composto diventerà liquido)',
+                step12: 'Mettere un pò di composto sulla base del contenitore',
+                step13: 'Bagnare i savoiardi velocemente nel caffè e metterli in fila nel contenitore (faremo due piani)',
+                step14: 'Coprire i savoiardi con abbastanza il minimo di crema necessaria per coprirli (attenzione a non usare troppa crema)',
+                step15: 'Stendere un altro strato di savoiardi',
+                step16: 'Coprire con la crema restante livellando bene da coprire tutti i buchi',
+                step17: 'Coprire con cacao in polvere la superficie',
+                step18: 'coprire il contenitore con pellicola trasparente e lasciare in frigo per almeno 1 ora'
             },
-            notes: 'inpinpnp'
+            notes: 'Sbattere le uova il più possibile in modo da incorporare aria e rendere il composto più solido possibile. '
+                + 'Non usare troppo sciroppo per i tuorli altrimenti non sarà possibile pastorizzare gli albumi. '
+                + 'Riscaldare lo sciroppo più volte per esseri sicuri sia sempre superiore a 100 gradi. '
+                + 'Sbattere le uova velocemente mentre si versa lo sciroppo altrimenti si formeranno pezzi di uovo cotto'
         }
     ]
 }

@@ -30,13 +30,17 @@ export const isACircleCake = function (shape){
     return shape === 'circle';
 }
 
-export const isRectangular = function (shape){
+export const isRectangularCake = function (shape){
     return shape === 'rectangle' || shape === 'rectangular'
 }
 
-export const areaFromDiameter = function (diameter){
+export const areaCircle = function (diameter){
     const r = diameter/2;
     return r * r * Math.PI;
+}
+
+export const areaRectangle = function (width, height){
+    return width * height;
 }
 
 const multiplyFactor = function (area1, area2){
