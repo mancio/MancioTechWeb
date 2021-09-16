@@ -86,6 +86,46 @@ const recipes = {
                 + 'Non usare troppo sciroppo per i tuorli altrimenti non sarà possibile pastorizzare gli albumi. '
                 + 'Riscaldare lo sciroppo più volte per esseri sicuri sia sempre superiore a 100 gradi. '
                 + 'Sbattere le uova velocemente mentre si versa lo sciroppo altrimenti si formeranno pezzi di uovo cotto'
+        },
+        {
+            language: 'IT',
+            title: 'Ciambella Bolognese',
+            shape: 'rectangle',
+            width: '40 cm',
+            height: '20 cm',
+            picture: 'https://www.gotuj-z-evi.pl/wp-content/uploads/2020/07/ciambella2.jpg',
+            ingredients: {
+                farina: '500 gr',
+                latte: '150 gr',
+                burro: '150 gr',
+                zucchero: '150 gr',
+                sale: '1 gr',
+                'levito dolci': '1 bust',
+                uova: '2',
+                "zucchero vanigliato": '1 bust',
+                'zuccherini': '1 bust',
+                'ciliegie sciroppate': '1 barat'
+            },
+            description: {
+                step1: 'Sciogliere il burro in un pentolino a fuoco lento evitando che frigga o faccia odore',
+                step2: 'Mettere tutte le componenti solide in una terrina',
+                step3: 'Unire latte, burro e uova',
+                step4: 'Rimescolare il tutto (l’ordine degli ingredienti non e’ importante, ma ricordare che le uova a contatto '
+                    + 'con il burro caldo si cuociono e l’albume si monta a contatto con lo zucchero)',
+                step5: 'Quando il composto è pronto (non rimescolare troppo, basta che risulti tutto amalgamato)',
+                step6: 'Arrotolare leggermente con le mani il composto facendolo diventare come un tubo',
+                step7: 'Stendere velocemente su carta da forno in una teglia per il lungo schiacciandolo un pò',
+                step8: 'Decorare con zuccherini e ciliegie sciroppate',
+                step9: 'Mettere in forno a 170 gradi 40 min ventilato nel piano al centro',
+                step10: 'Girare dopo 20 minuti nel verso opposto per cottura omogenea',
+                step11: 'Le tempistiche possono variare a seconda del forno quindi è importante controllare la parte interna della ciambella '
+                    + 'o con uno stuzzicadente o con la lama di un coltello appoggiandola tra le crepe che si formeranno in cottura.',
+                step12: 'Per una cottura ottimale consiglio di abbassare la temperatura a 100-120 gradi quando la ciambella raggiunge un colore dorato ma non troppo scuro. Così facendo si asciugherà all’interno senza bruciarsi all\'esterno. ',
+            },
+            notes: 'Il tempo di cottura può variare a seconda del forno quindi è importante controllare la parte interna della ciambella '
+                + 'con uno stuzzicadenti o con la lama di un coltello appoggiandola tra le crepe che si formeranno in cottura. '
+                + 'Per una cottura ottimale consiglio di abbassare la temperatura a 100-120 gradi quando la ciambella raggiunge un colore dorato ma non troppo scuro. '
+                + 'Così facendo si asciugherà all’interno senza bruciarsi all\'esterno.'
         }
     ]
 }
