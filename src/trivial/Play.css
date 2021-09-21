@@ -64,3 +64,10 @@
     margin: 20px;
     font-size: x-large;
 }
+
+.trivial-continue-button{
+    background: #c7c112;
+    font-size: x-large;
+    color: black;
+    border-radius: 10px;
+}

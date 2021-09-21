@@ -168,14 +168,19 @@ export default function Play({page}){
                     }
                 </div>
                 { (correct) && <p> Correct! </p>}
-                { (wrong) && <p> Wrong! </p>}
+                {
+                    (wrong) && <>
+                        <p> Wrong! </p>
+                        <p> Correct answer is: {state.correctAnswer}</p>
+                    </>
+                }
                 <p> Time Left: {seconds} </p>
                 <p> Questions left: {state.questionsLeft} </p>
                 {
                     (timeEnd) && (
                         <div>
                             <p> Time Expired! </p>
-                            <button onClick={switchPlayer}> Continue </button>
+                            <button className='trivial-continue-button' onClick={switchPlayer}> Continue </button>
                         </div>
                     )
                 }
