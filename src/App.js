@@ -19,6 +19,7 @@ const Platform = React.lazy(() => import("./series/Platform"));
 const Weather = React.lazy(() => import("./weather/Weather"));
 const Recipes = React.lazy(() => import("./recipes/Recipes"));
 const SingleRecipe = React.lazy(() => import("./recipes/SingleRecipe"));
+const NotFound = React.lazy( () => import('./notfound/NotFound'));
 
 class App extends React.Component{
 
@@ -45,6 +46,7 @@ class App extends React.Component{
                 <Route path='/recipes' component={Recipes}/>
                 <Route path='/recipe/:tag' component={SingleRecipe}/>
                 <Route path='/boo' component={WorkInProgress}/>
+                <Route component={NotFound}/>
               </Switch>
             </Router>
           </React.Suspense>

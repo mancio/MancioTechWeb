@@ -23,7 +23,7 @@
 .recipe-title-button{
     background: transparent;
     border: none;
-    font-family: "Comic Sans MS", sans-serif;
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
     font-size: 30px;
     cursor: pointer;
 }
