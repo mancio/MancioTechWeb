@@ -49,6 +49,9 @@ function ButtonTemplate(props) {
             case 'recipes':
                 history.push('/recipes');
                 break;
+            case 'fart':
+                history.push('/fartIsFun');
+                break;
             case 'back':
                 history.goBack();
                 break;

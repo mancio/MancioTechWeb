@@ -127,6 +127,17 @@ const menu = [
         id: idPlusPlus(),
         width:250,
         height:55,
+        svgColor:'#2CFFB2',
+        textColor: textColor,
+        textField:'FART TEST',
+        icon: 'FART',
+        iconColor: '#2CFFB2',
+        tag: 'fart'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
         svgColor:'#F600FF',
         textColor: textColor,
         textField:'GO BACK',
