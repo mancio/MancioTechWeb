@@ -39,9 +39,20 @@ const playFart = function (index){
 		.catch(r => console.log(r));
 }
 
+const getRandomIndex = function (){
+	return Math.floor(Math.random() * valuesOfFarts.length);
+}
+
 export const playRandomFart = function (){
-	const rand = Math.floor(Math.random() * valuesOfFarts.length);
-	playFart(rand);
+	playFart(getRandomIndex());
+}
+
+export const playArmageddonFart = async function () {
+	const timer = ms => new Promise(res => setTimeout(res, ms))
+	for (let i = 0; i <= 50; i++) {
+		playFart(getRandomIndex());
+		await timer(500);
+	}
 }
 
 export const playSingleFart = function (name){

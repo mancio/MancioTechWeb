@@ -2,7 +2,7 @@ import './Farts.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import React from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import {getNamesOfFarts, playRandomFart, playSingleFart} from "./FartLogic";
+import {getNamesOfFarts, playArmageddonFart, playRandomFart, playSingleFart} from "./FartLogic";
 
 export default function Farts(){
 
@@ -28,6 +28,7 @@ export default function Farts(){
                         <button onClick={() => playSingleFart(name)} className='fart-button'>{name}</button>
                     )
                 })}
+                <button onClick={() => playArmageddonFart()} className='fart-button'>Armageddon</button>
             </div>
             <ButtonTemplate
                 key={backButton.id}
