@@ -1,20 +1,20 @@
 // inspired by http://jsfart.com
 
 const farts = {
-	toot : 'fart1',
-	ripper : 'fart2',
-	plop : 'fart3',
-	squit : 'fart4',
-	raspberry : 'fart5',
-	squat : 'fart6',
-	tuppence : 'fart7',
-	liftoff : 'fart8',
-	trumpet : 'fart9',
-	fizzler : 'fart10',
-	windy : 'fart11',
-	eine : 'fart12',
-	fartception: 'fart13',
-	fartpoint1: 'fart14'
+	Toot : 'fart1',
+	Ripper : 'fart2',
+	Plop : 'fart3',
+	Squit : 'fart4',
+	Raspberry : 'fart5',
+	Squat : 'fart6',
+	Tuppence : 'fart7',
+	Liftoff : 'fart8',
+	Trumpet : 'fart9',
+	Fizzler : 'fart10',
+	Windy : 'fart11',
+	Eine : 'fart12',
+	Fartception: 'fart13',
+	Fartpoint1: 'fart14'
 };
 
 const valuesOfFarts = Object.values(farts);
@@ -58,4 +58,8 @@ export const playArmageddonFart = async function () {
 export const playSingleFart = function (name){
 	const index = getIndexFromFartName(name);
 	playFart(index);
+}
+
+export const askToStop = function (){
+	window.alert('ehehh you wish.....');
 }
