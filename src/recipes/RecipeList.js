@@ -126,7 +126,36 @@ const recipes = {
                 + 'con uno stuzzicadenti o con la lama di un coltello appoggiandola tra le crepe che si formeranno in cottura. '
                 + 'Per una cottura ottimale consiglio di abbassare la temperatura a 100-120 gradi quando la ciambella raggiunge un colore dorato ma non troppo scuro. '
                 + 'Così facendo si asciugherà all’interno senza bruciarsi all\'esterno.'
-        }
+        },
+        {
+            language: 'IT',
+            title: 'Spaghetti alla Carbonara',
+            shape: 'pasta',
+            portions: '4',
+            picture: 'https://blog.giallozafferano.it/allacciateilgrembiule/wp-content/uploads/2018/10/pasta-alla-carbonara5.jpg',
+            ingredients: {
+                pancetta: '150 gr',
+                spaghetti: '320 gr',
+                tuorli: '6 tuorli',
+                pecorino: '50 gr',
+            },
+            description: {
+                step1: 'Tagliare il guanciale o la pancetta cercando di rimuovere i chicchi di pepe',
+                step2: 'Mettere la pancetta a rosolare in padella antiaderente a fuoco lento senza olio o burro',
+                step3: 'Far bollire la pasta',
+                step4: 'Unire il pecorino con i tuorli e il pepe (opzionale) e rimescolare fino a rimuovere i grumi',
+                step5: 'Aggiungere qualche cucchiaio di acqua di cottura nel composto (senza esagerare). '
+                    + 'Quanto basta per amalgamare il tutto',
+                step6: 'Scolare la pasta in anticipo e metterla in padella con la pancetta e rimescolare fino a cottura ultimata',
+                step7: 'Togliere la padella dal fuoco',
+                step8: 'Versare il composto tuorli, pecorino e acqua sulla pasta e rimescolare',
+                step9: 'Impiattare velocemente onde evitare le uova cuociano formando grumi'
+            },
+            notes: 'Fare attenzione al tipo di pancetta utilizzata. Rimuovere i chicchi grossi di pepe che potrebbero rendere il '
+                + "sapore troppo amaro e rovinare il piatto. Aggiungere l'acqua nel composto tuorli e pecorino, serve a reenderlo più "
+                + "fluido. Inoltre l'acqua tiepida porta a temperatura il composto evitando che faccia i grumi a contatto con la pasta. "
+                + "Attenzione al pecorino! La sapidità è importante. Se il pecorino è troppo salato, mischiare con il parmigiano."
+        },
     ]
 }
 

@@ -31,7 +31,11 @@ export const isACircleCake = function (shape){
 }
 
 export const isRectangularCake = function (shape){
-    return shape === 'rectangle' || shape === 'rectangular'
+    return shape === 'rectangle' || shape === 'rectangular';
+}
+
+export const isPasta = function (shape){
+    return shape === 'pasta';
 }
 
 export const areaCircle = function (diameter){

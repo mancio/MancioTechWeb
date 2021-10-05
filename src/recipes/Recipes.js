@@ -20,7 +20,7 @@ export default function Recipes(){
 
     return(
         <div>
-            <h1 className='cooking-page-title'> Ready for cooking {list.length} recipes?</h1>
+            <h1 className='cooking-page-title'> Ready to cook {list.length} recipes?</h1>
             <div className='recipes-list'>
                 {list.map(recipe => {
                     return(

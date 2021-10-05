@@ -4,7 +4,7 @@ import {
     getRecipeByTitle,
     getRecipeDescKeys,
     getRecipeIngredientKeys, ingToFloat,
-    isACircleCake, isRectangularCake,
+    isACircleCake, isPasta, isRectangularCake,
     replaceTextSpace
 } from "./RecipesHandler";
 import ButtonTemplate from "../menu/ButtonTemplate";
@@ -24,6 +24,7 @@ export default function SingleRecipe(){
     const notes = recipe.notes;
     const picture = recipe.picture;
     const shape = recipe.shape;
+    const portions = recipe.portions;
 
     const [original, setOriginal] = useState(true);
     const [change, setChange] = useState(false);
@@ -95,6 +96,7 @@ export default function SingleRecipe(){
                         <>
                             <p> Change cake Diameter (cm) </p>
                             <input ref={diaRef} type='number' step='1' min='10' max='60' defaultValue={ingToFloat(recipe.diameter)}/>
+                            <button onClick={changeIngSize} className='button-change-ingredients'> UPDATE </button>
                         </>
                     }
                     {isRectangularCake(shape) &&
@@ -102,10 +104,14 @@ export default function SingleRecipe(){
                             <p> Change cake dimensions (cm) </p>
                             <p> width <input ref={wRef} type='number' step='1' min='10' max='60' defaultValue={ingToFloat(recipe.width)}/></p>
                             <p> height <input ref={hRef} type='number' step='1' min='10' max='60' defaultValue={ingToFloat(recipe.height)}/></p>
+                            <button onClick={changeIngSize} className='button-change-ingredients'> UPDATE </button>
                         </>
                     }
-                    <br/>
-                    <button onClick={changeIngSize} className='button-change-ingredients'> UPDATE </button>
+                    {isPasta(shape) &&
+                        <>
+                            <p> Ricetta per {portions} persone </p>
+                        </>
+                    }
                 </div>
                 <div className='recipe-desc-part'>
                     <ol>
