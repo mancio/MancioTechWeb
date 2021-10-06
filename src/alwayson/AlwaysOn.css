@@ -1,3 +1,16 @@
 .always-on{
     font-family: Jokerman, sans-serif;
+    align-content: center;
 }
+
+.player-wrapper-always-on {
+    position: relative;
+    padding-top: 5%; /* 720 / 1280 = 0.5625 */
+}
+
+.react-player-always-on {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
