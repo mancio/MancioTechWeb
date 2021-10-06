@@ -138,6 +138,17 @@ const menu = [
         id: idPlusPlus(),
         width:250,
         height:55,
+        svgColor:'#2CFFB2',
+        textColor: textColor,
+        textField:'ALWAYS ON',
+        icon: 'ALWAYSON',
+        iconColor: '#2CFFB2',
+        tag: 'alwayson'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
         svgColor:'#F600FF',
         textColor: textColor,
         textField:'GO BACK',

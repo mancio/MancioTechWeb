@@ -21,6 +21,7 @@ const Recipes = React.lazy(() => import("./recipes/Recipes"));
 const SingleRecipe = React.lazy(() => import("./recipes/SingleRecipe"));
 const Fart = React.lazy(() => import("./fart/Farts"));
 const NotFound = React.lazy( () => import('./notfound/NotFound'));
+const AlwaysOn = React.lazy( () => import('./alwayson/AlwaysOn'));
 
 class App extends React.Component{
 
@@ -47,6 +48,7 @@ class App extends React.Component{
                 <Route path='/recipes' component={Recipes}/>
                 <Route path='/recipe/:tag' component={SingleRecipe}/>
                 <Route path='/fartIsFun' component={Fart}/>
+                <Route path='/alwaysOn' component={AlwaysOn}/>
                 <Route path='/boo' component={WorkInProgress}/>
                 <Route component={NotFound}/>
               </Switch>
