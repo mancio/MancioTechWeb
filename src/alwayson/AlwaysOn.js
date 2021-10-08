@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import ReactPlayer from 'react-player'
 import './AlwaysOn.css';
+import {getRandEmoticons} from "./AlwaysOnHandler";
 
 export default function AlwaysOn(){
 
     const [visible, setVisible] = useState(true);
-
     const [hide, setHide] = useState(false);
     const [button, setButton] = useState('Hide Text!');
+    const [play, setPlay] = useState(false);
 
     function minimize(){
         if (hide) {
@@ -15,26 +16,30 @@ export default function AlwaysOn(){
             setButton('Hide Text!');
         }else{
             setHide(true);
+            setPlay(true);
             setButton('Back');
         }
     }
 
+    function run(){
+        /*
+            Is not doing anything special. Due to a browser bug the user must
+            click somewhere to start the video.
+         */
+        setPlay(true);
+        setVisible(false);
+    }
+
     useEffect(()=>{
-        if(visible){
-            setTimeout(()=>{
-                setVisible(false);
-            },10000);
-        }else {
-            setTimeout(()=>{
-                setVisible(true);
-            },200);
-        }
+        if(visible) setTimeout(()=>{ setVisible(false)},10000);
+        else setTimeout(()=>{ setVisible(true)},500);
     },[visible]);
 
     return(
         <div className='always-on'>
-            <button className='hide-text-always-on' onClick={minimize}>{button}</button>
-            {!hide &&
+            {!play && <button onClick={run} className='click-always-on'>Click to start!</button>}
+            {play && <button className='hide-text-always-on' onClick={minimize}>{button}</button>}
+            {!hide && play &&
                 <>
                     <h1>Keep this page open to keep the display always on</h1>
                     <p>
@@ -43,7 +48,7 @@ export default function AlwaysOn(){
                     </p>
                 </>
             }
-            {visible &&
+            {visible && play &&
                 <div className={!hide ? 'player-wrapper-always-on': 'player-wrapper-always-on-small'}>
                     <ReactPlayer
                         className='react-player-always-on'
@@ -57,9 +62,9 @@ export default function AlwaysOn(){
                     />
                 </div>
             }
-            {!visible &&
+            {!visible && play &&
                 <div>
-                    <p>Loading</p>
+                    <p>{getRandEmoticons()}</p>
                 </div>
             }
         </div>

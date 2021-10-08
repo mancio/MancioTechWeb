@@ -1,5 +1,6 @@
 .always-on{
     font-family: Jokerman, sans-serif;
+    font-size: x-large;
     align-content: center;
 }
 
@@ -24,4 +25,12 @@
     color: black;
     border-radius: 20px;
     font-family: Jokerman, sans-serif;
+}
+
+.click-always-on{
+    background: white;
+    color: black;
+    border-radius: 20px;
+    font-family: Jokerman, sans-serif;
+    font-size: xx-large;
 }
