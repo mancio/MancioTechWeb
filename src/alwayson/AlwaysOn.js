@@ -33,6 +33,7 @@ export default function AlwaysOn(){
     useEffect(()=>{
         if(visible) setTimeout(()=>{ setVisible(false)},10000);
         else setTimeout(()=>{ setVisible(true)},500);
+        return () => clearTimeout();
     },[visible]);
 
     return(

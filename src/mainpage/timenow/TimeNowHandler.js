@@ -47,3 +47,5 @@ export const addOneSec = function (curTime){
     date.setSeconds(date.getSeconds()+1);
     return date.getTime();
 }
+
+export const timer = ms => new Promise(res => setTimeout(res, ms))

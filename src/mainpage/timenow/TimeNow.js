@@ -21,7 +21,10 @@ export default function TimeNow(){
                 setTime(addOneSec(time));
             },1000);
         }
-    },[ip, time, city, country]);
+        // to avoid memory leak (timer end after time is unmounted)
+        return () => clearTimeout();
+        // eslint-disable-next-line
+    },[ip]);
 
     return(
         <div className='time-city-ip'>

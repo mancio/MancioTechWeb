@@ -5,6 +5,7 @@ import Enter from "./enter/Enter";
 import TimeNow from "./timenow/TimeNow";
 
 class MainPage extends React.Component{
+
     render() {
         return(
             <div>
