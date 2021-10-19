@@ -8,6 +8,7 @@ export default function TimeNow(){
     const [time, setTime] = useState('0');
     const [city, setCity] = useState('updating');
     const [country, setCountry] = useState('updating');
+    const [stop, setStop] = useState(false);
 
     useEffect(() => {
         if (ip === '0') getMyIP().then(r => setIp(r));
@@ -16,15 +17,20 @@ export default function TimeNow(){
             setCity(geo.city);
             setCountry(geo.country);
         });
-        if (time !== '0'){
+        if (time !== '0' && !stop){
             setTimeout(()=>{
                 setTime(addOneSec(time));
             },1000);
         }
-        // to avoid memory leak (timer end after time is unmounted)
-        return () => clearTimeout();
-        // eslint-disable-next-line
-    },[ip]);
+    },[ip, time, stop]);
+
+    useEffect(()=>{
+        return () =>{
+            // to remove timer before unmount the page
+            setStop(true);
+            clearTimeout();
+        }
+    },[stop])
 
     return(
         <div className='time-city-ip'>
