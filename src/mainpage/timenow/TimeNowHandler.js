@@ -4,7 +4,6 @@ import {geoApiKey} from "../../passwords/GeoPassword";
 export const getMyIP = async function (){
     return axios.get('https://api.ipify.org?format=json')
         .then(r => {
-            console.log(r.data.ip);
             return r.data.ip;
         })
         .catch(error => {
@@ -14,12 +13,15 @@ export const getMyIP = async function (){
 }
 
 export const getGeoInfo = function (ip){
-    return axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=' + geoApiKey + '&ip=' + ip)
+    return axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=' + geoApiKey
+        + '&ip=' + ip + '&fields=country_name,city,time_zone')
         .then(r => {
-            console.log(r);
-            const time = r.data.time_zone.current_time_unix*1000;
+            let time = r.data.time_zone.current_time;
+            time = time.substring(0, time.length-5);
+            console.log(time);
             const city = r.data.city;
             const country = r.data.country_name;
+            console.log(city + ', ' + country);
             return {time, city, country};
         }).catch(error => {
             console.log(error);
@@ -36,12 +38,12 @@ const options = {
     second: 'numeric',
 };
 
-export const getRealTime = function (unixTime){
-    return new Date(unixTime).toLocaleDateString('en-GB', options);
+export const getRealTime = function (curTime){
+    return new Date(curTime).toLocaleDateString('en-GB', options);
 }
 
-export const addSecToUnixTime = function (unixTime){
-    const date = new Date(unixTime);
+export const addOneSec = function (curTime){
+    const date = new Date(curTime);
     date.setSeconds(date.getSeconds()+1);
     return date.getTime();
 }
