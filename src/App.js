@@ -16,6 +16,7 @@ const WebCamOfTheDay = React.lazy(() => import("./webcam/WebCamOfTheDay"));
 const WorkInProgress = React.lazy(() => import("./inprogress/WorkInProgress"));
 const EnterLink = React.lazy(() => import("./tv/EnterLink"));
 const Platform = React.lazy(() => import("./series/Platform"));
+const FilterSeries = React.lazy(() => import("./series/FilterSeries"));
 const Weather = React.lazy(() => import("./weather/Weather"));
 const Recipes = React.lazy(() => import("./recipes/Recipes"));
 const SingleRecipe = React.lazy(() => import("./recipes/SingleRecipe"));
@@ -41,6 +42,7 @@ class App extends React.Component{
                 <Route path='/play/:tag' component={GameFrame}/>
                 <Route path='/webcams/:tag' component={WebCamOfTheDay}/>
                 <Route path='/filmseries/selectplatform' component={Platform}/>
+                <Route path='/filmseries/filter/:tag' component={FilterSeries}/>
                 <Route path='/enterTvLink' component={EnterLink}/>
                 <Route path='/watchTv' component={WatchTv}/>
                 <Route path='/weather' component={Weather}/>

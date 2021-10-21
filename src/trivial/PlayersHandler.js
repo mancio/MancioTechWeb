@@ -1,3 +1,5 @@
+import {replaceSpecialCharacters} from "../logic/TextHandler";
+
 export const categories = [
     'any',
     'general',
@@ -56,19 +58,6 @@ const getNumberByCategory = function (category){
     return map.get(category);
 }
 
-const conversionMap = {
-    '&#039;': "'",
-    '&quot;': '"',
-    '&pi;': 'pi'
-    // add here all characters you want to replace
-}
-
-export const replaceSpecialCharacters = function (string){
-    const rep = string.replace(/&#?\w+;/gi, match => conversionMap[match]);
-    console.log(rep);
-    return rep;
-}
-
 export const getQuestions = function (number, category, difficulty, type){
     const numRequest = checkNumber(number);
     const catRequest = checkCategory(category);
@@ -120,8 +109,7 @@ export const setReadyStatus = function (value){
 
 export const getReadyStatus = function (){
     const status = sessionStorage.getItem('trivial_ready');
-    if(status === 'true') return true;
-    else return false;
+    return status === 'true';
 }
 
 export const getPlayerProperty = function (playerNumber, property){

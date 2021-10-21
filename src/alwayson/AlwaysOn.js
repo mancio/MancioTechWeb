@@ -42,11 +42,8 @@ export default function AlwaysOn(){
             {play && <button className='hide-text-always-on' onClick={minimize}>{button}</button>}
             {!hide && play &&
                 <>
-                    <h1>Keep this page open to keep the display always on</h1>
-                    <p>
-                    You know.... sometimes bad people want to control the behavior of the display of your PC.
-                    If the world turn your display will stay on.
-                    </p>
+                    <p>Keep this page open to keep the display always on</p>
+                    <p>If the world turn your device will not fall asleep</p>
                 </>
             }
             {visible && play &&

@@ -1,17 +1,17 @@
 .always-on{
     font-family: Jokerman, sans-serif;
-    font-size: x-large;
+    font-size: large;
     align-content: center;
 }
 
 .player-wrapper-always-on {
     position: relative;
-    padding-top: 5%; /* 720 / 1280 = 0.5625 */
+    padding-top: 30%; /* 720 / 1280 = 0.5625 */
 }
 
 .player-wrapper-always-on-small {
     position: relative;
-    padding-top: 100%; /* 720 / 1280 = 0.5625 */
+    padding-top: 80%; /* 720 / 1280 = 0.5625 */
 }
 
 .react-player-always-on {

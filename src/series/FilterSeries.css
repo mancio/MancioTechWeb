@@ -1,0 +1,12 @@
+.filter-platform{
+    font-family: Jokerman, sans-serif;
+}
+
+.filter-platform > button{
+    font-family: Jokerman, sans-serif;
+    font-size: x-large;
+    color: black;
+    border-radius: 20px;
+    width: 200px;
+    margin: 50px;
+}

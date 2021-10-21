@@ -43,6 +43,15 @@ function ButtonTemplate(props) {
             case 'platform':
                 history.push('/filmseries/selectplatform');
                 break;
+            case 'netflix':
+                history.push('/filmseries/filter/netflix');
+                break;
+            case 'hbo':
+                history.push('/filmseries/filter/hbo');
+                break;
+            case 'prime':
+                history.push('/filmseries/filter/prime');
+                break;
             case 'weather':
                 history.push('/weather');
                 break;

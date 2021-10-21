@@ -1,6 +1,6 @@
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import {getMoviePlatformMenu} from "./seriesHandler";
+import {getMoviePlatformMenu} from "./SeriesHandler";
 import './Platform.css';
 
 export default function Platform(){
