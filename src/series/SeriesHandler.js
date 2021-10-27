@@ -1,6 +1,6 @@
 import {idPlusPlus} from "../logic/Counter";
 import axios from "axios";
-import {rapidHost, rapidKey} from "../passwords/MoviePasswords";
+import {unogRapidHost, rapidKey, strAvalHost} from "../passwords/MoviePasswords";
 
 const textColor = '#ffffff';
 
@@ -44,7 +44,7 @@ export const getMoviePlatformMenu = function (){
     return platformButtons;
 }
 
-const options = {
+const netflix_options = {
     method: 'GET',
     url: 'https://unogsng.p.rapidapi.com/search',
     params: {
@@ -59,16 +59,40 @@ const options = {
         end_year: '2021'
     },
     headers: {
-        'x-rapidapi-host': rapidHost,
+        'x-rapidapi-host': unogRapidHost,
         'x-rapidapi-key': rapidKey
+    }
+};
+
+let others_options = {
+    method: 'GET',
+    url: 'https://streaming-availability.p.rapidapi.com/search/basic',
+    params: {
+        country: 'pl',
+        service: 'prime',
+        type: '',
+        page: '1',
+        output_language: 'en',
+        language: 'en'
+    },
+    headers: {
+        'x-rapidapi-host': strAvalHost,
+        'x-rapidapi-key': rapidKey,
+        'Content-Type': 'application/json'
     }
 };
 
 export let movies = [];
 export let series = [];
 
+export const clearMediaArrays = function (){
+    movies.length = 0;
+    series.length = 0;
+}
+
 export const searchNetflixMedia = function (){
-    return axios.request(options).then(r => {
+    clearMediaArrays();
+    return axios.request(netflix_options).then(r => {
         r.data.results.filter(m =>{
             if(m.vtype === 'movie') movies.push(m);
             else if (m.vtype === 'series') series.push(m);
@@ -78,4 +102,54 @@ export const searchNetflixMedia = function (){
     .catch(function (error) {
         console.error(error);
     });
+}
+
+export const searchOtherMedia = function (platform, country){
+    // clearMediaArrays();
+    if(platform === 'prime') others_options.params.service = 'prime';
+    if(platform === 'hbo') others_options.params.service = 'hbo';
+    others_options.params.country = country;
+
+    others_options.params.type = 'series';
+
+    return axios.request(others_options).then(ser => {
+        ser.data.result.filter(s => {
+            series.push(s);
+            return 'ok';
+        })
+        console.log(series);
+        others_options.params.type = 'movie';
+        axios.request(others_options).then(mov => {
+            mov.data.result.filter(m => {
+                series.push(m);
+                return 'ok';
+            })
+        })
+    })
+    .catch(function (error) {
+        console.error(error);
+    });
+}
+
+export const paraMatch = function (media, platform){
+    if(platform === 'netflix') {
+        return {
+            id: media.id,
+            title: media.title,
+            year: media.year,
+            img: media.img,
+            desc: media.synopsis,
+            rating: media.imdbrating
+        }
+    }
+    else {
+        return {
+            id: media.tmdbID,
+            title: media.originalTitle,
+            year: media.year,
+            img: media.backdropPath,
+            desc: media.overview,
+            rating: media.imdbRating
+        }
+    }
 }

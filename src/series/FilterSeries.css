@@ -1,5 +1,7 @@
 .filter-platform{
     font-family: Jokerman, sans-serif;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .filter-platform > button{
@@ -9,4 +11,25 @@
     border-radius: 20px;
     width: 200px;
     margin: 50px;
+}
+
+.movie-card{
+    width: 18rem;
+    font-family: "Times New Roman", serif;
+    font-size: large;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.movie-card-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+}
+
+.movie-card > img{
+    cursor: pointer;
 }

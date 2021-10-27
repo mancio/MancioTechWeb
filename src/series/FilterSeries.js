@@ -3,8 +3,9 @@ import {getMenuItemByTag} from "../menu/MenuHandler";
 import {useParams} from "react-router-dom";
 import './FilterSeries.css';
 import {useState} from "react";
-import {movies, searchNetflixMedia, series} from "./SeriesHandler";
-import {replaceSpecialCharacters} from "../logic/TextHandler";
+import {movies, paraMatch, searchNetflixMedia, searchOtherMedia, series} from "./SeriesHandler";
+import {replaceSpaceWithPlus, replaceSpecialCharacters} from "../logic/TextHandler";
+import {Card, ListGroup} from "react-bootstrap";
 
 export default function FilterSeries(){
 
@@ -12,16 +13,56 @@ export default function FilterSeries(){
 
     const [media, setMedia] = useState(null);
     const [requested, setRequested] = useState(false);
+    const [ready, setReady] = useState(false);
 
     const tag = useParams().tag;
 
+    function getDone(){
+        setReady(true);
+        setRequested(false);
+    }
+
     function click(type){
-        if (tag === 'netflix' && !requested) {
-            searchNetflixMedia().then(() =>{
-                setRequested(true);
-            })
+        setRequested(true);
+        if (tag === 'netflix' && !ready) {
+            searchNetflixMedia().then(() => getDone());
         }
+        if (tag === 'prime' && !ready) {
+            searchOtherMedia(tag, 'pl').then(() => getDone());
+        }
+        if (tag === 'hbo' && !ready) {
+            searchOtherMedia(tag,'pl').then(() => getDone());
+        }
+        if (ready) setRequested(false);
         setMedia(type);
+    }
+
+    function youtubeTrailer(title, type, year){
+        const str = replaceSpaceWithPlus(replaceSpecialCharacters(title) + ' ' + type + ' ' + year);
+        window.open('https://www.youtube.com/results?search_query=' + str, '_blank').focus();
+    }
+
+    function cardGen(type){
+        return <div className='movie-card-grid'>
+            {type.map(item => {
+                console.log(type.length);
+                const s = paraMatch(item, tag);
+                return <div key={s.id}>
+                <Card className='movie-card'>
+                    <Card.Img onClick={() => youtubeTrailer(s.title, media, s.year)} variant="top" src={s.img} />
+                    <Card.Body>
+                        <Card.Title>{replaceSpecialCharacters(s.title)}</Card.Title>
+                        <Card.Text>
+                            {replaceSpecialCharacters(s.desc)}
+                        </Card.Text>
+                    </Card.Body>
+                    <ListGroup variant="flush">
+                        <ListGroup.Item>IMBD Rating: {s.rating}</ListGroup.Item>
+                        <ListGroup.Item>Year: {s.year}</ListGroup.Item>
+                    </ListGroup>
+                </Card>
+            </div>})}
+        </div>
     }
 
     return(
@@ -29,20 +70,21 @@ export default function FilterSeries(){
             <h1>Search Best show on {tag.toUpperCase()}</h1>
             <button onClick={() => click('series')}>Series</button>
             <button onClick={() => click('movies')}>Movies</button>
+            {requested && <p>please wait</p>}
             {
-                (media === 'series' && requested) &&
+                (media === 'series' && ready) &&
                 <>
                     <div>
                         <p>Series List</p>
-                        {series.map(s => {return <>{replaceSpecialCharacters(s.title)} <br/></>})}
+                        {cardGen(series)}
                     </div>
                 </>
             }
             {
-                (media === 'movies' && requested) && <>
+                (media === 'movies' && ready) && <>
                     <div>
                         <p>Movies List</p>
-                        {movies.map(m => {return <>{replaceSpecialCharacters(m.title)} <br/></>})}
+                        {cardGen(movies)}
                     </div>
                 </>
             }
