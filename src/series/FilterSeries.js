@@ -22,19 +22,31 @@ export default function FilterSeries(){
         setRequested(false);
     }
 
+    function printError(){
+        document.getElementById('media-error')
+            .insertAdjacentHTML('afterend', '<div><p>Unable to get results, please try later</p></div>');
+
+    }
+
     function click(type){
         setRequested(true);
         if (tag === 'netflix' && !ready) {
             searchNetflixMedia().then(() => getDone());
         }
         if (tag === 'prime' && !ready) {
-            searchOtherMedia(tag, 'pl').then(() => getDone());
+            searchOtherMedia(tag, 'pl')
+                .then(() => {
+                    getDone();
+                })
+                .catch(()=> printError());
         }
         if (tag === 'hbo' && !ready) {
-            searchOtherMedia(tag,'pl').then(() => getDone());
+            searchOtherMedia(tag,'us').then(() => getDone())
+                .catch(() => printError());
         }
-        if (ready) setRequested(false);
         setMedia(type);
+        if (ready) setRequested(false);
+
     }
 
     function youtubeTrailer(title, type, year){
@@ -45,7 +57,6 @@ export default function FilterSeries(){
     function cardGen(type){
         return <div className='movie-card-grid'>
             {type.map(item => {
-                console.log(type.length);
                 const s = paraMatch(item, tag);
                 return <div key={s.id}>
                 <Card className='movie-card'>
@@ -88,6 +99,7 @@ export default function FilterSeries(){
                     </div>
                 </>
             }
+            <div id='media-error'/>
             <ButtonTemplate
                 key={back.id}
                 id={back.id}

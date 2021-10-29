@@ -1,6 +1,7 @@
-import {idPlusPlus} from "../logic/Counter";
+import {getRandomNumber, idPlusPlus} from "../logic/Counter";
 import axios from "axios";
 import {unogRapidHost, rapidKey, strAvalHost} from "../passwords/MoviePasswords";
+import {handleError} from "../logic/ErrorsHandler";
 
 const textColor = '#ffffff';
 
@@ -11,7 +12,7 @@ const platformButtons = [
         height:55,
         svgColor:'#bd1414',
         textColor: textColor,
-        textField:'NETFLIX',
+        textField:'NETFLIX PL',
         icon: 'TV',
         iconColor: '#bd1414',
         tag: 'netflix'
@@ -22,7 +23,7 @@ const platformButtons = [
         height:55,
         svgColor:'#1224cd',
         textColor: textColor,
-        textField:'HBO GO PL',
+        textField:'HBO US',
         icon: 'TV',
         iconColor: '#1224cd',
         tag: 'hbo'
@@ -33,7 +34,7 @@ const platformButtons = [
         height:55,
         svgColor:'#ffa200',
         textColor: textColor,
-        textField:'PRIME IT',
+        textField:'PRIME PL',
         icon: 'TV',
         iconColor: '#ffa200',
         tag: 'prime'
@@ -64,12 +65,12 @@ const netflix_options = {
     }
 };
 
-let others_options = {
+const others_options = {
     method: 'GET',
     url: 'https://streaming-availability.p.rapidapi.com/search/basic',
     params: {
         country: 'pl',
-        service: 'prime',
+        service: '',
         type: '',
         page: '1',
         output_language: 'en',
@@ -81,6 +82,12 @@ let others_options = {
         'Content-Type': 'application/json'
     }
 };
+
+let movie_options = JSON.parse(JSON.stringify(others_options));
+let series_options = JSON.parse(JSON.stringify(others_options));
+
+movie_options.params.type = 'movie';
+series_options.params.type = 'series';
 
 export let movies = [];
 export let series = [];
@@ -101,33 +108,51 @@ export const searchNetflixMedia = function (){
     })
     .catch(function (error) {
         console.error(error);
+        handleError(error);
     });
 }
 
-export const searchOtherMedia = function (platform, country){
-    // clearMediaArrays();
-    if(platform === 'prime') others_options.params.service = 'prime';
-    if(platform === 'hbo') others_options.params.service = 'hbo';
-    others_options.params.country = country;
-
-    others_options.params.type = 'series';
-
-    return axios.request(others_options).then(ser => {
-        ser.data.result.filter(s => {
-            series.push(s);
+const request = function (options, array){
+    return axios.request(options).then(res => {
+        res.data.results.filter(s => {
+            array.push(s);
             return 'ok';
         })
-        console.log(series);
-        others_options.params.type = 'movie';
-        axios.request(others_options).then(mov => {
-            mov.data.result.filter(m => {
-                series.push(m);
-                return 'ok';
-            })
-        })
+    }).catch((er) =>{
+        console.error(er);
+        throw er;
     })
-    .catch(function (error) {
+}
+
+export const searchOtherMedia = function (platform, country){
+    clearMediaArrays();
+    if(platform === 'prime'){
+        movie_options.params.service = 'prime';
+        series_options.params.service = 'prime';
+    }
+    if(platform === 'hbo') {
+        movie_options.params.service = 'hbo';
+        series_options.params.service = 'hbo';
+    }
+
+    movie_options.params.country = country;
+    series_options.params.country = country;
+
+    movie_options.params.page = getRandomNumber(1, 50).toString();
+    series_options.params.page = getRandomNumber(1, 50).toString();
+
+    return axios.all(
+        [
+            request(series_options,series),
+            request(movie_options, movies)
+        ]
+    ).then(() => {
+        return 'ok';
+    })
+    .catch((error) => {
         console.error(error);
+        handleError(error);
+        throw error;
     });
 }
 
@@ -147,7 +172,7 @@ export const paraMatch = function (media, platform){
             id: media.tmdbID,
             title: media.originalTitle,
             year: media.year,
-            img: media.backdropPath,
+            img: Object.values(media.backdropURLs)[0],
             desc: media.overview,
             rating: media.imdbRating
         }
