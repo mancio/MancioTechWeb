@@ -1,4 +1,4 @@
-import {replaceSpecialCharacters} from "../logic/TextHandler";
+import {replaceHtmlCharacters} from "../logic/TextHandler";
 
 export const categories = [
     'any',
@@ -127,19 +127,19 @@ export const getAnswers = function (playerNumber, currentQuestion){
     const answerArray = [];
     currentQuestion = currentQuestion-1;
     const result = getPlayerProperty(playerNumber, 'json').results[currentQuestion];
-    const correct = replaceSpecialCharacters(result.correct_answer);
-    result.incorrect_answers.forEach(answer => answerArray.push(replaceSpecialCharacters(answer)));
+    const correct = replaceHtmlCharacters(result.correct_answer);
+    result.incorrect_answers.forEach(answer => answerArray.push(replaceHtmlCharacters(answer)));
     answerArray.splice(getRandomAnswerPosition(answerArray.length+1), 0, correct);
     return answerArray;
 }
 
 export const getCorrectAnswer = function (playerNumber, currentQuestion){
     currentQuestion = currentQuestion-1;
-    return replaceSpecialCharacters(getPlayerProperty(playerNumber, 'json').results[currentQuestion].correct_answer);
+    return replaceHtmlCharacters(getPlayerProperty(playerNumber, 'json').results[currentQuestion].correct_answer);
 }
 
 export const getCurrentQuestion = function (playerNumber, currentQuestionNumber){
-    return replaceSpecialCharacters(getPlayerProperty(playerNumber, 'json').results[currentQuestionNumber-1].question);
+    return replaceHtmlCharacters(getPlayerProperty(playerNumber, 'json').results[currentQuestionNumber-1].question);
 }
 
 export const setCurrentPlayer = function (player){

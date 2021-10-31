@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 import './FilterSeries.css';
 import {useState} from "react";
 import {movies, paraMatch, searchNetflixMedia, searchOtherMedia, series} from "./SeriesHandler";
-import {replaceSpaceWithPlus, replaceSpecialCharacters} from "../logic/TextHandler";
+import {replaceHtmlCharacters, uriToYouTube} from "../logic/TextHandler";
 import {Card, ListGroup} from "react-bootstrap";
 
 export default function FilterSeries(){
@@ -50,7 +50,9 @@ export default function FilterSeries(){
     }
 
     function youtubeTrailer(title, type, year){
-        const str = replaceSpaceWithPlus(replaceSpecialCharacters(title) + ' ' + type + ' ' + year);
+        const str = uriToYouTube(replaceHtmlCharacters(title) + ' ' + type + ' ' + year);
+        console.log(replaceHtmlCharacters(title));
+        console.log(str);
         window.open('https://www.youtube.com/results?search_query=' + str, '_blank').focus();
     }
 
@@ -62,9 +64,9 @@ export default function FilterSeries(){
                 <Card className='movie-card'>
                     <Card.Img onClick={() => youtubeTrailer(s.title, media, s.year)} variant="top" src={s.img} />
                     <Card.Body>
-                        <Card.Title>{replaceSpecialCharacters(s.title)}</Card.Title>
+                        <Card.Title>{replaceHtmlCharacters(s.title)}</Card.Title>
                         <Card.Text>
-                            {replaceSpecialCharacters(s.desc)}
+                            {replaceHtmlCharacters(s.desc)}
                         </Card.Text>
                     </Card.Body>
                     <ListGroup variant="flush">

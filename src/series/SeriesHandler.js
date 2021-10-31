@@ -105,10 +105,12 @@ export const searchNetflixMedia = function (){
             else if (m.vtype === 'series') series.push(m);
             return 'ok';
         })
+        return r;
     })
     .catch(function (error) {
         console.error(error);
         handleError(error);
+        throw error;
     });
 }
 
@@ -118,6 +120,7 @@ const request = function (options, array){
             array.push(s);
             return 'ok';
         })
+        return res;
     }).catch((er) =>{
         console.error(er);
         throw er;
@@ -141,14 +144,18 @@ export const searchOtherMedia = function (platform, country){
     movie_options.params.page = getRandomNumber(1, 50).toString();
     series_options.params.page = getRandomNumber(1, 50).toString();
 
+    console.log(movie_options)
+
     return axios.all(
         [
             request(series_options,series),
             request(movie_options, movies)
         ]
-    ).then(() => {
+    ).then(axios.spread((...res) => {
+        console.log(res[0]);
+        console.log(res[1]);
         return 'ok';
-    })
+    }))
     .catch((error) => {
         console.error(error);
         handleError(error);

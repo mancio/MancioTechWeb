@@ -10,6 +10,12 @@ export default function Platform(){
     return(
         <div>
             <h1 className='platform-title'>Select your favourite movie platform and see what's new</h1>
+            <div className='note-info-platform'>
+                <p>
+                    NOTE: Prime and HBO research is not so good... I'm still looking
+                    for a better service.
+                </p>
+            </div>
             <div>
                 {menu.map(item => {
                     return(
