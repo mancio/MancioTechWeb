@@ -52,6 +52,9 @@ function ButtonTemplate(props) {
             case 'prime':
                 history.push('/filmseries/filter/prime');
                 break;
+            case 'themoviedb':
+                history.push('/filmseries/filter/themoviedb');
+                break;
             case 'weather':
                 history.push('/weather');
                 break;

@@ -1,6 +1,6 @@
 import {getRandomNumber, idPlusPlus} from "../logic/Counter";
 import axios from "axios";
-import {unogRapidHost, rapidKey, strAvalHost} from "../passwords/MoviePasswords";
+import {unogRapidHost, rapidKey, strAvalHost, theMovieDBKey} from "../passwords/MoviePasswords";
 import {handleError} from "../logic/ErrorsHandler";
 
 const textColor = '#ffffff';
@@ -38,6 +38,17 @@ const platformButtons = [
         icon: 'TV',
         iconColor: '#ffa200',
         tag: 'prime'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
+        svgColor:'#1773ce',
+        textColor: textColor,
+        textField:'THE MOVIE DB',
+        icon: 'TV',
+        iconColor: '#1773ce',
+        tag: 'themoviedb'
     }
 ]
 
@@ -127,6 +138,19 @@ const request = function (options, array){
     })
 }
 
+const get = function (url, array){
+    return axios.get(url).then(res => {
+        res.data.results.filter(s => {
+            array.push(s);
+            return 'ok';
+        })
+        return res;
+    }).catch((er) =>{
+        console.error(er);
+        throw er;
+    })
+}
+
 export const searchOtherMedia = function (platform, country){
     clearMediaArrays();
     if(platform === 'prime'){
@@ -163,6 +187,26 @@ export const searchOtherMedia = function (platform, country){
     });
 }
 
+export const searchMovieDB = function (region){
+    clearMediaArrays();
+    const page = getRandomNumber(1,50).toString();
+    const movie_url = 'https://api.themoviedb.org/3/movie/top_rated?' +
+        'api_key=' + theMovieDBKey + '&language=en-US&page=' + page + '&region=' + region;
+    const series_url = 'https://api.themoviedb.org/3/tv/top_rated?' +
+        'api_key=' + theMovieDBKey + '&language=en-US&page=' + page;
+    return axios.all([
+        get(movie_url, movies),
+        get(series_url, series)
+    ]).then(axios.spread((...res) => {
+        return 'ok';
+    }))
+    .catch((error) => {
+        console.error(error);
+        handleError(error);
+        throw error;
+    });
+}
+
 export const paraMatch = function (media, platform){
     if(platform === 'netflix') {
         return {
@@ -173,8 +217,16 @@ export const paraMatch = function (media, platform){
             desc: media.synopsis,
             rating: media.imdbrating
         }
-    }
-    else {
+    } else if(platform === 'themoviedb') {
+        return {
+            id: media.id,
+            title: media.name || media.title,
+            year: media.first_air_date || media.release_date,
+            img: 'https://image.tmdb.org/t/p/w300' + media.backdrop_path,
+            desc: media.overview,
+            rating: media.vote_average
+        }
+    } else {
         return {
             id: media.tmdbID,
             title: media.originalTitle,
