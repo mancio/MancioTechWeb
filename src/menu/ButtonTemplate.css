@@ -51,6 +51,16 @@
     }
 }
 
+.icon-svg-src{
+    padding-top: 15px;
+    font-size: large;
+    font-family: Jokerman, sans-serif;
+}
+
+.icon-svg-src > p > a:link, .icon-svg-src > p > a:visited{
+    color: red;
+}
+
 
 
 

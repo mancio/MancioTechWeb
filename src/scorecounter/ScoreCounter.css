@@ -1,0 +1,24 @@
+.score-card-title{
+    font-family: Jokerman, sans-serif;
+}
+
+.card-game-name{
+    font-family: Jokerman, sans-serif;
+}
+
+.card-game-list{
+    background: white;
+    border-radius: 20px;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-game-list > button{
+    font-family: Jokerman, sans-serif;
+    font-size: x-large;
+    color: black;
+    border-radius: 20px;
+    width: 200px;
+    margin: 50px;
+}

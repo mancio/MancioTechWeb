@@ -61,7 +61,7 @@ export default function AlwaysOn(){
                 </div>
             }
             {!visible && play &&
-                <div>
+                <div className='alwayson-emoti'>
                     <p>{getRandEmoticons()}</p>
                 </div>
             }

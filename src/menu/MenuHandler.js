@@ -149,6 +149,17 @@ const menu = [
         id: idPlusPlus(),
         width:250,
         height:55,
+        svgColor:'#2CFFB2',
+        textColor: textColor,
+        textField:'SCORE COUNTER',
+        icon: 'SCORECOUNTER',
+        iconColor: '#2CFFB2',
+        tag: 'scorecounter'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
         svgColor:'#F600FF',
         textColor: textColor,
         textField:'GO BACK',

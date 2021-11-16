@@ -23,6 +23,7 @@ const SingleRecipe = React.lazy(() => import("./recipes/SingleRecipe"));
 const Fart = React.lazy(() => import("./fart/Farts"));
 const NotFound = React.lazy( () => import('./notfound/NotFound'));
 const AlwaysOn = React.lazy( () => import('./alwayson/AlwaysOn'));
+const ScoreCounter = React.lazy( () => import('./scorecounter/ScoreCounter'));
 
 class App extends React.Component{
 
@@ -51,6 +52,7 @@ class App extends React.Component{
                 <Route path='/recipe/:tag' component={SingleRecipe}/>
                 <Route path='/fartIsFun' component={Fart}/>
                 <Route path='/alwaysOn' component={AlwaysOn}/>
+                <Route path='/scoreCounter' component={ScoreCounter}/>
                 <Route path='/boo' component={WorkInProgress}/>
                 <Route component={NotFound}/>
               </Switch>

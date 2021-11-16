@@ -1,0 +1,8 @@
+.scala-board-counter{
+    font-family: Jokerman, sans-serif;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    min-width: 200px;
+    min-height: 200px;
+}

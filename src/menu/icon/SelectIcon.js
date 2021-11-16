@@ -13,6 +13,7 @@ import Trivial from "./Trivial";
 import Recipes from "./Recipes";
 import FartMan from "./FartMan";
 import Monitor from "./Monitor";
+import Score from "./Score";
 
 class SelectIcon extends React.Component{
 
@@ -50,6 +51,8 @@ class SelectIcon extends React.Component{
                 return <FartMan iconColor={this.iconColor}/>;
             case 'ALWAYSON':
                 return <Monitor iconColor={this.iconColor}/>;
+            case 'SCORECOUNTER':
+                return <Score iconColor={this.iconColor}/>;
             case 'BACK':
                 return <Back iconColor={this.iconColor}/>;
             default:

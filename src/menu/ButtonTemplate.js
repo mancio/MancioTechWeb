@@ -67,6 +67,9 @@ function ButtonTemplate(props) {
             case 'alwayson':
                 history.push('/alwaysOn');
                 break;
+            case 'scorecounter':
+                history.push('/scoreCounter');
+                break;
             case 'back':
                 history.goBack();
                 break;

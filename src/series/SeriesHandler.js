@@ -140,6 +140,7 @@ const request = function (options, array){
 
 const get = function (url, array){
     return axios.get(url).then(res => {
+        console.log(res);
         res.data.results.filter(s => {
             array.push(s);
             return 'ok';
@@ -176,8 +177,6 @@ export const searchOtherMedia = function (platform, country){
             request(movie_options, movies)
         ]
     ).then(axios.spread((...res) => {
-        console.log(res[0]);
-        console.log(res[1]);
         return 'ok';
     }))
     .catch((error) => {
