@@ -21,6 +21,7 @@ export const loadScore = function (playerName){
 }
 
 /*
+Primera (primera)
 il 7 vale 21 punti
 il 6 vale 18 punti
 l’Asso vale 16 punti
@@ -29,26 +30,75 @@ il 4 vale 14 punti
 il 3 vale 13 punti
 il 2 vale 12 punti
 le figure (re, cavallo e donna) valgono 10 punti
+
+briscola
+l'asso vale 11
+il 3 vale 10
+il fante vale 2
+il cavallo vale 3
+il re vale 4
+tutte le altre carte valgono 0
  */
-const primera = [
+export const cards = [
     {
         'name': 'Asso',
-        'value': 16,
-        'pic': Asso,
+        'briscola': 11,
+        'primera': 16,
+        'pic': Asso
     },
     {
         'name': 'Due',
-        'value': 12,
-        'pic': Due,
+        'briscola': 0,
+        'primera': 12,
+        'pic': Due
     },
     {
         'name': 'Tre',
-        'value': 13,
-        'pic': Tre,
+        'briscola': 10,
+        'primera': 13,
+        'pic': Tre
     },
     {
         'name': 'Quattro',
-        'value': 14,
-        'pic': Quattro,
+        'briscola': 0,
+        'primera': 14,
+        'pic': Quattro
     },
-]
+    {
+        'name': 'Cinque',
+        'briscola': 0,
+        'primera': 15,
+        'pic': Cinque
+    },
+    {
+        'name': 'Sei',
+        'briscola': 0,
+        'primera': 18,
+        'pic': Sei
+    },
+    {
+        'name': 'Sette',
+        'briscola': 0,
+        'primera': 21,
+        'pic': Sette
+    },
+    {
+        'name': 'Fante',
+        'briscola': 2,
+        'primera': 10,
+        'pic': Fante
+    },
+    {
+        'name': 'Cavallo',
+        'briscola': 3,
+        'primera': 10,
+        'pic': Cavallo
+    },
+    {
+        'name': 'Re',
+        'briscola': 4,
+        'primera': 10,
+        'pic': Re
+    },
+];
+
