@@ -21,7 +21,6 @@ export default function PlayerScore(props){
     }
 
     return(
-        <div>
         <div className='player-score-board'>
             {players.map(pl => {
                 return (
@@ -31,11 +30,8 @@ export default function PlayerScore(props){
                     </div>
                 )
             })}
-        </div>
-            <div>
-                <button className='reset-score-pl-button' onClick={() => resetScore()}>Reset Score</button>
-                <p className='score-pl-note'>Score will be automatically saved to Browser cache on every change</p>
-            </div>
+            <button className='reset-score-pl-button' onClick={() => resetScore()}>Reset Score</button>
+            <p className='score-pl-note'>Score will be automatically saved to Browser cache on every change</p>
         </div>
     )
 }

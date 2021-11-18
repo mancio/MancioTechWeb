@@ -14,3 +14,15 @@
     margin-left: 10px;
     padding: 10px;
 }
+
+.card-button-pic > img{
+    height: 20vmin;
+}
+
+.primera-reset-bt{
+    background: #cebf42;
+    color: black;
+    border-radius: 20px;
+    font-size: large;
+    font-family: sans-serif;
+}
