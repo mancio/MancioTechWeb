@@ -1,8 +1,8 @@
-import "./ScalaCounter.css";
+import "./ScopaCounter.css";
 import {cards} from "./ScoreLogic";
 import {useState} from "react";
 
-export default function ScalaCounter(){
+export default function ScopaCounter(){
 
     const [score, setScore] = useState(0);
     const [comp, setComp] = useState('');
@@ -19,7 +19,7 @@ export default function ScalaCounter(){
     }
 
     return(
-        <div className='scala-board-counter'>
+        <div className='scopa-board-counter'>
             <p>Click on the card to add to the total Primera score</p>
             {cards.map(obj => {
                 return(

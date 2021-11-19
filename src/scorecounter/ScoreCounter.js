@@ -3,7 +3,8 @@ import React, {useState} from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import "./ScoreCounter.css";
 import PlayerScore from "./PlayerScore";
-import ScalaCounter from "./ScalaCounter";
+import ScopaCounter from "./ScopaCounter";
+import BriscolaCounter from "./BriscolaCounter";
 
 export default function ScoreCounter(){
 
@@ -30,7 +31,7 @@ export default function ScoreCounter(){
                 <div>
                     <p className='card-game-name'>{game}</p>
                     <PlayerScore gametype={game}/>
-                    <ScalaCounter/>
+                    <ScopaCounter/>
                 </div>
 
             }
@@ -39,6 +40,7 @@ export default function ScoreCounter(){
                 <div>
                     <p className='card-game-name'>{game}</p>
                     <PlayerScore gametype={game}/>
+                    <BriscolaCounter/>
                 </div>
 
             }

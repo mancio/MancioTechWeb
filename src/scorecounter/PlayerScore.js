@@ -25,8 +25,12 @@ export default function PlayerScore(props){
             {players.map(pl => {
                 return (
                     <div key={'pl-' + pl} className='players-score-card'>
-                        <label>{'Player ' + pl}</label> <input onChange={(evt) => storeScore(playerTag + pl, evt)} id={playerTag + pl} type="number" defaultValue={checkScore(playerTag + pl)} min="0"/>
-                        <br/>
+                        <label>{'Player ' + pl}</label> &nbsp;
+                        <input
+                            onChange={(evt) => storeScore(playerTag + pl, evt)}
+                            id={playerTag + pl} type="number" defaultValue={checkScore(playerTag + pl)}
+                            min="0"
+                        />
                     </div>
                 )
             })}

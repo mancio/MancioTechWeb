@@ -1,3 +1,7 @@
+.players-score-card{
+    padding-bottom: 30px;
+}
+
 .players-score-card > input{
     border-radius: 10px;
     width: 40px;
