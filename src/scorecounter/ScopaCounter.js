@@ -21,7 +21,7 @@ export default function ScopaCounter(){
     return(
         <div className='scopa-board-counter'>
             <p>Click on the card to add to the total Primera score</p>
-            {cards.map(obj => {
+            {cards.sort((a,b) => b.primera - a.primera).map(obj => {
                 return(
                     <button key={obj.name + '-card'} className='card-button-pic' onClick={() => sumPoints(obj.primera, obj.name)}>
                         <img src={obj.pic} alt='card'/>

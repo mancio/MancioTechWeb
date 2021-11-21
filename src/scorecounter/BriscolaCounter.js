@@ -21,7 +21,7 @@ export default function BriscolaCounter(){
     return(
         <div className='briscola-board-counter'>
             <p>Click on the card to add to the total score</p>
-            {cards.filter(obj => obj.briscola > 0).map(obj => {
+            {cards.filter(obj => obj.briscola > 0).sort((a,b) => b.briscola - a.briscola).map(obj => {
                 return(
                     <button key={obj.name + '-card'} className='card-button-pic' onClick={() => sumPoints(obj.briscola, obj.name)}>
                         <img src={obj.pic} alt='card'/>
@@ -29,7 +29,7 @@ export default function BriscolaCounter(){
                 )
             })}
             <p>Total score: [ {comp} ] = {score}</p>
-            <button className='primera-reset-bt' onClick={() => resetScore()}>Reset score</button>
+            <button className='briscola-reset-bt' onClick={() => resetScore()}>Reset score</button>
         </div>
     )
 }

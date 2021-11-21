@@ -23,11 +23,11 @@ export default function ScoreCounter(){
                 <h2>Please choose your game</h2>
             </div>
             <div className='card-game-list'>
-                <button onClick={() => selectGame('Scala')}>Scala</button>
+                <button onClick={() => selectGame('Scopa')}>Scopa</button>
                 <button onClick={() => selectGame('Briscola')}>Briscola</button>
             </div>
             {
-                (game === 'Scala') &&
+                (game === 'Scopa') &&
                 <div>
                     <p className='card-game-name'>{game}</p>
                     <PlayerScore gametype={game}/>

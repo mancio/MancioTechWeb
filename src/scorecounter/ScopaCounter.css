@@ -10,9 +10,8 @@
 .card-button-pic{
     background: white;
     border-radius: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
     padding: 10px;
+    margin: 10px;
 }
 
 .card-button-pic > img{
@@ -25,4 +24,5 @@
     border-radius: 20px;
     font-size: large;
     font-family: sans-serif;
+    margin-bottom: 20px;
 }
