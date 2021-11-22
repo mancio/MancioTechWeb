@@ -20,6 +20,10 @@ export const loadScore = function (playerName){
     return localStorage.getItem(playerName);
 }
 
+export const checkScore = function(tag){
+    return loadScore(tag) || "0";
+}
+
 /*
 Primera (primera)
 il 7 vale 21 punti

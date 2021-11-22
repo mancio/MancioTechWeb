@@ -7,6 +7,11 @@
     min-height: 200px;
 }
 
+.briscola-board-counter > p{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
 .card-button-pic{
     background: white;
     border-radius: 20px;
