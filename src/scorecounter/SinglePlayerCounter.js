@@ -11,6 +11,10 @@ export default function SinglePlayerCounter(props){
         if(plusMin === '-' && score > 0) setScore(score-1);
     }
 
+    useEffect(() => {
+        if(!props.reset) setScore(0);
+    },[props.reset])
+
     useEffect((changeScore) => {
         saveScore(props.gametag + props.plnum, score.toString());
     })

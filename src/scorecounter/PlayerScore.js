@@ -15,14 +15,14 @@ export default function PlayerScore(props){
         })
     }
 
-    useEffect(() => {
+    useEffect(resetScore => {
         if(!reset) setReset(true);
     },[reset])
 
     return(
         <div className='player-score-board'>
-            {reset && players.map(pl => {
-                return (<SinglePlayerCounter key={gameTag + pl} plnum={pl} gametag={gameTag}/>)
+            {players.map(pl => {
+                return (<SinglePlayerCounter key={gameTag + pl} plnum={pl} gametag={gameTag} reset={reset}/>)
             })}
             <button className='reset-score-pl-button' onClick={() => resetScore()}>Reset Score</button>
             <p className='score-pl-note'>Score will be automatically saved to Browser cache on every change</p>
