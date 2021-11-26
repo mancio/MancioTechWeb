@@ -6,7 +6,7 @@ const gameNameCutter = function (name){
     return name;
 }
 
-const textColor = '#ffffff';
+const textColor = '#000000';
 const svgWidth = 380;
 const svgHeight = 55;
 const gameList = [
@@ -31,6 +31,21 @@ const gameList = [
         platform: 'snes',
         tag: 'mariokart',
         src: 'https://www.retrogames.cc/embed/18635-super-mario-kart-usa-hack-by-ok-impala-v1-0-super-mario-kart-the-impala-battles-custom-battle-tracks.html',
+        gameWidth: 600,
+        gameHeight: 450,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        buttonColor: '#ff0000',
+        textColor: textColor,
+        svgWidth: svgWidth,
+        svgHeight: svgHeight,
+    },
+    {
+        id: idPlusPlus(),
+        title: 'Gran Turismo 2',
+        platform: 'psx',
+        tag: 'gran2',
+        src: 'https://static.arcadespot.com/retroemulator.php?system=ps1&game=2018/01/gran-turismo-2.pbp',
         gameWidth: 600,
         gameHeight: 450,
         frameBorder: 0,
@@ -151,6 +166,21 @@ const gameList = [
         platform: 'psx',
         tag: 'crash',
         src: 'https://www.retrogames.cc/embed/40784-crash-bandicoot.html',
+        gameWidth: 600,
+        gameHeight: 450,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        buttonColor: '#ff0000',
+        textColor: textColor,
+        svgWidth: svgWidth,
+        svgHeight: svgHeight,
+    },
+    {
+        id: idPlusPlus(),
+        title: gameNameCutter('Rampage 2 - Universal Tour (USA)'),
+        platform: 'Nintendo 64',
+        tag: 'ramp2',
+        src: 'https://www.retrogames.cc/embed/32798-rampage-2-universal-tour-usa.html',
         gameWidth: 600,
         gameHeight: 450,
         frameBorder: 0,
