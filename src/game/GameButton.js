@@ -1,9 +1,9 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function GameButton(props){
 
-    const history = useHistory();
+    const history = useNavigate();
 
     function clicked(){
         history.push('/play/' + props.tag);

@@ -1,9 +1,9 @@
 import './Enter.css';
-import {Link, useHistory} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Enter() {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     return (
         <Link to='/menu'>

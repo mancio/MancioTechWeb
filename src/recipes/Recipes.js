@@ -1,6 +1,6 @@
 import './Recipes.css';
 import {getRecipeList, removeTextSpace} from "./RecipesHandler";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import React from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
@@ -10,7 +10,7 @@ export default function Recipes(){
 
     const back = getMenuItemByTag('back');
 
-    const history = useHistory();
+    const history = useNavigate();
 
     function openRecipe(title) {
         history.push('/recipe/' + removeTextSpace(title));

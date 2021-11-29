@@ -5,11 +5,11 @@ import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import Arrow from "./Arrow";
 import {getCamByTag, getCurrentWebCam, setAnotherWebCam} from "./WebCamHandler";
-import {useHistory, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function WebCamOfTheDay() {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     function changeCam(direction) {
         setAnotherWebCam(direction);

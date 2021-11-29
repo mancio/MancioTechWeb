@@ -2,13 +2,13 @@ import ButtonTemplate from "../menu/ButtonTemplate";
 import React, {useState} from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import './Enterlink.css';
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {setParsedFileTvList, setParsedTvList} from "./ParsingHandler";
 
 export default function EnterLink(){
 
     const back = getMenuItemByTag('back');
-    const history = useHistory();
+    const history = useNavigate();
 
     const [url, setUrl] = useState('');
     const [file, setFile] = useState(null);

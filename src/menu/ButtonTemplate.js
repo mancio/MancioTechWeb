@@ -1,6 +1,6 @@
 import './ButtonTemplate.css';
 import SelectIcon from "./icon/SelectIcon";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {getRandomCamTag} from "../webcam/WebCamHandler";
 
 
@@ -8,7 +8,7 @@ import {getRandomCamTag} from "../webcam/WebCamHandler";
 function ButtonTemplate(props) {
 
 
-    const history = useHistory();
+    const history = useNavigate();
 
     function clicked(){
         const page = props.tag;
