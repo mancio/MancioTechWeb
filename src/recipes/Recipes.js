@@ -10,10 +10,10 @@ export default function Recipes(){
 
     const back = getMenuItemByTag('back');
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     function openRecipe(title) {
-        history.push('/recipe/' + removeTextSpace(title));
+        navigate('/recipe/' + removeTextSpace(title));
     }
 
     const list = getRecipeList();

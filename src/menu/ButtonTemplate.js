@@ -8,73 +8,73 @@ import {getRandomCamTag} from "../webcam/WebCamHandler";
 function ButtonTemplate(props) {
 
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     function clicked(){
         const page = props.tag;
         switch (page){
             case 'index':
-                history.push('/');
+                navigate('/');
                 break;
             case 'menu':
-                history.push('/menu');
+                navigate('/menu');
                 break;
             case 'design':
-                history.push('/design');
+                navigate('/design');
                 break;
             case 'story':
-                history.push('/mystory');
+                navigate('/mystory');
                 break;
             case 'contact':
-                history.push('/contact');
+                navigate('/contact');
                 break;
             case 'game':
-                history.push('/gamelist');
+                navigate('/gamelist');
                 break;
             case 'trivial':
-                history.push('/trivial');
+                navigate('/trivial');
                 break;
             case 'cam':
-                history.push('/webcams/' + getRandomCamTag());
+                navigate('/webcams/' + getRandomCamTag());
                 break;
             case 'tv':
-                history.push('/enterTvLink');
+                navigate('/enterTvLink');
                 break;
             case 'platform':
-                history.push('/filmseries/selectplatform');
+                navigate('/filmseries/selectplatform');
                 break;
             case 'netflix':
-                history.push('/filmseries/filter/netflix');
+                navigate('/filmseries/filter/netflix');
                 break;
             case 'hbo':
-                history.push('/filmseries/filter/hbo');
+                navigate('/filmseries/filter/hbo');
                 break;
             case 'prime':
-                history.push('/filmseries/filter/prime');
+                navigate('/filmseries/filter/prime');
                 break;
             case 'themoviedb':
-                history.push('/filmseries/filter/themoviedb');
+                navigate('/filmseries/filter/themoviedb');
                 break;
             case 'weather':
-                history.push('/weather');
+                navigate('/weather');
                 break;
             case 'recipes':
-                history.push('/recipes');
+                navigate('/recipes');
                 break;
             case 'fart':
-                history.push('/fartIsFun');
+                navigate('/fartIsFun');
                 break;
             case 'alwayson':
-                history.push('/alwaysOn');
+                navigate('/alwaysOn');
                 break;
             case 'scorecounter':
-                history.push('/scoreCounter');
+                navigate('/scoreCounter');
                 break;
             case 'back':
-                history.goBack();
+                navigate(-1);
                 break;
             default:
-                history.push('/boo');
+                navigate('/boo');
                 break;
         }
 

@@ -8,7 +8,7 @@ import {setParsedFileTvList, setParsedTvList} from "./ParsingHandler";
 export default function EnterLink(){
 
     const back = getMenuItemByTag('back');
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const [url, setUrl] = useState('');
     const [file, setFile] = useState(null);
@@ -16,14 +16,14 @@ export default function EnterLink(){
     function sendLink(e){
         e.preventDefault();
         setParsedTvList(url)
-            .then(() => history.push('/watchTv'))
+            .then(() => navigate('/watchTv'))
             .catch(() => window.alert("something got wrong"));
     }
 
     function sendFile(e){
         e.preventDefault();
         setParsedFileTvList(file)
-            .then(() => history.push('/watchTv'))
+            .then(() => navigate('/watchTv'))
             .then(() => setTimeout(() => {
                 window.location.reload();
             }),1000)

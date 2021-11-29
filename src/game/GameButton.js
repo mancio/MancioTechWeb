@@ -3,10 +3,10 @@ import {useNavigate} from "react-router-dom";
 
 function GameButton(props){
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     function clicked(){
-        history.push('/play/' + props.tag);
+        navigate('/play/' + props.tag);
     }
 
     return(
