@@ -1,3 +1,5 @@
+import React from "react";
+
 function WorkSign() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="192.15" height="228.455" viewBox="0 0 192.15 228.455">

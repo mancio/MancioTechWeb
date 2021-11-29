@@ -2,6 +2,7 @@ import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import {getMoviePlatformMenu} from "./SeriesHandler";
 import './Platform.css';
+import React from "react";
 
 export default function Platform(){
 

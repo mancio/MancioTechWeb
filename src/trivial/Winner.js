@@ -1,5 +1,6 @@
 import {getScoreAllPlayers, getTotalPlayers} from "./PlayersHandler";
 import './Winner.css';
+import React from "react";
 
 export default function Winner(){
 

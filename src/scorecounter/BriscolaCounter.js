@@ -1,6 +1,7 @@
 import "./BriscolaCounter.css";
 import {useState} from "react";
 import {cards} from "./ScoreLogic";
+import React from "react";
 
 export default function BriscolaCounter(){
 

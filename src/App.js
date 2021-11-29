@@ -1,6 +1,6 @@
 import CookieConsent from "react-cookie-consent";
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
 const WatchTv = React.lazy( () => import("./tv/WatchTv"));
@@ -32,31 +32,31 @@ class App extends React.Component{
         <div className="App App-main-container">
           <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
           <React.Suspense fallback={<Loading/>}>
-            <Router>
+            <BrowserRouter>
               <Routes>
-                <Route exact path='/' component={<MainPage/>}/>
-                <Route path='/menu' component={<ButtonList/>}/>
-                <Route path='/design' component={<SiteDesign/>}/>
-                <Route path='/mystory' component={<MyStory/>}/>
-                <Route path='/contact' component={<ContactMe/>}/>
-                <Route path='/gamelist' component={<GameList/>}/>
-                <Route path='/play/:tag' component={<GameFrame/>}/>
-                <Route path='/webcams/:tag' component={<WebCamOfTheDay/>}/>
-                <Route path='/filmseries/selectplatform' component={<Platform/>}/>
-                <Route path='/filmseries/filter/:tag' component={<FilterSeries/>}/>
-                <Route path='/enterTvLink' component={<EnterLink/>}/>
-                <Route path='/watchTv' component={<WatchTv/>}/>
-                <Route path='/weather' component={<Weather/>}/>
-                <Route path='/trivial' component={<Intro/>}/>
-                <Route path='/recipes' component={<Recipes/>}/>
-                <Route path='/recipe/:tag' component={<SingleRecipe/>}/>
-                <Route path='/fartIsFun' component={<Fart/>}/>
-                <Route path='/alwaysOn' component={<AlwaysOn/>}/>
-                <Route path='/scoreCounter' component={<ScoreCounter/>}/>
-                <Route path='/boo' component={<WorkInProgress/>}/>
-                <Route component={<NotFound/>}/>
+                <Route exact path='/' element={<MainPage/>}/>
+                <Route path='/menu' element={<ButtonList/>}/>
+                <Route path='/design' element={<SiteDesign/>}/>
+                <Route path='/mystory' element={<MyStory/>}/>
+                <Route path='/contact' element={<ContactMe/>}/>
+                <Route path='/gamelist' element={<GameList/>}/>
+                <Route path='/play/:tag' element={<GameFrame/>}/>
+                <Route path='/webcams/:tag' element={<WebCamOfTheDay/>}/>
+                <Route path='/filmseries/selectplatform' element={<Platform/>}/>
+                <Route path='/filmseries/filter/:tag' element={<FilterSeries/>}/>
+                <Route path='/enterTvLink' element={<EnterLink/>}/>
+                <Route path='/watchTv' element={<WatchTv/>}/>
+                <Route path='/weather' element={<Weather/>}/>
+                <Route path='/trivial' element={<Intro/>}/>
+                <Route path='/recipes' element={<Recipes/>}/>
+                <Route path='/recipe/:tag' element={<SingleRecipe/>}/>
+                <Route path='/fartIsFun' element={<Fart/>}/>
+                <Route path='/alwaysOn' element={<AlwaysOn/>}/>
+                <Route path='/scoreCounter' element={<ScoreCounter/>}/>
+                <Route path='/boo' element={<WorkInProgress/>}/>
+                <Route element={<NotFound/>}/>
               </Routes>
-            </Router>
+            </BrowserRouter>
           </React.Suspense>
         </div>
     )

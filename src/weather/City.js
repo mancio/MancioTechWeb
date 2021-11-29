@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {getHumanTime, getTodayWeather} from "./WeatherHandler";
 import { Card } from 'semantic-ui-react'
 import './City.css';
+import React from "react";
 
 export default function City(props){
 

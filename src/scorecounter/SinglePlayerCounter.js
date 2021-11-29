@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import "./SinglePlayerCounter.css";
 import {checkScore, saveScore} from "./ScoreLogic";
+import React from "react";
 
 export default function SinglePlayerCounter(props){
 

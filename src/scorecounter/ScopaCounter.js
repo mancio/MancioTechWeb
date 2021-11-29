@@ -1,6 +1,7 @@
 import "./ScopaCounter.css";
 import {cards} from "./ScoreLogic";
 import {useState} from "react";
+import React from "react";
 
 export default function ScopaCounter(){
 

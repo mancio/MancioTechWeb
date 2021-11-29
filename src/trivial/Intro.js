@@ -4,6 +4,7 @@ import {useState} from "react";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import Winner from "./Winner";
+import React from "react";
 
 export default function Intro(){
 

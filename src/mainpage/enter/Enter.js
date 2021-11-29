@@ -1,5 +1,5 @@
 import './Enter.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, withRouter} from 'react-router-dom';
 
 function Enter() {
 
@@ -20,4 +20,4 @@ function Enter() {
     );
 }
 
-export default Enter;
+export default withRouter(Enter);
