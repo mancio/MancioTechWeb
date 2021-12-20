@@ -112,6 +112,7 @@ export default function SingleRecipe(){
                             <p> Ricetta per {portions} persone </p>
                         </>
                     }
+                    <p id='cake-diameter-part-note'> please do not translate page and change ingredients or will crash </p>
                 </div>
                 <div className='recipe-desc-part'>
                     <ol>

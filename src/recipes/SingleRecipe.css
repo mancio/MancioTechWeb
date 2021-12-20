@@ -58,6 +58,11 @@
     margin-bottom: 20px;
 }
 
+#cake-diameter-part-note{
+    font-size: medium;
+    font-family: sans-serif;
+}
+
 .cake-diameter-part > p{
     font-size: x-large;
     font-family: Jokerman, sans-serif;
