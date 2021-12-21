@@ -59,8 +59,10 @@
 }
 
 #cake-diameter-part-note{
-    font-size: medium;
+    font-size: x-small;
     font-family: sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 10px;
 }
 
 .cake-diameter-part > p{

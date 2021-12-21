@@ -57,7 +57,8 @@ export default function SingleRecipe(){
 
     function getIngredient(key){
         if(original) return ingredients[key];
-        else if(change) return <>&nbsp; Loading 😋 &nbsp;</>;
+        // span required otherwise page crash if change after language translation
+        else if(change) return <span>&nbsp; Loading 😋 &nbsp;</span>;
         else {
             let oldArea = 0;
             let newArea = 0;
@@ -112,7 +113,7 @@ export default function SingleRecipe(){
                             <p> Ricetta per {portions} persone </p>
                         </>
                     }
-                    <p id='cake-diameter-part-note'> please do not translate page and change ingredients or will crash </p>
+                    <p id='cake-diameter-part-note'> note: page will crash if translated before changing ingredients </p>
                 </div>
                 <div className='recipe-desc-part'>
                     <ol>
