@@ -9,12 +9,12 @@ import {useNavigate, useParams} from "react-router-dom";
 
 function WebCamOfTheDay() {
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     function changeCam(direction) {
         setAnotherWebCam(direction);
         // this.setState(getCurrentWebCam());
-        history.push('/webcams/' + getCurrentWebCam().tag);
+        navigate('/webcams/' + getCurrentWebCam().tag);
     }
 
     const params = useParams();
