@@ -115,12 +115,13 @@ const recipes = {
                 step5: 'Quando il composto è pronto (non rimescolare troppo, basta che risulti tutto amalgamato)',
                 step6: 'Arrotolare leggermente con le mani il composto facendolo diventare come un tubo',
                 step7: 'Stendere velocemente su carta da forno in una teglia per il lungo schiacciandolo un pò',
-                step8: 'Decorare con zuccherini e ciliegie sciroppate',
-                step9: 'Mettere in forno a 170 gradi 40 min ventilato nel piano al centro',
-                step10: 'Girare dopo 20 minuti nel verso opposto per cottura omogenea',
-                step11: 'Le tempistiche possono variare a seconda del forno quindi è importante controllare la parte interna della ciambella '
+                step8: 'Spalmare con un pennello imbevuto nel latte la superficie',
+                step9: 'Decorare con zuccherini e ciliegie sciroppate',
+                step10: 'Mettere in forno a 170 gradi 40 min ventilato nel piano al centro',
+                step11: 'Girare dopo 20 minuti nel verso opposto per cottura omogenea',
+                step12: 'Le tempistiche possono variare a seconda del forno quindi è importante controllare la parte interna della ciambella '
                     + 'o con uno stuzzicadente o con la lama di un coltello appoggiandola tra le crepe che si formeranno in cottura.',
-                step12: 'Per una cottura ottimale consiglio di abbassare la temperatura a 100-120 gradi quando la ciambella raggiunge un colore dorato ma non troppo scuro. Così facendo si asciugherà all’interno senza bruciarsi all\'esterno. ',
+                step13: 'Per una cottura ottimale consiglio di abbassare la temperatura a 100-120 gradi quando la ciambella raggiunge un colore dorato ma non troppo scuro. Così facendo si asciugherà all’interno senza bruciarsi all\'esterno. ',
             },
             notes: 'Il tempo di cottura può variare a seconda del forno quindi è importante controllare la parte interna della ciambella '
                 + 'con uno stuzzicadenti o con la lama di un coltello appoggiandola tra le crepe che si formeranno in cottura. '
