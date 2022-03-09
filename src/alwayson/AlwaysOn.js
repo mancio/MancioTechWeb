@@ -50,7 +50,7 @@ export default function AlwaysOn(){
                 <div className={!hide ? 'player-wrapper-always-on': 'player-wrapper-always-on-small'}>
                     <ReactPlayer
                         className='react-player-always-on'
-                        url='https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4'
+                        url='https://fourlenses.com/wp-content/uploads/2022/01/file_example_MP4_480_1_5MG.mp4?_=1'
                         width='100%'
                         height='100%'
                         playing={true}
