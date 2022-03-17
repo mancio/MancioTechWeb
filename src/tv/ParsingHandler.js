@@ -40,3 +40,11 @@ export const getTvUrlByIndex = function (id){
     const list = JSON.parse(localStorage.getItem('tvListItems'));
     return list[id].url;
 }
+
+export const addStoHttp = function (url){
+    if (url.indexOf("https://") === 0){
+        return url;
+    }else {
+        return "https" + url.substring(4);
+    }
+}

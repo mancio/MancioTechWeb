@@ -1,6 +1,6 @@
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import {getParsedTvList, getTvUrlByIndex} from "./ParsingHandler";
+import {addStoHttp, getParsedTvList, getTvUrlByIndex} from "./ParsingHandler";
 import {useEffect, useState} from "react";
 import './WatchTv.css';
 import ReactPlayer from 'react-player'
@@ -33,7 +33,7 @@ export default function WatchTv(){
     let id = -1;
 
     function changeUrl(id, name){
-        setUrl(getTvUrlByIndex(id));
+        setUrl(addStoHttp(getTvUrlByIndex(id)));
         setTvName(name);
     }
 
@@ -46,7 +46,7 @@ export default function WatchTv(){
             <div className='tv-note'>
                 <p>
                     NOTE: Some tv channels can require VPN to be watched
-                    outside your country
+                    outside your country or a plug in called "CORS" installed in your browser
                 </p>
             </div>
             <div className='tv-frame'>
@@ -77,6 +77,10 @@ export default function WatchTv(){
                         height = '100%'
                         controls = {true}
                         playing = {true}
+                        config={{ file: {
+                                attributes: {
+                                    crossOrigin: 'true'
+                                }}}}
                     />
                     <p>{tvName}</p>
                 </div>
