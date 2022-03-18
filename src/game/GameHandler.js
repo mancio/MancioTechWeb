@@ -444,6 +444,21 @@ const gameList = [
         textColor: textColor,
         svgWidth: svgWidth,
         svgHeight: svgHeight,
+    },
+    {
+        id: idPlusPlus(),
+        title: gameNameCutter('slither.io'),
+        platform: 'web',
+        tag: 'slit',
+        src: 'https://slither.io',
+        gameWidth: 650,
+        gameHeight: 550,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        buttonColor: '#ff0000',
+        textColor: textColor,
+        svgWidth: svgWidth,
+        svgHeight: svgHeight,
     }
 
 

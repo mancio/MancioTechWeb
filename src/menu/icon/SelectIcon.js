@@ -14,6 +14,7 @@ import Recipes from "./Recipes";
 import FartMan from "./FartMan";
 import Monitor from "./Monitor";
 import Score from "./Score";
+import Ktools from "./Ktools";
 
 class SelectIcon extends React.Component{
 
@@ -47,6 +48,8 @@ class SelectIcon extends React.Component{
                 return <Weather iconColor={this.iconColor}/>;
             case 'RECIPES':
                 return <Recipes iconColor={this.iconColor}/>;
+            case 'KTOOLS':
+                return <Ktools iconColor={this.iconColor}/>;
             case 'FART':
                 return <FartMan iconColor={this.iconColor}/>;
             case 'ALWAYSON':

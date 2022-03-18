@@ -1,0 +1,27 @@
+.cooking-tools-title{
+    font-family: Jokerman, sans-serif;
+    font-size: x-large;
+}
+
+.cooking-calc-box{
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.hydration-calc{
+    font-family: sans-serif;
+    font-size: medium;
+    border-style: dashed;
+    border-color: black;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cooking-tools-button{
+    background: white;
+    border-radius: 10px;
+    font-family: Jokerman, sans-serif;
+}
+

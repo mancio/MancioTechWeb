@@ -19,6 +19,7 @@ const Platform = React.lazy(() => import("./series/Platform"));
 const FilterSeries = React.lazy(() => import("./series/FilterSeries"));
 const Weather = React.lazy(() => import("./weather/Weather"));
 const Recipes = React.lazy(() => import("./recipes/Recipes"));
+const Ktools = React.lazy(() => import("./kitchentools/Ktools"));
 const SingleRecipe = React.lazy(() => import("./recipes/SingleRecipe"));
 const Fart = React.lazy(() => import("./fart/Farts"));
 const NotFound = React.lazy( () => import('./notfound/NotFound'));
@@ -49,12 +50,13 @@ class App extends React.Component{
                 <Route path='/weather' element={<Weather/>}/>
                 <Route path='/trivial' element={<Intro/>}/>
                 <Route path='/recipes' element={<Recipes/>}/>
+                <Route path='/kitchenTools' element={<Ktools/>}/>
                 <Route path='/recipe/:tag' element={<SingleRecipe/>}/>
                 <Route path='/fartIsFun' element={<Fart/>}/>
                 <Route path='/alwaysOn' element={<AlwaysOn/>}/>
                 <Route path='/scoreCounter' element={<ScoreCounter/>}/>
                 <Route path='/boo' element={<WorkInProgress/>}/>
-                <Route element={<NotFound/>}/>
+                <Route path="*" element={<NotFound/>}/>
               </Routes>
             </BrowserRouter>
           </React.Suspense>

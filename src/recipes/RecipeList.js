@@ -157,6 +157,49 @@ const recipes = {
                 + "fluido. Inoltre l'acqua tiepida porta a temperatura il composto evitando che faccia i grumi a contatto con la pasta. "
                 + "Attenzione al pecorino! La sapidità è importante. Se il pecorino è troppo salato, mischiare con il parmigiano."
         },
+        {
+            language: 'IT',
+            title: 'Focaccia con pomodorini',
+            shape: 'none',
+            picture: 'https://www.giallozafferano.it/images/234-23404/Focaccia-con-pomodorini-e-origano_450x300.jpg',
+            ingredients: {
+                'farina W 260/270': '500 gr',
+                'farina 00': '200 gr',
+                'acqua': '490 gr',
+                'lievito': '1 bustina pizza',
+                'olio impasto': '1 cucchiaio e mezzo',
+                zucchero: '1 cucchiaino',
+                sale: '1 cucchiaino',
+                'sale Himalaya': 'a piacere',
+                origano: "a piacere"
+            },
+            description: {
+                step1: "Per essere sicuri di attivare il lievito scioglierlo con un po' di acqua leggermente tiepida assieme ad un cucchiaino "
+                + " di farina e uno di zucchero.",
+                step2: "Unire il composto con farina e l'acqua restante e mescolare con pazienza (l'impasto sarà colloso) eventualmente "
+                + "spruzzare un po' d'acqua sulle mani per evitare che la farina si incolli.",
+                step3: "Aggiungere olio (un cucchiaio e mezzo), il sale e continuare ad impastare ripiegando l'impasto su se stesso "
+                + "facendo attenzione a non schiacciarlo troppo facendo uscire aria",
+                step4: "Accendere il forno al minimo (girare la rotella e lasciarla appena si attiva) e spegnerlo appena raggiunge temperatura "
+                + "sarà tiepido ma non troppo caldo.",
+                step5: "Mettere l'impasto in una ciotola coperta e lasciarlo nel forno semiaperto a lievitare qualche ora.",
+                step6: "Quando sarà aumentato impastare nuovamente con delicatezza senza schiacciare e far riposare un altra mezz'ora.",
+                step7: "Quando sarà aumentato nuovamente, stenderlo su una teglia precedentemente oliata senza appiattirlo troppo. "
+                + "Se volete il bordo soffice dovete far aderire l'impasto alle pareti, altrimenti farà la crosta ai lati.",
+                step8: "Riponete la teglia nel forno spento coperta per qualche ora in modo che lieviti ancora un po'.",
+                step9: "Tagliare i pomodorini a metà e inserirli facendo pressione sulla superficie dell'impasto.",
+                step10: "Create delle impronte sulla superficie dell'impasto con le dita infarinate o bagnate per non farle incollare.",
+                step11: "Stendere olio sulla superficie a piacere e massaggiare con le mani per coprire tutta l'area.",
+                step12: "Lasciar cadere dall'alto un po' di origano e sale sull'impasto senza esagerare. Ricorda che il sale dell Himalaya "
+                + "ha la stessa dimensione del sale grosso ma sala di meno.",
+                step13: "Infornare a 190 gradi nella parte medio-alta del forno fino a quando la superficie diventa dorata.",
+                step14: "Se la superficie assume il giusto colore ma la focaccia è ancora troppo morbida abbassare la temperatura "
+                + "tra i 150 - 100 gradi fino a fine cottura."
+            },
+            notes: "Puoi usare il sale grosso invece di quello dell Himalaya. La lievitazione varia in base alla forza della farina. "
+            + " Cuocere prima che l'odore diventi pungente. Ricorda che non riuscirai a fare una lievitazione troppo lunga essendo l'impasto "
+            + "molto bagnato."
+        }
     ]
 }
 

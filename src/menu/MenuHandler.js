@@ -129,6 +129,17 @@ const menu = [
         height:55,
         svgColor:'#2CFFB2',
         textColor: textColor,
+        textField:'KITCHEN TOOLS',
+        icon: 'KTOOLS',
+        iconColor: '#2CFFB2',
+        tag: 'ktools'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
+        svgColor:'#2CFFB2',
+        textColor: textColor,
         textField:'FART TEST',
         icon: 'FART',
         iconColor: '#2CFFB2',

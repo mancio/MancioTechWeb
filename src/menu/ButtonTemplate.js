@@ -61,6 +61,9 @@ function ButtonTemplate(props) {
             case 'recipes':
                 navigate('/recipes');
                 break;
+            case 'ktools':
+                navigate('/kitchenTools');
+                break;
             case 'fart':
                 navigate('/fartIsFun');
                 break;
