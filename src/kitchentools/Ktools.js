@@ -2,22 +2,31 @@ import ButtonTemplate from "../menu/ButtonTemplate";
 import React from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import "./Ktools.css";
-import {howManyNan} from "./KitchenLogic";
 
 export default function Ktools(){
 
     const back = getMenuItemByTag('back');
 
-    function findHydration(){
+    function findElements(elToFind){
+
+        let ok = true;
 
         let flour = parseInt(document.getElementById('hy-flour').value);
         let water = parseInt(document.getElementById('hy-water').value);
         let hydration = parseInt(document.getElementById('hydration').value);
 
-        if (howManyNan(flour,water,hydration) > 1) window.alert('Please check numbers in input');
-        else {
+        const allInputs = [flour, water, hydration];
 
-        }
+        allInputs.forEach( el => {
+            if (el !== elToFind && isNaN(el)) {
+                window.alert("Please check input");
+                ok = false;
+            }
+        });
+
+
+
+
     }
 
     return(
@@ -30,10 +39,18 @@ export default function Ktools(){
                 <div className='hydration-calc'>
                     <h1>Hydration calculator</h1>
                     <p>To discover how much water put in your dough. Remember 1 ml = 1 gr of water</p>
-                    <p>Flour gr: <span><input type="number" name="flour" id='hy-flour' defaultValue='100'/></span> </p>
-                    <p>Water gr/ml: <span><input type="number" name="water" id='hy-water' defaultValue='60'/></span> </p>
-                    <p>hydration %: <span><input type="number" name="hydration" id='hydration' defaultValue='60'/></span> </p>
-                    <button onClick={() => findHydration()} className='cooking-tools-button'>FIND RESULT</button>
+                    <p>
+                        Flour gr: <span><input type="number" name="flour" id='hy-flour' defaultValue='100'/></span>
+                        <span><button onClick={() => findElements('flour')} className='cooking-tools-button'>FIND FLOUR</button></span>
+                    </p>
+                    <p>
+                        Water gr/ml: <span><input type="number" name="water" id='hy-water' defaultValue='60'/></span>
+                        <span><button onClick={() => findElements('water')} className='cooking-tools-button'>FIND WATER</button></span>
+                    </p>
+                    <p>
+                        hydration %: <span><input type="number" name="hydration" id='hydration' defaultValue='60'/></span>
+                        <span><button onClick={() => findElements('hydration')} className='cooking-tools-button'>FIND HYDRATION</button></span>
+                    </p>
                 </div>
             </div>
             <ButtonTemplate
