@@ -25,3 +25,9 @@
     font-family: Jokerman, sans-serif;
 }
 
+.hy-calc-input{
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 60px;
+}
+

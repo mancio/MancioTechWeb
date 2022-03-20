@@ -1,6 +1,6 @@
-export const checkNaN = function (input){
-        input.forEach(el => {
-            if (isNaN(el)) return true;
-        })
-        return false;
+export const verifyInputs = function (input, pos){
+   for(let i = 0; i<input.length; i++){
+       if(i !== pos && isNaN(input[i])) return false;
+   }
+   return true;
 }
