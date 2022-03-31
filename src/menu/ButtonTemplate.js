@@ -34,6 +34,9 @@ function ButtonTemplate(props) {
             case 'trivial':
                 navigate('/trivial');
                 break;
+            case 'dashboard':
+                navigate('/dashboard');
+                break;
             case 'cam':
                 navigate('/webcams/' + getRandomCamTag());
                 break;

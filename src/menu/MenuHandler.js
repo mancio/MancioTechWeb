@@ -72,6 +72,17 @@ const menu = [
         id: idPlusPlus(),
         width:250,
         height:55,
+        svgColor:'#F600FF',
+        textColor: textColor,
+        textField:'DASHBOARD',
+        icon: 'DASHBOARD',
+        iconColor: '#f600ff',
+        tag: 'dashboard'
+    },
+    {
+        id: idPlusPlus(),
+        width:250,
+        height:55,
         svgColor:'#FF6F00',
         textColor: textColor,
         textField:'WEB CAMS',

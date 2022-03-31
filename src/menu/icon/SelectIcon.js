@@ -15,6 +15,7 @@ import FartMan from "./FartMan";
 import Monitor from "./Monitor";
 import Score from "./Score";
 import Ktools from "./Ktools";
+import DashBoard from "./Dashboard";
 
 class SelectIcon extends React.Component{
 
@@ -38,6 +39,8 @@ class SelectIcon extends React.Component{
                 return <Game iconColor={this.iconColor}/>;
             case 'TRIVIAL':
                 return <Trivial iconColor={this.iconColor}/>;
+            case 'DASHBOARD':
+                return <DashBoard iconColor={this.iconColor}/>;
             case 'CAM':
                 return <Cam iconColor={this.iconColor}/>;
             case 'TV':

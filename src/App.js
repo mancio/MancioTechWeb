@@ -25,6 +25,7 @@ const Fart = React.lazy(() => import("./fart/Farts"));
 const NotFound = React.lazy( () => import('./notfound/NotFound'));
 const AlwaysOn = React.lazy( () => import('./alwayson/AlwaysOn'));
 const ScoreCounter = React.lazy( () => import('./scorecounter/ScoreCounter'));
+const DashBoard = React.lazy( () => import('./dashboard/DashBoard'));
 
 class App extends React.Component{
 
@@ -49,6 +50,7 @@ class App extends React.Component{
                 <Route path='/watchTv' element={<WatchTv/>}/>
                 <Route path='/weather' element={<Weather/>}/>
                 <Route path='/trivial' element={<Intro/>}/>
+                <Route path='/dashboard' element={<DashBoard/>}/>
                 <Route path='/recipes' element={<Recipes/>}/>
                 <Route path='/kitchenTools' element={<Ktools/>}/>
                 <Route path='/recipe/:tag' element={<SingleRecipe/>}/>
