@@ -26,3 +26,17 @@
     position: relative;
     height: 550px;
 }
+
+.dash-note{
+    font-family: Arial, serif;
+    font-size: medium;
+}
+
+
+.dash-buttons > button{
+    font-family: Jokerman, sans-serif;
+    background: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
