@@ -1,37 +1,46 @@
 .dashboard > svg{
     position: absolute;
-    left: 20%;
-    width:400px;
-    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 90%;
     z-index: 0;
 }
 
 .dashboard > textarea{
     position: absolute;
-    top: 20%;
-    left: 24%;
-    width: 340px;
-    height: 352px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%);
+    width: 55%;
+    height: 66%;
     border: none;
     resize: none;
     border-radius: 5px;
     z-index: 1;
 }
 
-.dash-intro{
-    font-family: Jokerman, sans-serif;
-}
-
 .dashboard{
     position: relative;
-    height: 550px;
+    height: 650px;
+}
+
+@media (max-width:480px){
+    .dashboard{
+        position: relative;
+        height: 443px;
+    }
+}
+
+.dash-intro{
+    font-family: Jokerman, sans-serif;
 }
 
 .dash-note{
     font-family: Arial, serif;
     font-size: medium;
 }
-
 
 .dash-buttons > button{
     font-family: Jokerman, sans-serif;
