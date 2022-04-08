@@ -9,7 +9,7 @@ export default function NotFound(){
         setTimeout(() => {
             navigate('/menu');
         }, 2000)
-    }, [])
+    }, [navigate])
 
     return(
         <div>

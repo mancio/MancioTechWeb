@@ -1,5 +1,4 @@
 const Dashicon = (props) => {
-    const iconColor = props.iconColor;
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="281.038" height="372.744" viewBox="0 0 281.038 372.744">
             <g id="notebook-notepad-svgrepo-com" transform="translate(-62.984)">

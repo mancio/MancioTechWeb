@@ -6,7 +6,7 @@ import emailjs from 'emailjs-com';
 import './ContactMe.css';
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import {serviceForm, templateForm, userForm} from "../passwords/FormPassword";
+import {serviceForm, templateForm, userForm} from "../passwords/Passwords";
 
 export default function ContactMe() {
 

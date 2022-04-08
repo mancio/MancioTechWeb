@@ -1,5 +1,5 @@
 import axios from "axios";
-import {geoApiKey} from "../../passwords/GeoPassword";
+import {geoApiKey} from "../../passwords/Passwords";
 
 export const getMyIP = async function (){
     return axios.get('https://api.ipify.org?format=json')

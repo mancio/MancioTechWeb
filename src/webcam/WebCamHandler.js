@@ -1,13 +1,33 @@
 const webcam = [
     {
-        src: 'https://lookcam.live/player/doXZMoY5Kj/',
-        title: 'Kozubian region - stork asylum - a nest on a pole',
+        src: 'https://www.youtube.com/embed/9UrWCJPSa24',
+        title: 'Bociany Ustroń – transmisja na żywo',
         country: 'Poland',
         width: 500,
         height: 300,
         frameBorder: 0,
         allowFullScreen: 'true',
-        tag: 'bird'
+        tag: 'bird_ustron'
+    },
+    {
+        src: 'https://www.youtube.com/embed/-Z4W0iltQ5U',
+        title: 'LEŚNY ZAKĄTEK A forest nook for birds and wild animals - live camera',
+        country: 'Poland',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_lesny'
+    },
+    {
+        src: 'https://www.youtube.com/embed/uE5CFNlUTG0',
+        title: 'Gniazdo Bocianie - Telewizja Sokółka [NA ŻYWO] | IP Camera: Stork\'s nest [LIVE]',
+        country: 'Poland',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_tel'
     },
     {
         src: 'https://imageserver.webcamera.pl/rec/tyrawa-woloska/latest.mp4',
@@ -40,16 +60,6 @@ const webcam = [
         tag: 'api'
     },
     {
-        src: 'https://lookcam.live/player/R3ndmpR8Rw/',
-        title: 'Zakopane - ul. Krupówki',
-        country: 'Poland',
-        width: 500,
-        height: 300,
-        frameBorder: 0,
-        allowFullScreen: 'true',
-        tag: 'zakopane'
-    },
-    {
         src: 'https://player.nadmorski24.pl/_camera2.php?id=4',
         title: 'Białogóra Plaża',
         country: 'Poland',
@@ -68,26 +78,6 @@ const webcam = [
         frameBorder: 0,
         allowFullScreen: 'true',
         tag: 'gdansk_miasto'
-    },
-    {
-        src: 'https://lookcam.live/player/KOU3nIf12u/',
-        title: 'Władysławowo - view of the Hel Peninsula',
-        country: 'Poland',
-        width: 500,
-        height: 300,
-        frameBorder: 0,
-        allowFullScreen: 'true',
-        tag: 'wowo'
-    },
-    {
-        src: 'https://lookcam.live/player/s3GSU1AYRM/',
-        title: 'Gdańsk - National Sailing Centre',
-        country: 'Poland',
-        width: 500,
-        height: 300,
-        frameBorder: 0,
-        allowFullScreen: 'true',
-        tag: 'gdansk'
     },
     {
         src: 'https://colrodella.panomax.com',

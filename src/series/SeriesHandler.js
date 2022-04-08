@@ -1,6 +1,6 @@
 import {getRandomNumber, idPlusPlus} from "../logic/Counter";
 import axios from "axios";
-import {unogRapidHost, rapidKey, strAvalHost, theMovieDBKey} from "../passwords/MoviePasswords";
+import {unogRapidHost, rapidKey, strAvalHost, theMovieDBKey} from "../passwords/Passwords";
 import {handleError} from "../logic/ErrorsHandler";
 
 const textColor = '#ffffff';

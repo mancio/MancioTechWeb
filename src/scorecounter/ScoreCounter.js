@@ -33,7 +33,7 @@ export default function ScoreCounter(){
                     <PlayerScore gametype={game}/>
                     <ScopaCounter/>
                     <div className="rules-card-game">
-                        <a href="https://www.tisuggerisco.com/il-gioco-della-scopa/" target="_blank">Rules</a>
+                        <a href="https://www.tisuggerisco.com/il-gioco-della-scopa/" target="_blank" rel="noreferrer">Rules</a>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ export default function ScoreCounter(){
                     <PlayerScore gametype={game}/>
                     <BriscolaCounter/>
                     <div className="rules-card-game">
-                        <a href="https://www.dimensionecasino.com/skillgames/briscola/regole-briscola" target="_blank">Rules</a>
+                        <a href="https://www.dimensionecasino.com/skillgames/briscola/regole-briscola" target="_blank" rel="noreferrer">Rules</a>
                     </div>
                 </div>
 

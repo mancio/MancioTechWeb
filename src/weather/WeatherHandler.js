@@ -1,4 +1,4 @@
-import {API_key} from "../passwords/WeatherPassword";
+import {API_key} from "../passwords/Passwords";
 
 export const cities = ['Bologna', 'Cracovia', 'Canazei'];
 
