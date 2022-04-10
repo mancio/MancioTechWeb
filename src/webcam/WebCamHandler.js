@@ -20,6 +20,66 @@ const webcam = [
         tag: 'bird_lesny'
     },
     {
+        src: 'https://www.youtube.com/embed/MtGUTs_HgcE',
+        title: 'LIVE [4K] Backyard Bird Feeder Camera! (*Cardinals, Jays, Chickadees*)',
+        country: 'OHIO - USA',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_feeder'
+    },
+    {
+        src: 'https://www.youtube.com/embed/sqOmhBGk-tY',
+        title: 'Deer Pantry "Ryan\'s Bird Buffet',
+        country: 'Brownville - USA',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_buffet'
+    },
+    {
+        src: 'https://www.youtube.com/embed/dc2xQYSsOjA',
+        title: 'PixCams.com Wildlife Cam 2 Live Stream',
+        country: 'USA',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_pix'
+    },
+    {
+        src: 'https://www.youtube.com/embed/dc2xQYSsOjA',
+        title: 'PixCams.com Wildlife Cam 2 Live Stream',
+        country: 'Southwestern Pennsylvania, USA',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_pix'
+    },
+    {
+        src: 'https://www.youtube.com/embed/6x14VCXNV5w',
+        title: 'Nuuksio live - winter birds feeding in South of Finland',
+        country: 'Finland',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_Nuuksio'
+    },
+    {
+        src: 'https://www.youtube.com/embed/oGoF97bOg7U',
+        title: 'LIVE 24/7 Indiana Bird, Squirrel And Wildlife Feeder Cam',
+        country: 'Indiana - USA',
+        width: 500,
+        height: 300,
+        frameBorder: 0,
+        allowFullScreen: 'true',
+        tag: 'bird_ind'
+    },
+    {
         src: 'https://www.youtube.com/embed/uE5CFNlUTG0',
         title: 'Gniazdo Bocianie - Telewizja Sokółka [NA ŻYWO] | IP Camera: Stork\'s nest [LIVE]',
         country: 'Poland',
