@@ -4,3 +4,19 @@ export const verifyInputs = function (input, pos){
    }
    return true;
 }
+
+const size = [];
+
+export const getAllIngSize = function (){
+    return size;
+}
+
+const addIngSize = function (value) {
+    size.push(parseInt(value));
+}
+
+export const addAllIngSize = function (tag, elID){
+    for (let i = 0; i<=elID; i++){
+        addIngSize(document.getElementById(tag + elID).value)
+    }
+}

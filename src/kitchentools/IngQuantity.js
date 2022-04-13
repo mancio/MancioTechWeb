@@ -1,17 +1,25 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Ktools.css";
+import {addAllIngSize, getAllIngSize} from "./KitchenLogic";
 
 export function IngQuantity(){
     const [elID, setElID] = useState(0);
     const [elem, setElem] = useState([]);
+    const [full, setFull] = useState(false);
+    const [done, setDone] = useState(false);
+
+    useEffect(()=>{
+        if (elID >= 2) setFull(true);
+    },[elID]);
 
     const Input = () => {
+        const ingName = "ing-name-" + elID;
+        const ingSize = "ing-size-" + elID;
         return(
             <p>
-                <span>Enter original </span>
-                <span><input className='hy-calc-input' type="number" name="ing" id={"in-" + elID} defaultValue='100'/></span>
-                <span><input className='hy-calc-input' type="number" name="ing" id={"out-" + elID}/></span>
-                <span>Enter new</span>
+                <span><input className='hy-calc-input' type="text" name="ing" key={ingName} id={ingName} defaultValue='name'/></span>
+                <span><input className='hy-calc-input' type="number" name="ing" key={ingSize} id={ingSize} defaultValue='0'/></span>
+                <span> Quantity (gr, ml, ...)</span>
             </p>
         )
     }
@@ -21,8 +29,14 @@ export function IngQuantity(){
         setElem(elem.concat(<Input/>));
     }
 
-    function calcIngredients(){
+    function start(){
+        addAllIngSize("ing-size-", elID);
+    }
 
+    function result(){
+        getAllIngSize().forEach(s => {
+
+        })
     }
 
     return(
@@ -31,7 +45,8 @@ export function IngQuantity(){
             <p>Click the button to add an ingredient space</p>
             <button className='cooking-tools-button' onClick={() => addElement()}>Add Ingredient</button>
             {elem}
-            <button className='cooking-tools-button' onClick={() => calcIngredients()}>Calc</button>
+            {full && <button className='cooking-tools-button' onClick={() => start()}>Start</button>}
+            {done && }
         </div>
     )
 }
