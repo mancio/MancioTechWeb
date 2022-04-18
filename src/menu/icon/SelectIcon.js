@@ -35,7 +35,7 @@ class SelectIcon extends React.Component{
                 return <Mail iconColor={this.iconColor}/>;
             case 'FACE':
                 return <Face iconColor={this.iconColor}/>;
-            case 'GAME':
+            case 'EMU':
                 return <Game iconColor={this.iconColor}/>;
             case 'TRIVIAL':
                 return <Trivial iconColor={this.iconColor}/>;

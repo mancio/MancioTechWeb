@@ -28,8 +28,8 @@ function ButtonTemplate(props) {
             case 'contact':
                 navigate('/contact');
                 break;
-            case 'game':
-                navigate('/gamelist');
+            case 'emu':
+                navigate('/emulist');
                 break;
             case 'trivial':
                 navigate('/trivial');

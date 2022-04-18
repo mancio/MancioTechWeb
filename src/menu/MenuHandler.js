@@ -52,10 +52,10 @@ const menu = [
         height:55,
         svgColor:'#F600FF',
         textColor: textColor,
-        textField:'GAMES',
-        icon: 'GAME',
+        textField:'EMULATORS',
+        icon: 'EMU',
         iconColor: '#f600ff',
-        tag: 'game'
+        tag: 'emu'
     },
     {
         id: idPlusPlus(),

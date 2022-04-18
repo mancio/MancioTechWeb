@@ -41,7 +41,7 @@ class App extends React.Component{
                 <Route path='/design' element={<SiteDesign/>}/>
                 <Route path='/mystory' element={<MyStory/>}/>
                 <Route path='/contact' element={<ContactMe/>}/>
-                <Route path='/gamelist' element={<GameList/>}/>
+                <Route path='/emulist' element={<GameList/>}/>
                 <Route path='/play/:tag' element={<GameFrame/>}/>
                 <Route path='/webcams/:tag' element={<WebCamOfTheDay/>}/>
                 <Route path='/filmseries/selectplatform' element={<Platform/>}/>
