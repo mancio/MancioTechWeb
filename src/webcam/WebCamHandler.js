@@ -77,15 +77,20 @@ const webcam = [
         tag: 'bia'
     },
     {
-        src: 'https://player.nadmorski24.pl/_camera2.php?id=3',
-        title: 'Gdańsk Stare Miasto',
-        tag: 'gdansk_miasto'
+        src: 'https://hoktastream2.webcamera.pl/umgdansk_cam_11161c/umgdansk_cam_11161c.stream/playlist.m3u8',
+        title: 'Gdańsk - Widok na rzekę Motławę obraz na żywo',
+        tag: 'gdansk_Motławę'
     },
     {
-        src: 'https://colrodella.panomax.com',
-        title: 'Campitello di fassa - Col Rodella',
-        country: 'Poland',
-        tag: 'campi'
+        src: '    https://5ee71ff03d9d1.streamlock.net:4444/volta/gda_molo.stream/playlist.m3u8',
+        title: 'Gdańsk - Widok na plażę w Brzeźnie',
+        tag: 'gdansk_plaze'
+    },
+    {
+        src: 'https://www.youtube.com/embed/jC9bUa7J2Ds',
+        title: 'Buffaure - Pala del Geiger mt. 2326',
+        country: 'Italy',
+        tag: 'buff'
     },
     {
         src: 'https://lookcam.live/player/MkpBtMYG6E/',
