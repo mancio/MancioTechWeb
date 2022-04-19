@@ -24,7 +24,7 @@ function WebCamOfTheDay() {
         <div>
             <h1 className='webcam-page-title'>Web Cam Of The Day</h1>
             <WebCam webcam={getCamByTag(params.tag)}/>
-            <div className='arrows'>
+            <div>
                 <Arrow iconColor={back.iconColor} direction='180' changeCam={changeCam}/>
                 <Arrow iconColor={back.iconColor} direction='0' changeCam={changeCam}/>
             </div>
