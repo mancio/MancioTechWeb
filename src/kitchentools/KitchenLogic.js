@@ -1,8 +1,17 @@
 const ingMap = new Map();
 const newIngMap = new Map();
 
+export const clearMap = function (){
+    ingMap.clear();
+    newIngMap.clear();
+}
+
 export const getResMap = function (){
     return newIngMap;
+}
+
+export const getIngValue = function (name){
+    return ingMap.get(name);
 }
 
 export const verifyInputs = function (input, pos){
@@ -46,6 +55,6 @@ export const updateAllIng = function (name, newVal){
     console.log(getOldVal(name));
     const ratio = difRatio(getOldVal(name), newVal);
     getAllIngNames().forEach(el => {
-        newIngMap.set(el, ingMap.get(el) * ratio);
+        newIngMap.set(el, Math.round(ingMap.get(el) * ratio));
     })
 }

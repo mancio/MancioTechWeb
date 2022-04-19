@@ -3,6 +3,10 @@
     font-size: x-large;
 }
 
+.cooking-tools-text{
+    font-family: Jokerman, sans-serif;
+}
+
 .cooking-calc-box{
     background: white;
     border-radius: 10px;
