@@ -1,29 +1,35 @@
-.dashboard > svg{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: 90%;
-    z-index: 0;
-}
+/*.dashboard > svg{*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    top: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: auto;*/
+/*    height: 90%;*/
+/*    z-index: 0;*/
+/*}*/
 
-.dashboard > textarea{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -40%);
-    width: 55%;
-    height: 66%;
-    border: none;
-    resize: none;
-    border-radius: 5px;
-    z-index: 1;
-}
+/*.dashboard > textarea{*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    top: 50%;*/
+/*    transform: translate(-50%, -40%);*/
+/*    width: 55%;*/
+/*    height: 66%;*/
+/*    border: none;*/
+/*    resize: none;*/
+/*    border-radius: 5px;*/
+/*    z-index: 1;*/
+/*}*/
 
 .dashboard{
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     height: 650px;
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 @media (max-width:480px){

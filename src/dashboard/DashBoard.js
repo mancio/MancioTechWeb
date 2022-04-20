@@ -1,7 +1,7 @@
 import ButtonTemplate from "../menu/ButtonTemplate";
 import React, {useEffect, useRef} from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
-import Dashicon from "./Dashicon";
+import DashIcon from "./DashIcon.svg";
 import './DashBoard.css'
 import {getText, saveText, saveToTXT} from "./DashLogic";
 
@@ -34,9 +34,8 @@ export default function DashBoard(){
                 <h3>Here you can write your notes</h3>
                 <h4>Text is automatically saved in browser session</h4>
             </div>
-            <div className='dashboard'>
+            <div className='dashboard' style={{ backgroundImage: `url(${DashIcon})` }}>
                 <textarea onChange={saveChanges} ref={inputRef} value={inputRef.current}/>
-                <Dashicon/>
             </div>
             <div className='dash-buttons'>
                 <button onClick={exportTXT}>Export to TXT</button>
