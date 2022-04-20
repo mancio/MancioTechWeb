@@ -1,15 +1,45 @@
 const webcam = [
     {
-        src: 'https://www.youtube.com/embed/9UrWCJPSa24',
-        title: 'Bociany Ustroń – transmisja na żywo',
-        country: 'Poland',
-        tag: 'bird_ustron'
-    },
-    {
         src: 'https://www.youtube.com/embed/-Z4W0iltQ5U',
         title: 'LEŚNY ZAKĄTEK A forest nook for birds and wild animals - live camera',
         country: 'Poland',
         tag: 'bird_lesny'
+    },
+    {
+        src: 'https://5d84fe297ee2b.streamlock.net/lask/lask.stream/playlist.m3u8',
+        title: 'Łaskie Bociany',
+        country: 'Poland',
+        tag: 'bird_lask'
+    },
+    {
+        src: 'https://5d84fe297ee2b.streamlock.net/rakowo/rakowo.stream_720p/playlist.m3u8',
+        title: 'Rakowo-Czachy Bociany',
+        country: 'Poland',
+        tag: 'bird_rakowo'
+    },
+    {
+        src: 'https://5d84fe297ee2b.streamlock.net/wegleszyn/wegleszyn.stream/playlist.m3u8',
+        title: 'Węgleszyn Bociany',
+        country: 'Poland',
+        tag: 'bird_wegl'
+    },
+    {
+        src: 'https://1561848016.rsc.cdn77.org/live/YgL921.stream/playlist.m3u8',
+        title: 'Polikat, ul. Witosa 4, 36-200 Brzozów, woj. podkarpackie',
+        country: 'Poland',
+        tag: 'bird_poli'
+    },
+    {
+        src: 'https://cdn2.bieszczady.live/hls-live/bocianyCzarna/playlist.m3u8',
+        title: 'Czarna Górna Bociany',
+        country: 'Poland',
+        tag: 'bird_gorna'
+    },
+    {
+        src: 'http://hoktastream1.webcamera.pl/burnit_cam_fb8ba3/burnit_cam_fb8ba3.stream/playlist.m3u8',
+        title: 'Widok na gniazdo bociana umieszczone na czynnym kominie piekarni, na specjalnej platformie',
+        country: 'Poland',
+        tag: 'bird_umi'
     },
     {
         src: 'https://www.youtube.com/embed/MtGUTs_HgcE',
@@ -30,22 +60,10 @@ const webcam = [
         tag: 'bird_pix'
     },
     {
-        src: 'https://www.youtube.com/embed/dc2xQYSsOjA',
-        title: 'PixCams.com Wildlife Cam 2 Live Stream',
-        country: 'Southwestern Pennsylvania, USA',
-        tag: 'bird_pix'
-    },
-    {
         src: 'https://www.youtube.com/embed/6x14VCXNV5w',
         title: 'Nuuksio live - winter birds feeding in South of Finland',
         country: 'Finland',
         tag: 'bird_Nuuksio'
-    },
-    {
-        src: 'https://www.youtube.com/embed/oGoF97bOg7U',
-        title: 'LIVE 24/7 Indiana Bird, Squirrel And Wildlife Feeder Cam',
-        country: 'Indiana - USA',
-        tag: 'bird_ind'
     },
     {
         src: 'https://www.youtube.com/embed/uE5CFNlUTG0',
@@ -70,11 +88,6 @@ const webcam = [
         title: 'Pszczoły na żywo Warsawa',
         country: 'Poland',
         tag: 'api'
-    },
-    {
-        src: 'https://player.nadmorski24.pl/_camera2.php?id=4',
-        title: 'Białogóra Plaża',
-        tag: 'bia'
     },
     {
         src: 'https://hoktastream2.webcamera.pl/umgdansk_cam_11161c/umgdansk_cam_11161c.stream/playlist.m3u8',
