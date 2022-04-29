@@ -38,6 +38,10 @@ export const isPasta = function (shape){
     return shape === 'pasta';
 }
 
+export const isPiadina = function (shape){
+    return shape === 'piadina';
+}
+
 export const areaCircle = function (diameter){
     const r = diameter/2;
     return r * r * Math.PI;

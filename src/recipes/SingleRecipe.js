@@ -4,7 +4,7 @@ import {
     getRecipeByTitle,
     getRecipeDescKeys,
     getRecipeIngredientKeys, ingToFloat,
-    isACircleCake, isPasta, isRectangularCake,
+    isACircleCake, isPasta, isPiadina, isRectangularCake,
     replaceTextSpace
 } from "./RecipesHandler";
 import ButtonTemplate from "../menu/ButtonTemplate";
@@ -111,6 +111,11 @@ export default function SingleRecipe(){
                     {isPasta(shape) &&
                         <>
                             <p> Ricetta per {portions} persone </p>
+                        </>
+                    }
+                    {isPiadina(shape) &&
+                        <>
+                            <p> Ricetta per {portions} piadine </p>
                         </>
                     }
                     <p id='cake-diameter-part-note'> note: page will crash if translated before changing ingredients </p>

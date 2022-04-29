@@ -199,6 +199,40 @@ const recipes = {
             notes: "Puoi usare il sale grosso invece di quello dell Himalaya. La lievitazione varia in base alla forza della farina. "
             + " Cuocere prima che l'odore diventi pungente. Ricorda che non riuscirai a fare una lievitazione troppo lunga essendo l'impasto "
             + "molto bagnato."
+        },
+        {
+            language: 'IT',
+            title: 'Piadina Romagnola',
+            shape: 'piadina',
+            portions: '6',
+            picture: 'https://www.tavolartegusto.it/wp/wp-content/uploads/2020/03/Piadina-romagnola-Ricetta-piadina.jpg',
+            ingredients: {
+                'farina 00': '500 gr',
+                'acqua': '220 gr',
+                'strutto': '70 gr',
+                'bicarbonato': '1 cucchiaino raso',
+                sale: '1 cucchiaino raso'
+            },
+            description: {
+                step1: "Mettere in una ciottola farina sale e strutto bicarbonato.",
+                step2: "Impastare a mano sciogliendo e incorporando lo strutto alle polveri.",
+                step3: "Continuare a impastare fino a incorporare tutta la farina rimasta sul fondo della " +
+                    "ciottola e formare una palla.",
+                step4: "coprire la ciottola con pellicola trasparente e lasciare riposare a temperatura ambiente " +
+                    "per 40 minuti (non serve il calore perchè deve compattarsi non lievitare).",
+                step5: "Tirare l'impasto fuori dalla ciottola e impastare nuovamente e dividere in palline da 130 - 140 gr " +
+                    "ciascuna e rimettere le palline a riposare per 15 minuti coperte con la pellicola.",
+                step6: "stendere le palline col mattarello (non serve farina aggiuntiva perchè l'impasto è unto e " +
+                    "non appiccica. Fare le piadine molto sottili (2 mm circa) cuocendosi lo spessore aumenterà abbastanza.",
+                step7: "Cuocere le piadine una ad una su una padella antiaderente a fuoco medio girandole spesso per " +
+                    "controllare che non si brucino.",
+                step8: "Per mangiarle subito cuocerle a dovere, altrimenti se le volete surgelare cuocerle leggermente " +
+                    "da entrambi i lati. La cottura finirà in padella dopo averle tolte dal freezer.",
+                step9: "Se volete surgelare le piadine, consiglio di metterle una sopra all'altra dividendole con la " +
+                    "carta per alimenti in modo che non si incollino."
+            },
+            notes: "Potete sostituire lo strutto con la stessa quantità d'olio. Provare a giocare con strutto e bicarbonato " +
+                "per trovare il giusto equilibrio."
         }
     ]
 }
