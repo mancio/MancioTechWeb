@@ -214,7 +214,7 @@ const recipes = {
                 sale: '1 cucchiaino raso'
             },
             description: {
-                step1: "Mettere in una ciottola farina sale e strutto bicarbonato.",
+                step1: "Mettere in una ciottola farina, sale, strutto e bicarbonato.",
                 step2: "Impastare a mano sciogliendo e incorporando lo strutto alle polveri.",
                 step3: "Continuare a impastare fino a incorporare tutta la farina rimasta sul fondo della " +
                     "ciottola e formare una palla.",
