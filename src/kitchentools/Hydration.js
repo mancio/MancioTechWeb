@@ -51,14 +51,14 @@ export function Hydration(){
             <div className='hy-calc-input-part'>
                 <p>
                     Flour gr 🌾 : <span><input className='hy-calc-input' type="number" name="flour" id='hy-flour' min='1' defaultValue='100'/></span>
-                    <span><button onClick={() => findElements(0)} className='cooking-tools-button'>FIND FLOUR</button></span>
+                    <span><button onClick={() => findElements(0)} className='cooking-tools-button'>FIND</button></span>
                 </p>
                 <p>
                     Rye/yeast 🦠 gr: <span><input className='hy-calc-input' type="number" name="yeast" id='hy-yeast' min='0' defaultValue='0'/></span>
                 </p>
                 <p>
                     Water 💧 gr/ml: <span><input className='hy-calc-input' type="number" name="water" id='hy-water' min='1' defaultValue='60'/></span>
-                    <span><button onClick={() => findElements(1)} className='cooking-tools-button'>FIND WATER</button></span>
+                    <span><button onClick={() => findElements(1)} className='cooking-tools-button'>FIND</button></span>
                 </p>
                 <p>
                     Oil tablespoon 🍈: <span><input className='hy-calc-input' type="number" name="oil" id='hy-oil' min='0' defaultValue='0'/></span>
@@ -66,7 +66,7 @@ export function Hydration(){
                 </p>
                 <p>
                     hydration %: <span><input className='hy-calc-input' type="number" name="hydration" id='hydration' min='1' defaultValue='60'/></span>
-                    <span><button onClick={() => findElements(2)} className='cooking-tools-button'>FIND HYDRATION</button></span>
+                    <span><button onClick={() => findElements(2)} className='cooking-tools-button'>FIND</button></span>
                 </p>
             </div>
         </div>
