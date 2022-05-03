@@ -14,6 +14,10 @@ export const getIngValue = function (name){
     return ingMap.get(name);
 }
 
+export const getOil = function (spoon){
+    return parseInt(spoon) * 13;
+}
+
 export const verifyInputs = function (input, pos){
    for(let i = 0; i<input.length; i++){
        if(i !== pos && isNaN(input[i])) return false;
