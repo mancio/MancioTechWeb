@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./Ktools.css";
 import {
-    addAllIng,
-    checkIDs,
+    addAllIng, addToIngList,
+    checkIDs, clearIngList,
     clearMap,
     difRatio,
-    getAllIngNames, getIngValue,
+    getAllIngNames, getIngList, getIngValue,
     getResMap,
     setAllReadOnly,
     updateAllIng
@@ -71,6 +71,7 @@ export function IngQuantity(){
         else {
             updateAllIng(sel, newVal);
             getResMap().forEach((value, key) => {
+                addToIngList({key} + ":" + {value} + "gr/ml...");
                 out.push(
                     <p>{key}: {value} gr/ml...</p>
                 )
@@ -94,13 +95,27 @@ export function IngQuantity(){
         setResult(false);
         setRatio(0);
         clearMap();
+        clearIngList();
+    }
 
+    function copyToClipBoard(){
+        navigator.clipboard.writeText(getIngList()).then(r => window.alert("list copied"));
     }
 
     return(
         <div className='hydration-calc'>
             <h1>Ingredients calculator</h1>
-            {add && <p>Click the button to add an ingredient space</p>}
+            {add &&
+                <>
+                    <p> Use this to calculate ingredient proportions.</p>
+                    <ol className='instr-prop-ing'>
+                        <li>Click the button to add an ingredient space</li>
+                        <li>Add ingredients and quantity from the original recipe</li>
+                        <li>Choose which ingredients to modify</li>
+                        <li>Click the button to find all the new values</li>
+                    </ol>
+                </>
+            }
             {result && <p className='cooking-tools-text'>Original</p>}
             {add && <button className='cooking-tools-button' onClick={() => addElement()}>Add Ingredient</button>}
             {elem}
@@ -123,6 +138,7 @@ export function IngQuantity(){
             <br/>
             <br/>
             <button className='cooking-tools-button' onClick={() => reset()}>Reset</button>
+            <button className='cooking-tools-button' onClick={() => copyToClipBoard()}>Copy to Clipboard</button>
         </div>
     )
 }

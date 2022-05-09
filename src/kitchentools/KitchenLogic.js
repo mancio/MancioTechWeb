@@ -1,5 +1,23 @@
 const ingMap = new Map();
 const newIngMap = new Map();
+let ingList = "";
+
+export const getIngList = function (){
+    return ingList;
+}
+
+export const addToIngList = function (text){
+    ingList.concat(text.toString());
+    returnLine();
+}
+
+const returnLine = function (){
+    ingList.concat('\\r\\n')
+}
+
+export const clearIngList = function (){
+    ingList = "";
+}
 
 export const clearMap = function (){
     ingMap.clear();

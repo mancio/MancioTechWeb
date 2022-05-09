@@ -41,6 +41,10 @@
     font-family: Jokerman, sans-serif;
 }
 
+.instr-prop-ing{
+    text-align: left;
+}
+
 .hy-calc-input{
     margin-right: 10px;
     border-radius: 5px;

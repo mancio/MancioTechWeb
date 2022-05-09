@@ -47,7 +47,11 @@ export function Hydration(){
     return(
         <div className='hydration-calc'>
             <h1>Hydration calculator</h1>
-            <p>To discover how much water put in your dough. Remember 1 ml = 1 gr of water</p>
+            <p>
+                You can get quantity of flour, water or dough hydration level having 2 of these variables.<br/>
+                Yest and oil quantity are required for the calculation and cannot be deduced. Input zero if missing.<br/>
+                Remember 1 ml = 1 gr of water.
+            </p>
             <div className='hy-calc-input-part'>
                 <p>
                     Flour gr 🌾 : <span><input className='hy-calc-input' type="number" name="flour" id='hy-flour' min='1' defaultValue='100'/></span>
@@ -62,7 +66,7 @@ export function Hydration(){
                 </p>
                 <p>
                     Oil tablespoon 🍈: <span><input className='hy-calc-input' type="number" name="oil" id='hy-oil' min='0' defaultValue='0'/></span>
-                    <span>(13 gr)</span>
+                    <span>(1 tablespoon = 13 gr)</span>
                 </p>
                 <p>
                     hydration %: <span><input className='hy-calc-input' type="number" name="hydration" id='hydration' min='1' defaultValue='60'/></span>
