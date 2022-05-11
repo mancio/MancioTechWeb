@@ -1,22 +1,22 @@
 const ingMap = new Map();
 const newIngMap = new Map();
-let ingList = "";
+let ingString = "";
 
 export const getIngList = function (){
-    return ingList;
+    return ingString;
 }
 
 export const addToIngList = function (text){
-    ingList.concat(text.toString());
+    ingString = ingString.concat('', text.toString());
     returnLine();
 }
 
 const returnLine = function (){
-    ingList.concat('\\r\\n')
+    ingString = ingString.concat('', '\n');
 }
 
 export const clearIngList = function (){
-    ingList = "";
+    ingString = "";
 }
 
 export const clearMap = function (){
@@ -74,7 +74,6 @@ export const getOldVal = function (name){
 }
 
 export const updateAllIng = function (name, newVal){
-    console.log(getOldVal(name));
     const ratio = difRatio(getOldVal(name), newVal);
     getAllIngNames().forEach(el => {
         newIngMap.set(el, Math.round(ingMap.get(el) * ratio));

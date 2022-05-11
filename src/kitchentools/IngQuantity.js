@@ -64,6 +64,7 @@ export function IngQuantity(){
 
     function update(){
         let out = [];
+        let counter = 1;
         const sel = document.getElementById('ingSel').value;
         const newVal = document.getElementById('newing').value;
         setRatio(difRatio(getIngValue(sel), newVal));
@@ -71,10 +72,11 @@ export function IngQuantity(){
         else {
             updateAllIng(sel, newVal);
             getResMap().forEach((value, key) => {
-                addToIngList({key} + ":" + {value} + "gr/ml...");
+                addToIngList(key + ":" + value + "gr/ml...");
                 out.push(
-                    <p>{key}: {value} gr/ml...</p>
+                    <p key={counter} id={counter}>{key}: {value} gr/ml...</p>
                 )
+                counter++;
             })
             setElOut(out);
             setAdd(false);
@@ -99,7 +101,7 @@ export function IngQuantity(){
     }
 
     function copyToClipBoard(){
-        navigator.clipboard.writeText(getIngList()).then(r => window.alert("list copied"));
+        navigator.clipboard.writeText(getIngList()).then(() => window.alert("list copied"));
     }
 
     return(
@@ -138,7 +140,11 @@ export function IngQuantity(){
             <br/>
             <br/>
             <button className='cooking-tools-button' onClick={() => reset()}>Reset</button>
-            <button className='cooking-tools-button' onClick={() => copyToClipBoard()}>Copy to Clipboard</button>
+            <br/>
+            <br/>
+            {result &&
+                <button className='cooking-tools-button' onClick={() => copyToClipBoard()}>Copy to Clipboard</button>
+            }
         </div>
     )
 }
