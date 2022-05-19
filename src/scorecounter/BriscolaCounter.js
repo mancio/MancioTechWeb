@@ -19,6 +19,12 @@ export default function BriscolaCounter(){
         setScore(0);
     }
 
+    function printWin(){
+        if (score < 60) return " >> You are Loosing << ";
+        if (score === 60) return " >> Pair << ";
+        if (score > 60) return " >> You Win << ";
+    }
+
     return(
         <div className='briscola-board-counter'>
             <p>Click on the card to add to the total score</p>
@@ -29,7 +35,7 @@ export default function BriscolaCounter(){
                     </button>
                 )
             })}
-            <p>Total score: [ {comp} ] = {score}</p>
+            <p>Total score: [ {comp} ] = {score} <br/> {printWin()}</p>
             <button className='briscola-reset-bt' onClick={() => resetScore()}>Reset score</button>
         </div>
     )
