@@ -216,7 +216,7 @@ const recipes = {
             description: {
                 step1: "Mettere in una ciottola farina, sale, strutto e bicarbonato.",
                 step2: "Impastare a mano sciogliendo e incorporando lo strutto alle polveri.",
-                step3: "Continuare a impastare fino a incorporare tutta la farina rimasta sul fondo della " +
+                step3: "Continuare a impastare aggiungendo acqua a poco a poco fino a incorporare tutta la farina rimasta sul fondo della " +
                     "ciottola e formare una palla.",
                 step4: "coprire la ciottola con pellicola trasparente e lasciare riposare a temperatura ambiente " +
                     "per 40 minuti (non serve il calore perchè deve compattarsi non lievitare).",
