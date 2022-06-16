@@ -13,3 +13,15 @@ export const replaceHtmlCharacters = function (string){
 export const uriToYouTube = function (string){
     return encodeURI(string).replace(/&/gi,'%26');
 }
+
+export const newLine = function (){
+    return "\n";
+}
+
+export const tab = function (){
+    return "\t";
+}
+
+export const copyTextToClipBoard = function (text){
+    return navigator.clipboard.writeText(text);
+}

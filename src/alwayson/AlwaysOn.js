@@ -2,13 +2,19 @@ import React, {useEffect, useState} from 'react'
 import ReactPlayer from 'react-player'
 import './AlwaysOn.css';
 import {getRandEmoticons} from "./AlwaysOnHandler";
+import Ps1Code from "./Ps1Code";
+import ButtonTemplate from "../menu/ButtonTemplate";
+import {getMenuItemByTag} from "../menu/MenuHandler";
 
 export default function AlwaysOn(){
+
+    const backButton = getMenuItemByTag('back');
 
     const [visible, setVisible] = useState(true);
     const [hide, setHide] = useState(false);
     const [button, setButton] = useState('Hide Text!');
     const [play, setPlay] = useState(false);
+    const [script, setScript] = useState(false);
 
     function minimize(){
         if (hide) {
@@ -30,6 +36,11 @@ export default function AlwaysOn(){
         setVisible(false);
     }
 
+    function getScript(){
+        setScript(true);
+        setPlay(false);
+    }
+
     useEffect(()=>{
         if(visible) setTimeout(()=>{ setVisible(false)},10000);
         else setTimeout(()=>{ setVisible(true)},500);
@@ -38,7 +49,7 @@ export default function AlwaysOn(){
 
     return(
         <div className='always-on'>
-            {!play && <button onClick={run} className='click-always-on'>Click to start!</button>}
+            {!play && !script && <button onClick={run} className='click-always-on'>Click to start!</button>}
             {play && <button className='hide-text-always-on' onClick={minimize}>{button}</button>}
             {!hide && play &&
                 <>
@@ -63,6 +74,35 @@ export default function AlwaysOn(){
             {!visible && play &&
                 <div className='alwayson-emoti'>
                     <p>{getRandEmoticons()}</p>
+                </div>
+            }
+            {play && !hide &&
+                <div>
+                    <p>Not working? <a href={() => false} className='script-link' onClick={()=>getScript()}>Try this solution</a></p>
+                </div>
+            }
+            {script &&
+                <div>
+                    <p><img
+                        className='powershell-ico'
+                        src='https://gist.githubusercontent.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg'
+                        alt="PowerShell Logo"
+                    /> Windows 7 - 11 solution
+                    </p>
+                    <p>Copy the script in a text file and save as .ps1 then execute it from Powershell</p>
+                    <Ps1Code/>
+                    <ButtonTemplate
+                        key={backButton.id}
+                        id={backButton.id}
+                        width={backButton.width}
+                        height={backButton.height}
+                        svgColor={backButton.svgColor}
+                        textColor={backButton.textColor}
+                        textField={backButton.textField}
+                        icon={backButton.icon}
+                        iconColor={backButton.iconColor}
+                        tag='menu'
+                    />
                 </div>
             }
         </div>

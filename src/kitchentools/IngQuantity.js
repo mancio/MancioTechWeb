@@ -10,6 +10,7 @@ import {
     setAllReadOnly,
     updateAllIng
 } from "./KitchenLogic";
+import {copyTextToClipBoard} from "../logic/TextHandler";
 
 export function IngQuantity(){
     const [elID, setElID] = useState(0);
@@ -101,7 +102,7 @@ export function IngQuantity(){
     }
 
     function copyToClipBoard(){
-        navigator.clipboard.writeText(getIngList()).then(() => window.alert("list copied"));
+        copyTextToClipBoard(getIngList()).then(() => window.alert("list copied"));
     }
 
     return(

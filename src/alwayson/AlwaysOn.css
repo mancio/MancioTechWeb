@@ -38,3 +38,16 @@
 .alwayson-emoti > p{
     font-size: 50px;
 }
+
+.script-link{
+    color: #1ee317;
+}
+
+.script-link:hover{
+    cursor: pointer;
+}
+
+.powershell-ico{
+    width: 30px;
+    height: 30px;
+}
