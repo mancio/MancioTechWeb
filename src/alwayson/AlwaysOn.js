@@ -82,7 +82,7 @@ export default function AlwaysOn(){
                 </div>
             }
             {script &&
-                <div>
+                <div className='always-on-code-part'>
                     <p><img
                         className='powershell-ico'
                         src='https://gist.githubusercontent.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg'
