@@ -56,6 +56,7 @@ class App extends React.Component{
                 <Route path='/recipe/:tag' element={<SingleRecipe/>}/>
                 <Route path='/fartIsFun' element={<Fart/>}/>
                 <Route path='/alwaysOn' element={<AlwaysOn/>}/>
+                <Route path='/ps1' element={<AlwaysOn/>}/>
                 <Route path='/scoreCounter' element={<ScoreCounter/>}/>
                 <Route path='/boo' element={<WorkInProgress/>}/>
                 <Route path="*" element={<NotFound/>}/>

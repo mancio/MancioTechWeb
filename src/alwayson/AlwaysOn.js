@@ -5,8 +5,14 @@ import {getRandEmoticons} from "./AlwaysOnHandler";
 import Ps1Code from "./Ps1Code";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
+import {copyTextToClipBoard} from "../logic/TextHandler";
+import {useNavigate} from "react-router-dom";
 
 export default function AlwaysOn(){
+
+    const navigate = useNavigate();
+    const path = window.location.pathname;
+    const host = window.location.hostname;
 
     const backButton = getMenuItemByTag('back');
 
@@ -15,6 +21,19 @@ export default function AlwaysOn(){
     const [button, setButton] = useState('Hide Text!');
     const [play, setPlay] = useState(false);
     const [script, setScript] = useState(false);
+
+    useEffect(()=>{
+        if(path === '/ps1') {
+            setScript(true);
+            setPlay(false);
+        }else {
+            setVisible(true);
+            setHide(false);
+            setButton('Hide Text!');
+            setPlay(false);
+            setScript(false);
+        }
+    },[path]);
 
     function minimize(){
         if (hide) {
@@ -37,8 +56,12 @@ export default function AlwaysOn(){
     }
 
     function getScript(){
-        setScript(true);
-        setPlay(false);
+        // setScript(true);
+        navigate('/ps1');
+    }
+
+    function copyLink(){
+        copyTextToClipBoard(host + '/ps1').then(()=>window.alert("Link copied! Now you can share to your friends :)"));
     }
 
     useEffect(()=>{
@@ -91,6 +114,7 @@ export default function AlwaysOn(){
                     </p>
                     <p>Copy the script in a text file and save as .ps1 then execute it from Powershell</p>
                     <Ps1Code/>
+                    <p>Send to your friend <a href={() => false} className='script-link' onClick={()=>copyLink()}>mancioman.fun/ps1</a></p>
                     <ButtonTemplate
                         key={backButton.id}
                         id={backButton.id}
