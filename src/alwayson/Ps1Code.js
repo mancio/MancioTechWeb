@@ -2,7 +2,7 @@ import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { rust } from "@codemirror/lang-rust";
 import './Ps1Code.css'
-import {copyTextToClipBoard, newLine, tab} from "../logic/TextHandler";
+import {copyTextToClipBoard, newLine, saveToTextFile, tab} from "../logic/TextHandler";
 
 export default function Ps1Code() {
 
@@ -12,6 +12,10 @@ export default function Ps1Code() {
 
     function copyToClip(){
         copyTextToClipBoard(code).then(() => window.alert("Copied!"));
+    }
+
+    function saveToFile(){
+        saveToTextFile(code, "press.ps1");
     }
 
     return (
@@ -26,6 +30,7 @@ export default function Ps1Code() {
                 />
             </div>
             <button className='click-ps1-copy-code' onClick={() => copyToClip()}>Copy to clipboard</button>
+            <button className='click-ps1-copy-code' onClick={() => saveToFile()}>Download file</button>
         </div>
     );
 }

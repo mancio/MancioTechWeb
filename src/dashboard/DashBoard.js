@@ -3,7 +3,8 @@ import React, {useEffect, useRef} from "react";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import DashIcon from "./DashIcon.svg";
 import './DashBoard.css'
-import {getText, saveText, saveToTXT} from "./DashLogic";
+import {getText, saveText} from "./DashLogic";
+import {saveToTextFile} from "../logic/TextHandler";
 
 export default function DashBoard(){
 
@@ -19,7 +20,7 @@ export default function DashBoard(){
     }
 
     function exportTXT(){
-        saveToTXT(inputRef.current.value);
+        saveToTextFile(inputRef.current.value, "mynotes.txt");
     }
 
     function clearDash(){
