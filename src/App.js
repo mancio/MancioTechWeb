@@ -1,6 +1,6 @@
 import CookieConsent from "react-cookie-consent";
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Loading from "./loading/Loading";
 const WatchTv = React.lazy( () => import("./tv/WatchTv"));
@@ -34,7 +34,7 @@ class App extends React.Component{
         <div className="App App-main-container">
           <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
           <React.Suspense fallback={<Loading/>}>
-            <BrowserRouter>
+            <HashRouter>
               <Routes>
                 <Route exact path='/' element={<MainPage/>}/>
                 <Route path='/menu' element={<ButtonList/>}/>
@@ -61,7 +61,7 @@ class App extends React.Component{
                 <Route path='/boo' element={<WorkInProgress/>}/>
                 <Route path="*" element={<NotFound/>}/>
               </Routes>
-            </BrowserRouter>
+            </HashRouter>
           </React.Suspense>
         </div>
     )
