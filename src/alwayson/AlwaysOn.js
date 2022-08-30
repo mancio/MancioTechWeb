@@ -6,12 +6,10 @@ import Ps1Code from "./Ps1Code";
 import ButtonTemplate from "../menu/ButtonTemplate";
 import {getMenuItemByTag} from "../menu/MenuHandler";
 import {copyTextToClipBoard} from "../logic/TextHandler";
-import {useNavigate} from "react-router-dom";
 
 export default function AlwaysOn(){
 
-    const navigate = useNavigate();
-    const path = window.location.pathname;
+    const hash = window.location.hash;
     const host = window.location.hostname;
 
     const backButton = getMenuItemByTag('back');
@@ -21,11 +19,13 @@ export default function AlwaysOn(){
     const [button, setButton] = useState('Hide Text!');
     const [play, setPlay] = useState(false);
     const [script, setScript] = useState(false);
+    const [showCode, setShowCode] = useState(false);
 
     useEffect(()=>{
-        if(path === '/ps1') {
+        if(showCode || hash === '#/ps1') {
             setScript(true);
             setPlay(false);
+            // setShowCode(false);
         }else {
             setVisible(true);
             setHide(false);
@@ -33,7 +33,7 @@ export default function AlwaysOn(){
             setPlay(false);
             setScript(false);
         }
-    },[path]);
+    },[showCode,hash]);
 
     function minimize(){
         if (hide) {
@@ -56,12 +56,11 @@ export default function AlwaysOn(){
     }
 
     function getScript(){
-        // setScript(true);
-        navigate('/ps1');
+        setShowCode(true);
     }
 
     function copyLink(){
-        copyTextToClipBoard(host + '/ps1').then(()=>window.alert("Link copied! Now you can share to your friends :)"));
+        copyTextToClipBoard(host + '/#/ps1').then(()=>window.alert("Link copied! Now you can share to your friends :)"));
     }
 
     useEffect(()=>{
